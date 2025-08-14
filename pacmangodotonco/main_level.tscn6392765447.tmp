@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=4 uid="uid://sx7lqhwecike"]
+
+[ext_resource type="Script" uid="uid://bxeyllba2m5cp" path="res://camera_2d.gd" id="1_05as6"]
+[ext_resource type="PackedScene" uid="uid://hro50ovj8hl4" path="res://Player/player.tscn" id="1_bw3m6"]
+[ext_resource type="PackedScene" uid="uid://3svrnxw07s2p" path="res://Level Assets/Walls.tscn" id="2_6614m"]
+[ext_resource type="PackedScene" uid="uid://dtrfqjes5tq8d" path="res://mobile_controls.tscn" id="3_bhu08"]
+[ext_resource type="PackedScene" uid="uid://cpa6v8tr70g35" path="res://Level Assets/dot.tscn" id="5_5ymk8"]
+
+[node name="MainLevel" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+zoom = Vector2(2, 2)
+script = ExtResource("1_05as6")
+target = NodePath("../Player")
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_bw3m6")]
+position = Vector2(368, 112)
+
+[node name="Walls" parent="." groups=["Walls"] instance=ExtResource("2_6614m")]
+visibility_layer = 2
+tile_map_data = PackedByteArray("AAAIAAMAAAACAAAAAAAJAAMAAAACAAAAAAAKAAMAAAACAAAAAAALAAIAAAAAAAEAAAALAAEAAAAAAAEAAAALAAAAAAAAAAEAAAALAP//AAAAAAAAAAAMAAMAAAACAAAAAAANAAMAAAACAAAAAAAOAAMAAAACAAAAAAAPAAMAAAACAAAAAAAQAAMAAAADAAAAAAALAAMAAAABAAMAAAALAAQAAAAAAAEAAAALAAUAAAAAAAEAAAALAAYAAAAAAAIAAAAHAAMAAAABAAAAAAA=")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MobileControls" parent="CanvasLayer/Control" instance=ExtResource("3_bhu08")]
+position = Vector2(64, 424)
+
+[node name="Question" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Dot" parent="." groups=["Dots"] instance=ExtResource("5_5ymk8")]
+visible = false
+position = Vector2(-29.3159, 86.3156)
+scale = Vector2(0.15, 0.15)

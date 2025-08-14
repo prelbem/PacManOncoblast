@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://o2sbx2oywvx0"]
+
+[ext_resource type="PackedScene" uid="uid://clfxwicv81qo" path="res://Level Assets/Enemies/TestEnemy.tscn" id="1_mu17j"]
+[ext_resource type="Script" uid="uid://o1cp2gcnjlch" path="res://Level Assets/Enemies/random_enemy.gd" id="2_ivxk0"]
+
+[node name="RandomEnemy" instance=ExtResource("1_mu17j")]
+script = ExtResource("2_ivxk0")
+speed = 70.0

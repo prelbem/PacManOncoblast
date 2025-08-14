@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl230igo3fwfm"]
+
+[ext_resource type="Script" uid="uid://cb42lhqv1ou68" path="res://Player/lives_container.gd" id="1_nl5ff"]
+[ext_resource type="Texture2D" uid="uid://c8lrbsx7eisj2" path="res://Player/lifeSprite.png" id="1_pvkcy"]
+
+[node name="LivesContainer" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -332.0
+offset_bottom = -1036.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nl5ff")
+
+[node name="Life1" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_pvkcy")
+expand_mode = 2
+
+[node name="Life2" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_pvkcy")
+expand_mode = 2
+
+[node name="Life3" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_pvkcy")
+expand_mode = 2

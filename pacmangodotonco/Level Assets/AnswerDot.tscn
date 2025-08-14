@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bce4f7n8o8axa"]
+
+[ext_resource type="Script" uid="uid://ba1u6a1rcwtfi" path="res://Level Assets/answer_dot.gd" id="1_ge7wd"]
+[ext_resource type="Texture2D" uid="uid://d3uqj41gqkuog" path="res://Level Assets/answer_dot.png" id="1_yp1nf"]
+
+[node name="AnswerDot" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_ge7wd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yp1nf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-6.5, -6.5, -6.5, 6.5, 6.5, 6.5, 6.5, -6.5)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+use_top_left = true
+
+[node name="Answer" type="Label" parent="CenterContainer"]
+layout_mode = 2
+text = "Hello World"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
