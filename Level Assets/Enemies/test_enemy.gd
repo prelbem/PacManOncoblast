@@ -8,6 +8,7 @@ signal player_hit
 var path : Array[Vector2]
 func findPath():
 	path = pathfinder.getPath(global_position, %Player.global_position)
+
 func _process(delta: float) -> void:
 	if path.is_empty():
 		findPath()

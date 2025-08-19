@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwuwi7btb1gfd"]
+
+[ext_resource type="PackedScene" uid="uid://clfxwicv81qo" path="res://Level Assets/Enemies/TestEnemy.tscn" id="1_abvxb"]
+[ext_resource type="Script" uid="uid://clg2mtu03eqbg" path="res://Level Assets/Enemies/chase_enemy.gd" id="2_5vohk"]
+
+[node name="ChaseEnemy" instance=ExtResource("1_abvxb")]
+script = ExtResource("2_5vohk")
+speed = 100.0

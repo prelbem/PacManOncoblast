@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bce4f7n8o8axa"]
+[gd_scene load_steps=4 format=3 uid="uid://bce4f7n8o8axa"]
 
 [ext_resource type="Script" uid="uid://ba1u6a1rcwtfi" path="res://Level Assets/answer_dot.gd" id="1_ge7wd"]
 [ext_resource type="Texture2D" uid="uid://d3uqj41gqkuog" path="res://Level Assets/answer_dot.png" id="1_yp1nf"]
+[ext_resource type="FontFile" uid="uid://hyqn0gbiv8lp" path="res://Fonts/PressStart2P-vaV7.ttf" id="3_4sg2w"]
 
 [node name="AnswerDot" type="Area2D"]
 collision_layer = 8
@@ -14,13 +15,22 @@ texture = ExtResource("1_yp1nf")
 polygon = PackedVector2Array(-6.5, -6.5, -6.5, 6.5, 6.5, 6.5, 6.5, -6.5)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 use_top_left = true
 
 [node name="Answer" type="Label" parent="CenterContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_4sg2w")
 text = "Hello World"
 horizontal_alignment = 1
 vertical_alignment = 1

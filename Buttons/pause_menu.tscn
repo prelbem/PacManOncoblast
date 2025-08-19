@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddqmomd7g83t"]
+
+[ext_resource type="Script" uid="uid://dlmoapxwh8fnw" path="res://Buttons/pause_menu.gd" id="1_7ckr8"]
+[ext_resource type="StyleBox" uid="uid://cim61kdj2tdfm" path="res://Buttons/pause_button_pressed_stylebox.tres" id="2_7i2lc"]
+[ext_resource type="FontFile" uid="uid://hyqn0gbiv8lp" path="res://Fonts/PressStart2P-vaV7.ttf" id="2_u6gvq"]
+[ext_resource type="StyleBox" uid="uid://xqvu3l1ye3xe" path="res://Buttons/pause_button_stylebox.tres" id="3_y8w85"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8w85"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="PauseMenu" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7ckr8")
+
+[node name="Background" type="PanelContainer" parent="."]
+layout_mode = 2
+offset_right = 444.0
+offset_bottom = 312.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_y8w85")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 15
+
+[node name="Menu" type="VBoxContainer" parent="Background/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="Title" type="Label" parent="Background/MarginContainer/Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_u6gvq")
+theme_override_font_sizes/font_size = 50
+text = "PAUSE MENU"
+horizontal_alignment = 1
+
+[node name="Continue" type="Button" parent="Background/MarginContainer/Menu"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_u6gvq")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/hover = ExtResource("2_7i2lc")
+theme_override_styles/pressed = ExtResource("2_7i2lc")
+theme_override_styles/normal = ExtResource("3_y8w85")
+text = "Continue"
+
+[node name="Quit" type="Button" parent="Background/MarginContainer/Menu"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_u6gvq")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/hover = ExtResource("2_7i2lc")
+theme_override_styles/pressed = ExtResource("2_7i2lc")
+theme_override_styles/normal = ExtResource("3_y8w85")
+text = "Quit
+"
+
+[connection signal="pressed" from="Background/MarginContainer/Menu/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Background/MarginContainer/Menu/Quit" to="." method="_on_quit_pressed"]

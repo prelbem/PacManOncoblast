@@ -48,7 +48,7 @@ func _physics_process(delta):
 					$AnimatedSprite2D.play("default")
 					$AnimatedSprite2D.rotation = PI / 2
 		
-		if (Input.is_action_pressed("move_right")):
+		if (Input.is_action_pressed("ui_right")):
 			if (!rightWall):
 				velocity.x = 1
 				velocity.y = 0
@@ -57,7 +57,7 @@ func _physics_process(delta):
 				$AnimatedSprite2D.rotation = 0
 			else:
 				movement_queue = "move_right"
-		if (Input.is_action_pressed("move_left")):
+		if (Input.is_action_pressed("ui_left")):
 			if (!leftWall):
 				velocity.x = -1
 				velocity.y = 0
@@ -66,7 +66,7 @@ func _physics_process(delta):
 				$AnimatedSprite2D.rotation = PI
 			else:
 				movement_queue = "move_left"
-		if (Input.is_action_pressed("move_up")):
+		if (Input.is_action_pressed("ui_up")):
 			if (!upWall):
 				velocity.y = -1
 				velocity.x = 0
@@ -75,7 +75,7 @@ func _physics_process(delta):
 				$AnimatedSprite2D.rotation = PI * 3/2
 			else:
 				movement_queue = "move_up"
-		if (Input.is_action_pressed("move_down")):
+		if (Input.is_action_pressed("ui_down")):
 			if (!downWall):
 				velocity.y = 1
 				velocity.x = 0
@@ -151,7 +151,7 @@ func _on_player_body_area_entered(area: Area2D) -> void:
 		else:
 			score -= 5
 		area.queue_free()
-	%HUD.get_node("Score").text = "SCORE: " + str(score)
+	%HUD.get_node("Score").text = str(score)
 
 #get that retro player hit feel, pauses the game upon a hit and then flashes after
 func _on_player_hit() -> void:
@@ -183,6 +183,7 @@ func _on_death_animation_finished() -> void:
 
 func _on_damage_pause_timeout() -> void:
 	get_tree().paused = false
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 	velocity = preVelocity
 	$DamageFlash.start()
 	visible = true

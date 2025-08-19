@@ -6,22 +6,22 @@
 
 [node name="UpButton" type="TouchScreenButton" parent="."]
 texture_normal = ExtResource("1_m2tvd")
-action = "move_up"
+action = "ui_up"
 
 [node name="RightButton" type="TouchScreenButton" parent="."]
 position = Vector2(64, 32)
 rotation = 1.5708
 texture_normal = ExtResource("1_m2tvd")
-action = "move_right"
+action = "ui_right"
 
 [node name="DownButton" type="TouchScreenButton" parent="."]
 position = Vector2(32, 96)
 rotation = 3.14159
 texture_normal = ExtResource("1_m2tvd")
-action = "move_down"
+action = "ui_down"
 
 [node name="LeftButton" type="TouchScreenButton" parent="."]
 position = Vector2(-32, 64)
 rotation = -1.5708
 texture_normal = ExtResource("1_m2tvd")
-action = "move_left"
+action = "ui_left"

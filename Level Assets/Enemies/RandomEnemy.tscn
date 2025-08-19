@@ -5,4 +5,3 @@
 
 [node name="RandomEnemy" instance=ExtResource("1_mu17j")]
 script = ExtResource("2_ivxk0")
-speed = 70.0
