@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cky5w3xueajtj" path="res://Level Assets/warpPoint.gd" id="1_4hlmi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cq3jf"]
-size = Vector2(5, 32)
+size = Vector2(1, 32)
 
 [node name="WarpLeft" type="Marker2D"]
 script = ExtResource("1_4hlmi")

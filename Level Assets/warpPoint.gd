@@ -18,6 +18,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if (not just_warped):
 		if (area.is_in_group("Enemies")):
 			area.global_position = warpPoint.global_position	
+			area.findPath()
 			warpPoint.just_warped = true
 
 

@@ -1,5 +1,10 @@
 extends Enemy
-func findPath():
-	var answerDots = get_tree().get_nodes_in_group("Answer Dots")
-	var randomCoord = answerDots[randi() % answerDots.size()].global_position
-	path = pathfinder.getPath(global_position, randomCoord);
+func _ready():
+	$StateMachine.init(self)
+	
+
+func _process(delta):
+	$StateMachine.process_physics(delta)
+	
+func _on_player_death() -> void:
+	visible = false

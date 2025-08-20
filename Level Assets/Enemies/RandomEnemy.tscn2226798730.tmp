@@ -6,7 +6,6 @@
 
 [node name="RandomEnemy" instance=ExtResource("1_mu17j")]
 script = ExtResource("2_ivxk0")
-speed = 100.0
 
 [node name="Pathfind" parent="StateMachine" index="1"]
 script = ExtResource("3_bkbj1")

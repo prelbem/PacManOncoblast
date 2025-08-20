@@ -119,16 +119,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
-size = Vector2(20, 146)
+size = Vector2(20, 140)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
-size = Vector2(20, 146)
+size = Vector2(20, 140)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btcbx"]
-size = Vector2(146, 20)
+size = Vector2(140, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwnis"]
-size = Vector2(146, 20)
+size = Vector2(140, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 
