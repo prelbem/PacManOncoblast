@@ -12,10 +12,11 @@ func setupDots():
 	for i in range(cells.size()):
 		var cell = cells[i]
 		var dotChild = dot.instantiate()
-		call_deferred("add_child", dotChild)
-		#add_child(dotChild)
-		dotChild.global_position = cell * tile_set.tile_size + Vector2i(16, 16);
-		dotChild.add_to_group("Dots")
+		var pos = Vector2(cell * tile_set.tile_size + Vector2i(16, 16));
+		if (pos.distance_to(%WarpLeft.global_position) > 32 and pos.distance_to(%WarpRight.global_position) > 32):
+			call_deferred("add_child", dotChild)
+			dotChild.global_position = pos
+			dotChild.add_to_group("Dots")
 		
 func setupAnswerDots():
 	var questionIndex = randi() % Global.questions.size()

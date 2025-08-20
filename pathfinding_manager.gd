@@ -26,7 +26,6 @@ func getPath(start: Vector2i, end: Vector2i) -> Array[Vector2]:
 	for point in astarGrid.get_point_path(start/32, end/32):
 		var currPoint = point
 		path.append(currPoint)
-	#print_debug(path)
 	return path; 
 	
 func _ready():

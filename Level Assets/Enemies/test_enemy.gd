@@ -1,9 +1,7 @@
-extends CharacterBody2D
+extends Area2D
 class_name Enemy
 @export var speed: float = 100.0
 @export var pathfinder: PathfindingManager
-
-signal player_hit
 
 var path : Array[Vector2]
 func findPath():
@@ -17,12 +15,7 @@ func _process(delta: float) -> void:
 		if global_position == path[0]:
 			path.remove_at(0)
 	
-	move_and_slide()
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if (body.is_in_group("Player")):
-		player_hit.emit()
+	#move_and_slide()
 
 
 func _on_player_death() -> void:

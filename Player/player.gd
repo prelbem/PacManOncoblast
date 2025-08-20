@@ -151,8 +151,10 @@ func _on_player_body_area_entered(area: Area2D) -> void:
 		else:
 			score -= 5
 		area.queue_free()
+	if (area.is_in_group("Enemies")):
+		_on_player_hit()
 	%HUD.get_node("Score").text = str(score)
-
+	
 #get that retro player hit feel, pauses the game upon a hit and then flashes after
 func _on_player_hit() -> void:
 	if ($IFrames.time_left <= 0):
