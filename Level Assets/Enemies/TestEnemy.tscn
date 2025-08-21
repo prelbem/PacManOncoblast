@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://clfxwicv81qo"]
+[gd_scene load_steps=6 format=3 uid="uid://clfxwicv81qo"]
 
 [ext_resource type="Script" uid="uid://dqe1v6kvom3my" path="res://Level Assets/Enemies/test_enemy.gd" id="1_l21b2"]
 [ext_resource type="Texture2D" uid="uid://hkjha0gw5mmk" path="res://Level Assets/Enemies/testEnemy.png" id="1_py60t"]
 [ext_resource type="PackedScene" uid="uid://bb3did5mf2l3w" path="res://States/state_machine.tscn" id="3_8tyaw"]
-[ext_resource type="Script" uid="uid://cqfksdmady3oa" path="res://Level Assets/Enemies/chase.gd" id="4_8tyaw"]
-[ext_resource type="Script" uid="uid://bqtsnq8qnskuy" path="res://Level Assets/Enemies/pathfind.gd" id="5_yjfif"]
+[ext_resource type="Script" uid="uid://oxeepsfkfi81" path="res://Level Assets/Enemies/idle.gd" id="6_6qsvm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cgmgq"]
 size = Vector2(24, 24)
@@ -24,17 +23,12 @@ shape = SubResource("RectangleShape2D_cgmgq")
 
 [node name="StartDelay" type="Timer" parent="."]
 wait_time = 0.1
+one_shot = true
 autostart = true
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("default_state") instance=ExtResource("3_8tyaw")]
-default_state = NodePath("Pathfind")
+default_state = NodePath("Idle")
 
-[node name="Chase" type="Node" parent="StateMachine" node_paths=PackedStringArray("pathfind_state")]
-script = ExtResource("4_8tyaw")
-pathfind_state = NodePath("../Pathfind")
-metadata/_custom_type_script = "uid://bgybf0lx1x5qk"
-
-[node name="Pathfind" type="Node" parent="StateMachine" node_paths=PackedStringArray("chase_state")]
-script = ExtResource("5_yjfif")
-chase_state = NodePath("../Chase")
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("6_6qsvm")
 metadata/_custom_type_script = "uid://bgybf0lx1x5qk"

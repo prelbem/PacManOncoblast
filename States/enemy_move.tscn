@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8aljdtplbbrm"]
+
+[ext_resource type="Script" uid="uid://dpo3qfqqehot4" path="res://Level Assets/Enemies/move.gd" id="1_mv7bj"]
+
+[node name="EnemyMove" type="Node"]
+script = ExtResource("1_mv7bj")
+metadata/_custom_type_script = "uid://bgybf0lx1x5qk"

@@ -2,11 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://clfxwicv81qo" path="res://Level Assets/Enemies/TestEnemy.tscn" id="1_mu17j"]
 [ext_resource type="Script" uid="uid://o1cp2gcnjlch" path="res://Level Assets/Enemies/random_enemy.gd" id="2_ivxk0"]
-[ext_resource type="Script" uid="uid://calexc24bywkx" path="res://Level Assets/Enemies/RandomPathfind.gd" id="3_bkbj1"]
+[ext_resource type="Script" uid="uid://bpb70naltb5re" path="res://Level Assets/Enemies/wander.gd" id="3_bkbj1"]
 
 [node name="RandomEnemy" instance=ExtResource("1_mu17j")]
 script = ExtResource("2_ivxk0")
 speed = 100.0
 
-[node name="Pathfind" parent="StateMachine" index="1"]
+[node name="StartDelay" parent="." index="2"]
+wait_time = 20.0
+
+[node name="Idle" parent="StateMachine" index="0" node_paths=PackedStringArray("next_state")]
+next_state = NodePath("../Wander")
+
+[node name="Wander" type="Node" parent="StateMachine" index="1"]
 script = ExtResource("3_bkbj1")
+metadata/_custom_type_script = "uid://bgybf0lx1x5qk"

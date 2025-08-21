@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://sx7lqhwecike"]
+[gd_scene load_steps=12 format=4 uid="uid://sx7lqhwecike"]
 
 [ext_resource type="Script" uid="uid://bxeyllba2m5cp" path="res://camera_2d.gd" id="1_05as6"]
 [ext_resource type="PackedScene" uid="uid://hro50ovj8hl4" path="res://Player/player.tscn" id="1_bw3m6"]
@@ -9,8 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dwuwi7btb1gfd" path="res://Level Assets/Enemies/chase_enemy.tscn" id="8_eqmdw"]
 [ext_resource type="PackedScene" uid="uid://c5u0whryxwknw" path="res://hud.tscn" id="8_uhmka"]
 [ext_resource type="PackedScene" uid="uid://b0uvn6vn5g32u" path="res://Buttons/pause_button.tscn" id="9_5fjre"]
-[ext_resource type="PackedScene" uid="uid://82f6i557qhul" path="res://Level Assets/warp_right.tscn" id="10_5fjre"]
-[ext_resource type="PackedScene" uid="uid://deeudqwery4ak" path="res://Level Assets/warp_left.tscn" id="11_oeaww"]
+[ext_resource type="PackedScene" uid="uid://deeudqwery4ak" path="res://Level Assets/warp_point.tscn" id="11_oeaww"]
 [ext_resource type="PackedScene" uid="uid://8ndmg16jrijr" path="res://Level Assets/gate.tscn" id="12_aonjr"]
 
 [node name="MainLevel" type="Node2D"]
@@ -30,12 +29,12 @@ visibility_layer = 2
 tile_map_data = PackedByteArray("AAALAAIAAAAAAAEAAAALAAEAAAAAAAEAAAALAAAAAAABAAMAAAALAP//AAAAAAEAAAAMAAMAAAACAAAAAAANAAMAAAACAAAAAAAOAAMAAAABAAMAAAAPAAMAAAACAAAAAAALAAMAAAABAAMAAAALAAQAAAAAAAEAAAALAAUAAAAAAAEAAAALAAYAAAABAAMAAAALAAcAAAAAAAEAAAALAP7/AAAAAAEAAAALAAgAAAAAAAEAAAALAAkAAAADAAIAAAAMAAkAAAACAAAAAAAOAAkAAAADAAIAAAAQAAkAAAACAAAAAAARAAkAAAACAAIAAAARAAgAAAAAAAEAAAARAAcAAAAAAAEAAAARAAYAAAAEAAIAAAARAAUAAAAAAAEAAAARAAQAAAAAAAEAAAARAAMAAAABAAMAAAARAAIAAAAAAAEAAAARAAEAAAAAAAEAAAARAAAAAAAEAAIAAAARAP//AAAAAAEAAAARAP7/AAAAAAEAAAAQAAMAAAACAAAAAAAPAAkAAAACAAAAAAANAAkAAAACAAAAAAAMAAYAAAACAAAAAAANAAYAAAACAAAAAAAOAAYAAAABAAMAAAAPAAYAAAACAAAAAAAQAAYAAAACAAAAAAAOAAQAAAAAAAEAAAAOAAUAAAAAAAEAAAAOAAcAAAAAAAEAAAAOAAgAAAAAAAEAAAAOAAIAAAAAAAEAAAAOAAEAAAAAAAEAAAAOAAAAAAABAAMAAAAOAP//AAAAAAEAAAAOAP7/AAAAAAEAAAAMAAAAAAACAAAAAAANAAAAAAACAAAAAAAPAAAAAAACAAAAAAAQAAAAAAACAAAAAAAKAAMAAAACAAAAAAAJAAMAAAACAAAAAAAIAAMAAAABAAMAAAAHAAMAAAACAAAAAAAGAAMAAAACAAAAAAAKAAYAAAACAAAAAAAJAAYAAAACAAAAAAAIAAYAAAABAAMAAAAHAAYAAAACAAAAAAAGAAYAAAACAAAAAAAIAAUAAAAAAAEAAAAIAAQAAAAAAAEAAAAIAAIAAAAAAAEAAAAIAAEAAAAAAAEAAAAIAAAAAAABAAMAAAAIAP//AAAAAAEAAAAIAP7/AAAAAAEAAAAKAAAAAAACAAAAAAAJAAAAAAACAAAAAAAHAAAAAAACAAAAAAAGAAAAAAACAAAAAAAFAAAAAAADAAEAAAAFAP//AAAAAAEAAAAFAAMAAAABAAMAAAAFAAIAAAAAAAEAAAAFAAEAAAAAAAEAAAAFAAYAAAADAAEAAAAFAAUAAAAAAAEAAAAFAAQAAAAAAAEAAAAKAAkAAAACAAAAAAAJAAkAAAACAAAAAAAIAAkAAAADAAIAAAAHAAkAAAACAAAAAAAGAAkAAAACAAAAAAAFAAkAAAABAAIAAAAFAAgAAAAAAAEAAAAFAAcAAAAAAAEAAAAIAAcAAAAAAAEAAAAIAAgAAAAAAAEAAAARAP3/AAACAAEAAAAQAP3/AAACAAAAAAAPAP3/AAACAAAAAAAOAP3/AAAEAAEAAAANAP3/AAACAAAAAAAMAP3/AAACAAAAAAALAP3/AAABAAMAAAAKAP3/AAACAAAAAAAJAP3/AAACAAAAAAAIAP3/AAAEAAEAAAAHAP3/AAACAAAAAAAGAP3/AAACAAAAAAAFAP3/AAABAAEAAAAFAP7/AAAAAAEAAAAEAAMAAAACAAAAAAASAAMAAAACAAAAAAADAAMAAAABAAAAAAATAAMAAAADAAAAAAALAPz/AAAAAAEAAAALAPv/AAABAAMAAAAKAPv/AAADAAIAAAAMAPv/AAADAAIAAAAJAPv/AAABAAIAAAAJAPr/AAABAAEAAAAKAPr/AAAEAAEAAAALAPr/AAAEAAEAAAAMAPr/AAAEAAEAAAANAPr/AAACAAEAAAANAPv/AAACAAIAAAA=")
 
 [node name="AnswerDotEnemy" parent="." node_paths=PackedStringArray("pathfinder") groups=["Enemies"] instance=ExtResource("4_ctebd")]
-position = Vector2(416, -80)
+position = Vector2(432, -176)
 collision_mask = 1
 pathfinder = NodePath("../PathfindingManager")
 
 [node name="RandomEnemy" parent="." node_paths=PackedStringArray("pathfinder") groups=["Enemies"] instance=ExtResource("6_4mnpp")]
-position = Vector2(320, -80)
+position = Vector2(304, -176)
 collision_mask = 1
 pathfinder = NodePath("../PathfindingManager")
 
@@ -55,15 +54,15 @@ unique_name_in_owner = true
 process_mode = 3
 position = Vector2(568, 112)
 
-[node name="WarpRight" parent="." node_paths=PackedStringArray("warpPoint") instance=ExtResource("10_5fjre")]
+[node name="WarpLeft" parent="." node_paths=PackedStringArray("warpPoint") groups=["Warp Points"] instance=ExtResource("11_oeaww")]
 unique_name_in_owner = true
-position = Vector2(608, 112)
-warpPoint = NodePath("../WarpLeft")
-
-[node name="WarpLeft" parent="." node_paths=PackedStringArray("warpPoint") instance=ExtResource("11_oeaww")]
-unique_name_in_owner = true
-position = Vector2(128, 112)
+position = Vector2(112, 112)
 warpPoint = NodePath("../WarpRight")
+
+[node name="WarpRight" parent="." node_paths=PackedStringArray("warpPoint") groups=["Warp Points"] instance=ExtResource("11_oeaww")]
+unique_name_in_owner = true
+position = Vector2(624, 112)
+warpPoint = NodePath("../WarpLeft")
 
 [node name="Gate" parent="." groups=["Walls"] instance=ExtResource("12_aonjr")]
 unique_name_in_owner = true

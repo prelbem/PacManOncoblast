@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://cky5w3xueajtj" path="res://Level Assets/warpPoint.gd" id="1_4hlmi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cq3jf"]
-size = Vector2(1, 32)
+size = Vector2(32, 32)
 
-[node name="WarpLeft" type="Marker2D"]
+[node name="WarpPoint" type="Marker2D"]
 script = ExtResource("1_4hlmi")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 5
-collision_mask = 255
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_cq3jf")

@@ -1,18 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwuwi7btb1gfd"]
 
 [ext_resource type="PackedScene" uid="uid://clfxwicv81qo" path="res://Level Assets/Enemies/TestEnemy.tscn" id="1_abvxb"]
-[ext_resource type="Script" uid="uid://clg2mtu03eqbg" path="res://Level Assets/Enemies/chase_enemy.gd" id="2_ghunt"]
-[ext_resource type="Script" uid="uid://cqfksdmady3oa" path="res://Level Assets/Enemies/chase.gd" id="3_ghunt"]
+[ext_resource type="Script" uid="uid://clg2mtu03eqbg" path="res://Level Assets/Enemies/chase_enemy.gd" id="2_5vohk"]
+[ext_resource type="Script" uid="uid://cqfksdmady3oa" path="res://Level Assets/Enemies/Chase.gd" id="3_ghunt"]
 
 [node name="ChaseEnemy" groups=["Enemies"] instance=ExtResource("1_abvxb")]
-script = ExtResource("2_ghunt")
-speed = 100.0
+script = ExtResource("2_5vohk")
+speed = null
 
 [node name="Idle" parent="StateMachine" index="0" node_paths=PackedStringArray("next_state")]
-next_state = NodePath("../Chase")
+next_state = NodePath("")
 
-[node name="Chase" type="Node" parent="StateMachine" index="1"]
+[node name="EnemyMove" parent="StateMachine" index="1"]
 script = ExtResource("3_ghunt")
-metadata/_custom_type_script = "uid://bgybf0lx1x5qk"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
