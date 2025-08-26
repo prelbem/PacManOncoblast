@@ -29,22 +29,19 @@ func _physics_process(delta):
 		
 		if (can_move_in_direction(queue_dir, delta)):
 			velocity = queue_dir * speed
+			rotation = velocity.angle()
 			$AnimatedSprite2D.play("default")
 		if (velocity == Vector2.ZERO):
 			$AnimatedSprite2D.pause()
 		
 		if (Input.is_action_just_pressed("ui_right")):
 			queue_dir = Vector2.RIGHT
-			rotation = 0
 		if (Input.is_action_just_pressed("ui_left")):
 			queue_dir = Vector2.LEFT
-			rotation = PI
 		if (Input.is_action_just_pressed("ui_up")):
 			queue_dir = Vector2.UP
-			rotation = 3 * PI/2
 		if (Input.is_action_just_pressed("ui_down")):
 			queue_dir = Vector2.DOWN
-			rotation = PI/2
 
 			#if (!rightWall):
 				#velocity.x = 1
@@ -132,6 +129,7 @@ func _on_player_hit() -> void:
 	if ($IFrames.time_left <= 0):
 		lives -= 1;
 		if (lives <= 0):
+			rotation = 0
 			kill_player()
 			return
 		update_lives.emit(lives)

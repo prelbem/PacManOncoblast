@@ -11,6 +11,8 @@ func _on_pressed() -> void:
 			get_tree().paused = true
 	#if damage pause is active
 	else:
-		damage_timer.paused = true
+		player.process_mode = Node.PROCESS_MODE_PAUSABLE
+		#damage_timer.paused = true
+		#player.get_node("DamageFlash").paused = true
 	get_node("../../HUD/PauseMenu").visible = true
 	get_node("../../HUD/ScreenTint").visible = true

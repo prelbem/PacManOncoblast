@@ -6,7 +6,7 @@ func find_path():
 	var warpRight = parent.warpRight
 	var path = pathfinder.getPath(parent.global_position, player.global_position)
 	var warpLeftPath = pathfinder.getPath(parent.global_position, warpLeft.global_position) + pathfinder.getPath(warpRight.global_position, player.global_position)
-	var warpRightPath = pathfinder.getPath(parent.global_position, warpRight.global_position) + pathfinder.getPath(warpRight.global_position, player.global_position)
+	var warpRightPath = pathfinder.getPath(parent.global_position, warpRight.global_position) + pathfinder.getPath(warpLeft.global_position, player.global_position)
 	if (path.size() > warpLeftPath.size()):
 		path = warpLeftPath
 	if (path.size() > warpRightPath.size()):
