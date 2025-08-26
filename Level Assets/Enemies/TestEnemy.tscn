@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://clfxwicv81qo"]
+[gd_scene load_steps=8 format=3 uid="uid://clfxwicv81qo"]
 
 [ext_resource type="Script" uid="uid://dqe1v6kvom3my" path="res://Level Assets/Enemies/test_enemy.gd" id="1_l21b2"]
 [ext_resource type="Texture2D" uid="uid://hkjha0gw5mmk" path="res://Level Assets/Enemies/testEnemy.png" id="1_py60t"]
 [ext_resource type="PackedScene" uid="uid://bb3did5mf2l3w" path="res://States/state_machine.tscn" id="3_8tyaw"]
+[ext_resource type="Script" uid="uid://d2svam76jp401" path="res://Level Assets/Enemies/scared.gd" id="5_yjfif"]
+[ext_resource type="Script" uid="uid://br1hnrslm5hq3" path="res://Level Assets/Enemies/eaten.gd" id="6_4iugp"]
 [ext_resource type="Script" uid="uid://oxeepsfkfi81" path="res://Level Assets/Enemies/idle.gd" id="6_6qsvm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cgmgq"]
@@ -24,7 +26,6 @@ shape = SubResource("RectangleShape2D_cgmgq")
 [node name="StartDelay" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
-autostart = true
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("default_state") instance=ExtResource("3_8tyaw")]
 default_state = NodePath("Idle")
@@ -32,3 +33,23 @@ default_state = NodePath("Idle")
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("6_6qsvm")
 metadata/_custom_type_script = "uid://bgybf0lx1x5qk"
+
+[node name="Scared" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "eaten_state")]
+script = ExtResource("5_yjfif")
+idle_state = NodePath("../Idle")
+eaten_state = NodePath("../Eaten")
+metadata/_custom_type_script = "uid://bgybf0lx1x5qk"
+
+[node name="ScaredTimer" type="Timer" parent="StateMachine/Scared"]
+wait_time = 10.0
+one_shot = true
+
+[node name="Eaten" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
+script = ExtResource("6_4iugp")
+idle_state = NodePath("../Idle")
+speed = 250.0
+metadata/_custom_type_script = "uid://bgybf0lx1x5qk"
+
+[connection signal="body_entered" from="." to="StateMachine/Scared" method="_on_test_enemy_body_entered"]
+[connection signal="timeout" from="StartDelay" to="." method="_on_start_delay_timeout"]
+[connection signal="timeout" from="StartDelay" to="StateMachine/Idle" method="_on_start_delay_timeout"]

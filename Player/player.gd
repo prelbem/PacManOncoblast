@@ -5,18 +5,14 @@ var shape_query = PhysicsShapeQueryParameters2D.new()
 var queue_dir: Vector2
 var movement_queue = ""
 var can_move = true
-var upWall = false
-var rightWall = false
-var leftWall = false
-var downWall = false
 var score: int = 0
 var lives = 3
 var preVelocity: Vector2;
 
+var pellet_power = false
+
 signal update_lives(lives)
 signal player_death
-signal answer_dot_eaten(answer)
-
 func _ready():
 	shape_query.shape = $PlayerHitbox.shape
 	shape_query.collide_with_areas = false
@@ -110,20 +106,9 @@ func can_move_in_direction(dir:Vector2, delta:float) -> bool:
 	return result.size() == 0
 
 func _on_player_body_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Dots"):
-		score += 1
-		area.queue_free()
-	if area.is_in_group("Answer Dots"):
-		if area.isAnswer:
-			score += 10
-			answer_dot_eaten.emit(area.isAnswer)
-		else:
-			score -= 5
-		area.queue_free()
-	if (area.is_in_group("Enemies")):
-		_on_player_hit()
 	%HUD.get_node("Score").text = str(score)
-	
+
+
 #get that retro player hit feel, pauses the game upon a hit and then flashes after
 func _on_player_hit() -> void:
 	if ($IFrames.time_left <= 0):
@@ -167,3 +152,11 @@ func _on_i_frames_timeout() -> void:
 
 func _on_damage_flash_timeout() -> void:
 	visible = !visible
+
+func _on_pellet_power_timeout() -> void:
+	pellet_power = false
+	var enemies = get_tree().get_nodes_in_group("Enemies")
+	for enemy in enemies:
+		var state_machine = enemy.get_node("StateMachine")
+		if state_machine.current_state != state_machine.get_node("Idle"):
+			state_machine.change_state(state_machine.get_node("Scared"))

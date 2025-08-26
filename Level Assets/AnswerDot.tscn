@@ -35,4 +35,5 @@ text = "Hello World"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

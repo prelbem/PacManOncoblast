@@ -1,7 +1,7 @@
 class_name State
 extends Node
 
-var parent: Node2D
+@onready var parent: Node2D
 
 func enter():
 	pass

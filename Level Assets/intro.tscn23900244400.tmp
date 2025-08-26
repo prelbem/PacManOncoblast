@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://2te5uc138cgq"]
+
+[ext_resource type="Script" uid="uid://bgjho30ilnbyc" path="res://Level Assets/intro.gd" id="1_i3f3w"]
+[ext_resource type="FontFile" uid="uid://hyqn0gbiv8lp" path="res://Fonts/PressStart2P-vaV7.ttf" id="1_swovx"]
+
+[node name="Intro" type="Control"]
+process_mode = 3
+z_index = 6
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i3f3w")
+
+[node name="Tint" type="ColorRect" parent="."]
+process_mode = 1
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.00704
+offset_bottom = 0.00256348
+color = Color(0.134686, 0.155406, 0.164283, 0.662745)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 224.0
+offset_top = 424.0
+offset_right = 424.0
+offset_bottom = 474.0
+theme_override_fonts/font = ExtResource("1_swovx")
+theme_override_font_sizes/font_size = 50
+text = "3"
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="AddPeriod" type="Timer" parent="."]
+wait_time = 0.33
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="AddPeriod" to="." method="_on_add_period_timeout"]

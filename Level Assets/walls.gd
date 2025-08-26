@@ -1,8 +1,10 @@
 extends TileMapLayer
 @onready var dot = preload("res://Level Assets/dot.tscn");
 @onready var answerDot = preload("res://Level Assets/AnswerDot.tscn")
-@onready var player = get_tree().get_first_node_in_group("Player")
+@onready var powerPellet = preload("res://Level Assets/power_pellet.tscn")
+@onready var player = %Player
 
+	
 func setupDots():
 	for child in get_children():
 		remove_child(child)
@@ -79,12 +81,23 @@ func setupAnswerDots():
 		
 		remove_child(currDot)
 		currDot.queue_free()
+
+
+func addPowerPellet():
+	var dots = get_children()
+	var currDot = dots[randi() % dots.size()];
+	var currPellet = powerPellet.instantiate()
+	currPellet.global_position = currDot.global_position
+	add_child(currPellet)
+	currPellet.add_to_group("Power Pellets")
+	currDot.queue_free()
+	
 func _ready():
 	randomize()
 	setupDots()
 	#setupAnswerDots()
 	call_deferred("setupAnswerDots")
-	player.connect("answer_dot_eaten", on_answer_dot_eaten)
+	call_deferred("addPowerPellet")
 
 func on_answer_dot_eaten(isAnswer):
 	if (isAnswer):

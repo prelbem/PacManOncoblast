@@ -13,6 +13,8 @@ next_state = NodePath("../Chase")
 
 [node name="Chase" type="Node" parent="StateMachine" index="1"]
 script = ExtResource("3_ghunt")
+speed = 100.0
 metadata/_custom_type_script = "uid://bgybf0lx1x5qk"
 
+[connection signal="body_entered" from="." to="StateMachine/Chase" method="_on_enemy_body_entered"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

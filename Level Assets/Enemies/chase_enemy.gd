@@ -1,9 +1,9 @@
 extends Enemy
-@onready var player = %Player
 @onready var warpLeft = %WarpLeft
 @onready var warpRight = %WarpRight
 func _ready():
-	$StateMachine.init(self)
+	super()
+	spawnpoint = global_position - Vector2(0, 128)
 
 func _process(delta):
 	$StateMachine.process_physics(delta)

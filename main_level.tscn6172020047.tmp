@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://sx7lqhwecike"]
+[gd_scene load_steps=12 format=4 uid="uid://sx7lqhwecike"]
 
 [ext_resource type="Script" uid="uid://bxeyllba2m5cp" path="res://camera_2d.gd" id="1_05as6"]
 [ext_resource type="PackedScene" uid="uid://hro50ovj8hl4" path="res://Player/player.tscn" id="1_bw3m6"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://b0uvn6vn5g32u" path="res://Buttons/pause_button.tscn" id="9_5fjre"]
 [ext_resource type="PackedScene" uid="uid://deeudqwery4ak" path="res://Level Assets/warp_point.tscn" id="11_oeaww"]
 [ext_resource type="PackedScene" uid="uid://8ndmg16jrijr" path="res://Level Assets/gate.tscn" id="12_aonjr"]
-[ext_resource type="PackedScene" uid="uid://2te5uc138cgq" path="res://Level Assets/intro.tscn" id="12_do8ha"]
 
 [node name="MainLevel" type="Node2D" groups=["Power Pellets"]]
 
@@ -58,6 +57,7 @@ tilemap = NodePath("../Walls")
 unique_name_in_owner = true
 
 [node name="PauseButton2" parent="HUD" instance=ExtResource("9_5fjre")]
+process_mode = 3
 position = Vector2(568, 112)
 
 [node name="WarpLeft" parent="." node_paths=PackedStringArray("warpPoint") groups=["Warp Points"] instance=ExtResource("11_oeaww")]
@@ -74,17 +74,6 @@ warpPoint = NodePath("../WarpLeft")
 unique_name_in_owner = true
 position = Vector2(368, -96)
 scale = Vector2(0.5, 0.5)
-
-[node name="Intro" parent="." instance=ExtResource("12_do8ha")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 96.0
-offset_top = -325.0
-offset_right = 1096.0
-offset_bottom = 675.0
-grow_horizontal = 1
-grow_vertical = 1
 
 [connection signal="player_death" from="Player" to="AnswerDotEnemy" method="_on_player_death"]
 [connection signal="player_death" from="Player" to="RandomEnemy" method="_on_player_death"]

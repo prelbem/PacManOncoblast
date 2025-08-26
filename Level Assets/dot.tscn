@@ -1,12 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpa6v8tr70g35"]
+[gd_scene load_steps=3 format=3 uid="uid://cpa6v8tr70g35"]
 
+[ext_resource type="Script" uid="uid://cispg8fk5isg8" path="res://Level Assets/dot.gd" id="1_div05"]
 [ext_resource type="Texture2D" uid="uid://uhml6fnphujm" path="res://Level Assets/dot.png" id="1_swi4y"]
 
 [node name="Dot" type="Area2D"]
 collision_layer = 8
+script = ExtResource("1_div05")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_swi4y")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-4.5, -4.5, -4.5, 4.5, 4.5, 4.5, 4.5, -4.5)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

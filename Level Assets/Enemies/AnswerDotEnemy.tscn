@@ -9,11 +9,14 @@ script = ExtResource("2_a5wpe")
 speed = 100.0
 
 [node name="StartDelay" parent="." index="2"]
-wait_time = 40.0
+wait_time = 2.0
 
 [node name="Idle" parent="StateMachine" index="0" node_paths=PackedStringArray("next_state")]
 next_state = NodePath("../Guard")
 
 [node name="Guard" type="Node" parent="StateMachine" index="1"]
 script = ExtResource("3_a5wpe")
+speed = 100.0
 metadata/_custom_type_script = "uid://bgybf0lx1x5qk"
+
+[connection signal="body_entered" from="." to="StateMachine/Guard" method="_on_enemy_body_entered"]
