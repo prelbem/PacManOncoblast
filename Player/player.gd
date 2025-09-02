@@ -9,7 +9,7 @@ var score: int = 0
 var lives = 3
 var preVelocity: Vector2;
 
-var damage_flash = true
+var damage_flash = false
 var pellet_power = false
 
 signal update_lives(lives)
@@ -23,13 +23,10 @@ func _ready():
 func _physics_process(delta):
 	#continuously tries to move in the option the player pressed
 	if (can_move):
-		
 		if (can_move_in_direction(queue_dir, delta)):
 			velocity = queue_dir * speed
 			rotation = velocity.angle()
 			$AnimatedSprite2D.play("default")
-		if (velocity == Vector2.ZERO):
-			$AnimatedSprite2D.pause()
 		
 		if (Input.is_action_just_pressed("ui_right")):
 			queue_dir = Vector2.RIGHT
@@ -39,77 +36,17 @@ func _physics_process(delta):
 			queue_dir = Vector2.UP
 		if (Input.is_action_just_pressed("ui_down")):
 			queue_dir = Vector2.DOWN
-
-			#if (!rightWall):
-				#velocity.x = 1
-				#velocity.y = 0
-				#movement_queue = ""
-				#$AnimatedSprite2D.play("default")
-				#$AnimatedSprite2D.rotation = 0
-			#else:
-				#movement_queue = "move_right"
-				#queue_dir = Vector2(1, 0)
-		#if (Input.is_action_pressed("ui_left")):
-			#if (!leftWall):
-				#velocity.x = -1
-				#velocity.y = 0
-				#movement_queue = ""
-				#$AnimatedSprite2D.play("default")
-				#$AnimatedSprite2D.rotation = PI
-			#else:
-				#queue_dir = Vector2(-1, 0)
-				#movement_queue = "move_left"
-		#if (Input.is_action_pressed("ui_up")):
-			#if (!upWall):
-				#velocity.y = -1
-				#velocity.x = 0
-				#movement_queue = ""
-				#$AnimatedSprite2D.play("default")
-				#$AnimatedSprite2D.rotation = PI * 3/2
-			#else:
-				#queue_dir = Vector2(0, -1)
-				#movement_queue = "move_up"
-		#if (Input.is_action_pressed("ui_down")):
-			#if (!downWall):
-				#velocity.y = 1
-				#velocity.x = 0
-				#$AnimatedSprite2D.play("default")
-				#$AnimatedSprite2D.rotation = PI / 2
-				#movement_queue = ""
-			#else:
-				#queue_dir = Vector2(0, 1)
-				#movement_queue = "move_down"
-	#
-	##if (velocity.length() > 0):
-		###prevent the player from colliding into walls and throwing off right angles
-		##if (velocity.y >= 1 and downWall):
-			##$AnimatedSprite2D.pause()
-			##velocity = Vector2(0, 0)
-			##movement_queue = ""
-		##if (velocity.y <= -1 and upWall):
-			##$AnimatedSprite2D.pause()
-			##velocity = Vector2(0, 0)
-			##movement_queue = ""
-		##if (velocity.x <= -1 and leftWall):
-			##$AnimatedSprite2D.pause()
-			##velocity = Vector2(0, 0)
-			##movement_queue = ""
-		##if (velocity.x >= 1 and rightWall):
-			##$AnimatedSprite2D.pause()
-			##velocity = Vector2(0, 0)
-			##movement_queue = ""
-		#velocity = velocity.normalized() * speed
 	var collision = move_and_collide(velocity * delta)
+	if (collision):
+		$AnimatedSprite2D.pause()
 
 func can_move_in_direction(dir:Vector2, delta:float) -> bool:
 	shape_query.transform = global_transform.translated(dir * speed * delta * 3)
 	var result = get_world_2d().direct_space_state.intersect_shape(shape_query)
 	return result.size() == 0
 
-func _on_player_body_area_entered(area: Area2D) -> void:
-	updateScore()
-
-func updateScore():
+func updateScore(val):
+	score += val
 	%HUD.get_node("Score").text = str(score)
 
 #get that retro player hit feel, pauses the game upon a hit and then flashes after
@@ -121,23 +58,18 @@ func _on_player_hit() -> void:
 			kill_player()
 			return
 		update_lives.emit(lives)
-		$IFrames.start()
-		$DamagePause.start()
-		process_mode = Node.PROCESS_MODE_ALWAYS
-		preVelocity = velocity
-		velocity = Vector2(0, 0)
-		can_move = false
-		visible = false
+		freeze_frame()
+		damage_flash = true
 		get_tree().paused = true
-		
-func on_eat_ghost(): 
-	$DamagePause.start()
+
+func freeze_frame(time = 1):
+	$Pause.wait_time = time
+	$Pause.start()
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	can_move = false
 	visible = false
 	preVelocity = velocity
 	velocity = Vector2(0, 0)
-	damage_flash = false
 	get_tree().paused = true
 
 func kill_player():
@@ -156,9 +88,9 @@ func _on_damage_pause_timeout() -> void:
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 	velocity = preVelocity
 	if (damage_flash):
+		$IFrames.start()
 		$DamageFlash.start()
-	else: 
-		damage_flash = true
+	damage_flash = false
 	visible = true
 	can_move = true
 

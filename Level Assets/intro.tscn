@@ -26,11 +26,18 @@ color = Color(0.134686, 0.155406, 0.164283, 0.662745)
 
 [node name="Label" type="Label" parent="."]
 z_index = 2
-layout_mode = 0
-offset_left = 224.0
-offset_top = 424.0
-offset_right = 424.0
-offset_bottom = 474.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -25.0
+offset_right = 100.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_swovx")
 theme_override_font_sizes/font_size = 50
 text = "3"
@@ -40,7 +47,7 @@ wait_time = 1.4
 autostart = true
 
 [node name="AddPeriod" type="Timer" parent="."]
-wait_time = 0.35
+wait_time = 0.38
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

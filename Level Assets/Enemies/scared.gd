@@ -33,7 +33,6 @@ func process_physics(delta):
 
 func _on_test_enemy_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("Player") and active):
-		body.score += 10
-		body.updateScore()
-		body.on_eat_ghost()
+		body.updateScore(10)
+		body.freeze_frame(0.5)
 		eaten = true

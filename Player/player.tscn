@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://hro50ovj8hl4"]
+[gd_scene load_steps=20 format=3 uid="uid://hro50ovj8hl4"]
 
 [ext_resource type="Script" uid="uid://dkyrrios40tw8" path="res://Player/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://jwc4muukm6vo" path="res://Player/playerSprite.png" id="2_4ntmi"]
@@ -118,10 +118,9 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k53q1"]
 custom_solver_bias = 0.047
+size = Vector2(21, 21)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
@@ -134,12 +133,6 @@ scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_fhl08")
 frame_progress = 0.393058
 
-[node name="PlayerBody" type="Area2D" parent="."]
-collision_mask = 15
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody"]
-shape = SubResource("RectangleShape2D_onrkg")
-
 [node name="PlayerHitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_k53q1")
 
@@ -147,7 +140,7 @@ shape = SubResource("RectangleShape2D_k53q1")
 wait_time = 4.0
 one_shot = true
 
-[node name="DamagePause" type="Timer" parent="."]
+[node name="Pause" type="Timer" parent="."]
 one_shot = true
 
 [node name="DamageFlash" type="Timer" parent="."]
@@ -158,8 +151,7 @@ wait_time = 10.0
 one_shot = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_death_animation_finished"]
-[connection signal="area_entered" from="PlayerBody" to="." method="_on_player_body_area_entered"]
 [connection signal="timeout" from="IFrames" to="." method="_on_i_frames_timeout"]
-[connection signal="timeout" from="DamagePause" to="." method="_on_damage_pause_timeout"]
+[connection signal="timeout" from="Pause" to="." method="_on_damage_pause_timeout"]
 [connection signal="timeout" from="DamageFlash" to="." method="_on_damage_flash_timeout"]
 [connection signal="timeout" from="PelletPower" to="." method="_on_pellet_power_timeout"]

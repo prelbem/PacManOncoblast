@@ -25,3 +25,5 @@ const falseAnswers = [
 	["9", "7", "2"],
 	["AIR", "IDK"]
 ]
+
+var visible_joystick = true

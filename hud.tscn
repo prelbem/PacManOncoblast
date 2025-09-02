@@ -10,9 +10,6 @@
 follow_viewport_scale = 0.5
 script = ExtResource("1_8sq4i")
 
-[node name="MobileControls" parent="." instance=ExtResource("1_64ctp")]
-position = Vector2(48, 96)
-
 [node name="Question" type="Label" parent="."]
 unique_name_in_owner = true
 anchors_preset = -1
@@ -68,3 +65,9 @@ anchor_bottom = 0.380282
 grow_horizontal = 1
 grow_vertical = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="MobileControls" parent="." instance=ExtResource("1_64ctp")]
+offset_left = -256.0
+offset_top = -468.0
+offset_right = -256.0
+offset_bottom = -468.0

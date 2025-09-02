@@ -57,6 +57,17 @@ unique_name_in_owner = true
 layer = 0
 follow_viewport_scale = 1.0
 
+[node name="Intro" parent="HUD" instance=ExtResource("12_do8ha")]
+anchors_preset = -1
+anchor_left = -0.025
+anchor_right = 0.025
+anchor_bottom = 0.0
+offset_right = 640.0
+offset_bottom = 1136.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
 [node name="PauseButton2" parent="HUD" instance=ExtResource("9_5fjre")]
 position = Vector2(568, 112)
 
@@ -74,17 +85,5 @@ warpPoint = NodePath("../WarpLeft")
 unique_name_in_owner = true
 position = Vector2(368, -96)
 scale = Vector2(0.5, 0.5)
-
-[node name="Intro" parent="." instance=ExtResource("12_do8ha")]
-anchors_preset = -1
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 88.0
-offset_top = -344.0
-offset_right = 728.0
-offset_bottom = 792.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-metadata/_edit_use_anchors_ = true
 
 [connection signal="update_lives" from="Player" to="HUD" method="_on_update_lives"]

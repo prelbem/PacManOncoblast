@@ -47,6 +47,7 @@ wait_time = 40.0
 
 [node name="Idle" parent="StateMachine" index="0" node_paths=PackedStringArray("next_state")]
 next_state = NodePath("../Guard")
+speed = 100.0
 
 [node name="Guard" type="Node" parent="StateMachine" index="1"]
 script = ExtResource("3_a5wpe")

@@ -35,6 +35,27 @@ theme_override_styles/pressed = ExtResource("3_tpml5")
 theme_override_styles/normal = ExtResource("4_jqemp")
 text = "PLAY"
 
+[node name="SettingsButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 112.0
+offset_top = 792.0
+offset_right = 540.0
+offset_bottom = 856.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_hafda")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = ExtResource("3_tpml5")
+theme_override_styles/pressed = ExtResource("3_tpml5")
+theme_override_styles/normal = ExtResource("4_jqemp")
+text = "SETTINGS"
+
 [node name="Label" type="Label" parent="."]
 offset_left = -32.0
 offset_top = 408.0
@@ -46,3 +67,4 @@ text = "Pac-Man"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]

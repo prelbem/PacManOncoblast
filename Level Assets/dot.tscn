@@ -6,6 +6,7 @@
 [node name="Dot" type="Area2D"]
 collision_layer = 8
 script = ExtResource("1_div05")
+value = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_swi4y")

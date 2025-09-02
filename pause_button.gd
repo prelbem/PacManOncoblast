@@ -3,7 +3,7 @@ extends TouchScreenButton
 
 func _on_pressed() -> void:
 	var player = get_node("../../Player")
-	var damage_timer: Timer = player.get_node("DamagePause")
+	var damage_timer: Timer = player.get_node("Pause")
 	#if damage pause is inactive
 	if damage_timer.time_left <= 0:
 		#to pause
