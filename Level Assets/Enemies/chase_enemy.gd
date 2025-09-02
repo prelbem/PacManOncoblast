@@ -1,6 +1,5 @@
 extends Enemy
-@onready var warpLeft = %WarpLeft
-@onready var warpRight = %WarpRight
+
 func _ready():
 	super()
 	spawnpoint = global_position - Vector2(0, 128)

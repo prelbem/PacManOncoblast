@@ -1,15 +1,49 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0qwyay164eak"]
+[gd_scene load_steps=8 format=3 uid="uid://b0qwyay164eak"]
 
 [ext_resource type="PackedScene" uid="uid://clfxwicv81qo" path="res://Level Assets/Enemies/TestEnemy.tscn" id="1_3r0xf"]
 [ext_resource type="Script" uid="uid://h76p036hl5yv" path="res://Level Assets/Enemies/answer_dot_enemy.gd" id="2_a5wpe"]
 [ext_resource type="Script" uid="uid://d30iv1k2c0cyf" path="res://Level Assets/Enemies/guard.gd" id="3_a5wpe"]
+[ext_resource type="Texture2D" uid="uid://fkgfbkdcbd05" path="res://Level Assets/Enemies/purpleGhost.png" id="3_silpu"]
+[ext_resource type="Texture2D" uid="uid://hi6qyp4pmtnj" path="res://Level Assets/Enemies/ghostEyes.png" id="4_r8ri3"]
+[ext_resource type="Texture2D" uid="uid://qeegejyijbc" path="res://Level Assets/Enemies/scaredGhost.png" id="5_hoaye"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r8ri3"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_silpu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_r8ri3")
+}],
+"loop": true,
+"name": &"eaten",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_hoaye")
+}],
+"loop": true,
+"name": &"scared",
+"speed": 5.0
+}]
 
 [node name="AnswerDotEnemy" instance=ExtResource("1_3r0xf")]
 script = ExtResource("2_a5wpe")
 speed = 100.0
 
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_r8ri3")
+
 [node name="StartDelay" parent="." index="2"]
-wait_time = 2.0
+wait_time = 40.0
 
 [node name="Idle" parent="StateMachine" index="0" node_paths=PackedStringArray("next_state")]
 next_state = NodePath("../Guard")

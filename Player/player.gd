@@ -9,6 +9,7 @@ var score: int = 0
 var lives = 3
 var preVelocity: Vector2;
 
+var damage_flash = true
 var pellet_power = false
 
 signal update_lives(lives)
@@ -101,13 +102,15 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 
 func can_move_in_direction(dir:Vector2, delta:float) -> bool:
-	shape_query.transform = global_transform.translated(dir * speed * delta * 2)
+	shape_query.transform = global_transform.translated(dir * speed * delta * 3)
 	var result = get_world_2d().direct_space_state.intersect_shape(shape_query)
 	return result.size() == 0
 
 func _on_player_body_area_entered(area: Area2D) -> void:
-	%HUD.get_node("Score").text = str(score)
+	updateScore()
 
+func updateScore():
+	%HUD.get_node("Score").text = str(score)
 
 #get that retro player hit feel, pauses the game upon a hit and then flashes after
 func _on_player_hit() -> void:
@@ -126,6 +129,16 @@ func _on_player_hit() -> void:
 		can_move = false
 		visible = false
 		get_tree().paused = true
+		
+func on_eat_ghost(): 
+	$DamagePause.start()
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	can_move = false
+	visible = false
+	preVelocity = velocity
+	velocity = Vector2(0, 0)
+	damage_flash = false
+	get_tree().paused = true
 
 func kill_player():
 	velocity = Vector2(0, 0)
@@ -142,7 +155,10 @@ func _on_damage_pause_timeout() -> void:
 	get_tree().paused = false
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 	velocity = preVelocity
-	$DamageFlash.start()
+	if (damage_flash):
+		$DamageFlash.start()
+	else: 
+		damage_flash = true
 	visible = true
 	can_move = true
 
@@ -159,4 +175,4 @@ func _on_pellet_power_timeout() -> void:
 	for enemy in enemies:
 		var state_machine = enemy.get_node("StateMachine")
 		if state_machine.current_state != state_machine.get_node("Idle"):
-			state_machine.change_state(state_machine.get_node("Scared"))
+			state_machine.default_state.next_state

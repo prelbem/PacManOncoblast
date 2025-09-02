@@ -121,7 +121,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k53q1"]
-custom_solver_bias = 0.047
+size = Vector2(22, 22)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1

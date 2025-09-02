@@ -57,6 +57,17 @@ theme_override_styles/pressed = ExtResource("2_7i2lc")
 theme_override_styles/normal = ExtResource("3_y8w85")
 text = "Continue"
 
+[node name="Menu" type="Button" parent="Background/MarginContainer/Menu"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_u6gvq")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = ExtResource("2_7i2lc")
+theme_override_styles/pressed = ExtResource("2_7i2lc")
+theme_override_styles/normal = ExtResource("3_y8w85")
+text = "Main Menu"
+
 [node name="Quit" type="Button" parent="Background/MarginContainer/Menu"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -70,4 +81,5 @@ text = "Quit
 "
 
 [connection signal="pressed" from="Background/MarginContainer/Menu/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Background/MarginContainer/Menu/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="Background/MarginContainer/Menu/Quit" to="." method="_on_quit_pressed"]

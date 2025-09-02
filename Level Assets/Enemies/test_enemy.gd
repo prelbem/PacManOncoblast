@@ -5,8 +5,12 @@ class_name Enemy
 @export var player: CharacterBody2D
 @export var walls: TileMapLayer
 
+@onready var gate = %Gate
+@onready var warpLeft = %WarpLeft
+@onready var warpRight = %WarpRight
+
 var path : Array[Vector2]
-var spawnpoint: Vector2 = global_position - Vector2(0, 32)
+var spawnpoint: Vector2
 
 func _ready():
 	spawnpoint = global_position - Vector2(0, 32)
@@ -16,7 +20,6 @@ func _process_physics(delta: float) -> void:
 	
 func _on_player_death() -> void:
 	visible = false
-
 
 func _on_start_delay_timeout() -> void:
 	$StartDelay.wait_time = 10

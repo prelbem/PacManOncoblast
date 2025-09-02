@@ -1,14 +1,44 @@
-[gd_scene load_steps=8 format=3 uid="uid://clfxwicv81qo"]
+[gd_scene load_steps=11 format=3 uid="uid://clfxwicv81qo"]
 
 [ext_resource type="Script" uid="uid://dqe1v6kvom3my" path="res://Level Assets/Enemies/test_enemy.gd" id="1_l21b2"]
-[ext_resource type="Texture2D" uid="uid://hkjha0gw5mmk" path="res://Level Assets/Enemies/testEnemy.png" id="1_py60t"]
+[ext_resource type="Texture2D" uid="uid://ccskck1ciyid" path="res://Level Assets/Enemies/redGhost.png" id="2_6qsvm"]
+[ext_resource type="Texture2D" uid="uid://hi6qyp4pmtnj" path="res://Level Assets/Enemies/ghostEyes.png" id="3_3aq4t"]
 [ext_resource type="PackedScene" uid="uid://bb3did5mf2l3w" path="res://States/state_machine.tscn" id="3_8tyaw"]
 [ext_resource type="Script" uid="uid://d2svam76jp401" path="res://Level Assets/Enemies/scared.gd" id="5_yjfif"]
 [ext_resource type="Script" uid="uid://br1hnrslm5hq3" path="res://Level Assets/Enemies/eaten.gd" id="6_4iugp"]
 [ext_resource type="Script" uid="uid://oxeepsfkfi81" path="res://Level Assets/Enemies/idle.gd" id="6_6qsvm"]
+[ext_resource type="Texture2D" uid="uid://qeegejyijbc" path="res://Level Assets/Enemies/scaredGhost.png" id="7_4iugp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3aq4t"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6qsvm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3aq4t")
+}],
+"loop": true,
+"name": &"eaten",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_4iugp")
+}],
+"loop": true,
+"name": &"scared",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cgmgq"]
-size = Vector2(24, 24)
+size = Vector2(22, 22)
 
 [node name="TestEnemy" type="Area2D"]
 scale = Vector2(0.5, 0.5)
@@ -17,8 +47,11 @@ collision_mask = 5
 script = ExtResource("1_l21b2")
 speed = 70.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_py60t")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.6, 1.6)
+sprite_frames = SubResource("SpriteFrames_3aq4t")
+animation = &"eaten"
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_cgmgq")

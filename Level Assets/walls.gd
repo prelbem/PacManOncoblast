@@ -3,12 +3,14 @@ extends TileMapLayer
 @onready var answerDot = preload("res://Level Assets/AnswerDot.tscn")
 @onready var powerPellet = preload("res://Level Assets/power_pellet.tscn")
 @onready var player = %Player
+var correct_answers = 0
 
-	
 func setupDots():
 	for child in get_children():
-		remove_child(child)
-		child.queue_free()
+		if (!child.is_in_group("Power Pellet")):
+			call_deferred("remove_child", child)
+			#remove_child(child)
+			child.queue_free()
 		
 	var cells = get_used_cells()
 	for i in range(cells.size()):
@@ -97,9 +99,15 @@ func _ready():
 	setupDots()
 	#setupAnswerDots()
 	call_deferred("setupAnswerDots")
-	call_deferred("addPowerPellet")
+	#call_deferred("addPowerPellet")
 
 func on_answer_dot_eaten(isAnswer):
 	if (isAnswer):
 		setupDots()
+		correct_answers += 1
 		call_deferred("setupAnswerDots")
+		if (correct_answers >= 3):
+			call_deferred("addPowerPellet")
+			correct_answers = 0
+	else:
+		correct_answers -= 1
