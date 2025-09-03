@@ -10,12 +10,12 @@ func _process(delta):
 	if Input.is_action_just_pressed("clicked"):
 		$Base.global_position = get_viewport().get_mouse_position()
 		clicked = true
-		
+
 	if Input.is_action_just_released("clicked"):
 		$Base.global_position = spawnpoint
 		$Base/Joystick.global_position = $Base.global_position + Vector2(sprite_size/4, sprite_size/4)
 		clicked = false
-		
+
 	if clicked:
 		var mouse_pos = get_viewport().get_mouse_position()
 		var distance = min(64, mouse_pos.distance_to($Base.global_position - Vector2(sprite_size/4, sprite_size/4)))
@@ -35,4 +35,3 @@ func _process(delta):
 		if (angle_input == PI/2):
 			Input.action_press("ui_down")
 			Input.action_release("ui_down")
-		

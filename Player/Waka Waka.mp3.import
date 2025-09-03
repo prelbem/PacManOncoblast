@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bosj0iiu6xnsx"
+path="res://.godot/imported/Waka Waka.mp3-683d92fef49e2a4ee0322a4a033da831.mp3str"
+
+[deps]
+
+source_file="res://Player/Waka Waka.mp3"
+dest_files=["res://.godot/imported/Waka Waka.mp3-683d92fef49e2a4ee0322a4a033da831.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

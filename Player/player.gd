@@ -27,7 +27,9 @@ func _physics_process(delta):
 			velocity = queue_dir * speed
 			rotation = velocity.angle()
 			$AnimatedSprite2D.play("default")
-		
+			if !$AudioStreamPlayer2D.is_playing():
+				$AudioStreamPlayer2D.play()
+
 		if (Input.is_action_just_pressed("ui_right")):
 			queue_dir = Vector2.RIGHT
 		if (Input.is_action_just_pressed("ui_left")):
@@ -39,6 +41,7 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if (collision):
 		$AnimatedSprite2D.pause()
+		$AudioStreamPlayer2D.stop()
 
 func can_move_in_direction(dir:Vector2, delta:float) -> bool:
 	shape_query.transform = global_transform.translated(dir * speed * delta * 3)
@@ -63,6 +66,7 @@ func _on_player_hit() -> void:
 		get_tree().paused = true
 
 func freeze_frame(time = 1):
+	$AudioStreamPlayer2D.stop()
 	$Pause.wait_time = time
 	$Pause.start()
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -84,6 +88,7 @@ func _on_death_animation_finished() -> void:
 	get_tree().change_scene_to_file("res://game_over.tscn")
 
 func _on_damage_pause_timeout() -> void:
+	$AudioStreamPlayer2D.play()
 	get_tree().paused = false
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 	velocity = preVelocity
