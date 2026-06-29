@@ -11,8 +11,10 @@ func process_physics(delta):
 		parent.global_position = parent.global_position.move_toward(parent.path[0], speed * delta)
 		if parent.global_position == parent.path[0]:
 			parent.path.remove_at(0)
+	return;
+	
 
-func _on_enemy_body_entered(body: Node2D):
+
+func _on_test_enemy_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("Player")):
-		if (not body.pellet_power):
-			body._on_player_hit()
+		body._on_player_hit();

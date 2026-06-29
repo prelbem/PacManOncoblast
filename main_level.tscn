@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://sx7lqhwecike"]
+[gd_scene format=4 uid="uid://sx7lqhwecike"]
 
 [ext_resource type="Script" uid="uid://bxeyllba2m5cp" path="res://camera_2d.gd" id="1_05as6"]
 [ext_resource type="PackedScene" uid="uid://hro50ovj8hl4" path="res://Player/player.tscn" id="1_bw3m6"]
@@ -14,51 +14,53 @@
 [ext_resource type="PackedScene" uid="uid://2te5uc138cgq" path="res://Level Assets/intro.tscn" id="12_do8ha"]
 [ext_resource type="AudioStream" uid="uid://we4bq6nrsups" path="res://Music/mainMusic.mp3" id="13_do8ha"]
 
-[node name="MainLevel" type="Node2D" groups=["Power Pellets"]]
+[node name="MainLevel" type="Node2D" unique_id=1507571602 groups=["Power Pellets"]]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=48449820]
 position = Vector2(368, 112)
 zoom = Vector2(1.5, 1.5)
 script = ExtResource("1_05as6")
 
-[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_bw3m6")]
+[node name="Player" parent="." unique_id=98320171 groups=["Player"] instance=ExtResource("1_bw3m6")]
 unique_name_in_owner = true
 position = Vector2(368, 112)
+scale = Vector2(1.05, 1.05)
+motion_mode = 1
 
-[node name="Walls" parent="." groups=["Walls"] instance=ExtResource("2_6614m")]
+[node name="Walls" parent="." unique_id=1450806403 groups=["Walls"] instance=ExtResource("2_6614m")]
 unique_name_in_owner = true
 visibility_layer = 2
 tile_map_data = PackedByteArray("AAALAAIAAAAAAAEAAAALAAEAAAAAAAEAAAALAAAAAAABAAMAAAALAP//AAAAAAEAAAAMAAMAAAACAAAAAAANAAMAAAACAAAAAAAOAAMAAAABAAMAAAAPAAMAAAACAAAAAAALAAMAAAABAAMAAAALAAQAAAAAAAEAAAALAAUAAAAAAAEAAAALAAYAAAABAAMAAAALAAcAAAAAAAEAAAALAP7/AAAAAAEAAAALAAgAAAAAAAEAAAALAAkAAAADAAIAAAAMAAkAAAACAAAAAAAOAAkAAAADAAIAAAAQAAkAAAACAAAAAAARAAkAAAACAAIAAAARAAgAAAAAAAEAAAARAAcAAAAAAAEAAAARAAYAAAAEAAIAAAARAAUAAAAAAAEAAAARAAQAAAAAAAEAAAARAAMAAAABAAMAAAARAAIAAAAAAAEAAAARAAEAAAAAAAEAAAARAAAAAAAEAAIAAAARAP//AAAAAAEAAAARAP7/AAAAAAEAAAAQAAMAAAACAAAAAAAPAAkAAAACAAAAAAANAAkAAAACAAAAAAAMAAYAAAACAAAAAAANAAYAAAACAAAAAAAOAAYAAAABAAMAAAAPAAYAAAACAAAAAAAQAAYAAAACAAAAAAAOAAQAAAAAAAEAAAAOAAUAAAAAAAEAAAAOAAcAAAAAAAEAAAAOAAgAAAAAAAEAAAAOAAIAAAAAAAEAAAAOAAEAAAAAAAEAAAAOAAAAAAABAAMAAAAOAP//AAAAAAEAAAAOAP7/AAAAAAEAAAAMAAAAAAACAAAAAAANAAAAAAACAAAAAAAPAAAAAAACAAAAAAAQAAAAAAACAAAAAAAKAAMAAAACAAAAAAAJAAMAAAACAAAAAAAIAAMAAAABAAMAAAAHAAMAAAACAAAAAAAGAAMAAAACAAAAAAAKAAYAAAACAAAAAAAJAAYAAAACAAAAAAAIAAYAAAABAAMAAAAHAAYAAAACAAAAAAAGAAYAAAACAAAAAAAIAAUAAAAAAAEAAAAIAAQAAAAAAAEAAAAIAAIAAAAAAAEAAAAIAAEAAAAAAAEAAAAIAAAAAAABAAMAAAAIAP//AAAAAAEAAAAIAP7/AAAAAAEAAAAKAAAAAAACAAAAAAAJAAAAAAACAAAAAAAHAAAAAAACAAAAAAAGAAAAAAACAAAAAAAFAAAAAAADAAEAAAAFAP//AAAAAAEAAAAFAAMAAAABAAMAAAAFAAIAAAAAAAEAAAAFAAEAAAAAAAEAAAAFAAYAAAADAAEAAAAFAAUAAAAAAAEAAAAFAAQAAAAAAAEAAAAKAAkAAAACAAAAAAAJAAkAAAACAAAAAAAIAAkAAAADAAIAAAAHAAkAAAACAAAAAAAGAAkAAAACAAAAAAAFAAkAAAABAAIAAAAFAAgAAAAAAAEAAAAFAAcAAAAAAAEAAAAIAAcAAAAAAAEAAAAIAAgAAAAAAAEAAAARAP3/AAACAAEAAAAQAP3/AAACAAAAAAAPAP3/AAACAAAAAAAOAP3/AAAEAAEAAAANAP3/AAACAAAAAAAMAP3/AAACAAAAAAALAP3/AAABAAMAAAAKAP3/AAACAAAAAAAJAP3/AAACAAAAAAAIAP3/AAAEAAEAAAAHAP3/AAACAAAAAAAGAP3/AAACAAAAAAAFAP3/AAABAAEAAAAFAP7/AAAAAAEAAAAEAAMAAAACAAAAAAASAAMAAAACAAAAAAADAAMAAAABAAAAAAATAAMAAAADAAAAAAALAPz/AAAAAAEAAAALAPv/AAABAAMAAAAMAPv/AAADAAIAAAAJAPr/AAABAAEAAAAKAPr/AAAEAAEAAAALAPr/AAAEAAEAAAAMAPr/AAAEAAEAAAANAPr/AAACAAEAAAANAPv/AAACAAIAAAAKAPv/AAADAAIAAAAJAPv/AAABAAIAAAA=")
 
-[node name="RandomEnemy" parent="." node_paths=PackedStringArray("pathfinder", "player", "walls") groups=["Enemies"] instance=ExtResource("6_4mnpp")]
+[node name="RandomEnemy" parent="." unique_id=1335636307 node_paths=PackedStringArray("pathfinder", "player", "walls") groups=["Enemies"] instance=ExtResource("6_4mnpp")]
 position = Vector2(304, -176)
 speed = 70.0
 pathfinder = NodePath("../PathfindingManager")
 player = NodePath("../Player")
 walls = NodePath("../Walls")
 
-[node name="ChaseEnemy" parent="." node_paths=PackedStringArray("pathfinder", "player", "walls") instance=ExtResource("8_eqmdw")]
+[node name="ChaseEnemy" parent="." unique_id=1962670355 node_paths=PackedStringArray("pathfinder", "player", "walls") instance=ExtResource("8_eqmdw")]
 position = Vector2(368, -80)
 pathfinder = NodePath("../PathfindingManager")
 player = NodePath("../Player")
 walls = NodePath("../Walls")
 
-[node name="AnswerDotEnemy" parent="." node_paths=PackedStringArray("pathfinder", "player", "walls") groups=["Enemies"] instance=ExtResource("4_ctebd")]
+[node name="AnswerDotEnemy" parent="." unique_id=1221776465 node_paths=PackedStringArray("pathfinder", "player", "walls") groups=["Enemies"] instance=ExtResource("4_ctebd")]
 position = Vector2(432, -176)
 pathfinder = NodePath("../PathfindingManager")
 player = NodePath("../Player")
 walls = NodePath("../Walls")
 
-[node name="PathfindingManager" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("7_ctebd")]
+[node name="PathfindingManager" parent="." unique_id=338308305 node_paths=PackedStringArray("tilemap") instance=ExtResource("7_ctebd")]
 position = Vector2(-24, -88)
 tilemap = NodePath("../Walls")
 
-[node name="HUD" parent="." instance=ExtResource("8_uhmka")]
+[node name="HUD" parent="." unique_id=656412100 instance=ExtResource("8_uhmka")]
 unique_name_in_owner = true
 layer = 0
 follow_viewport_scale = 1.0
 
-[node name="Intro" parent="HUD" instance=ExtResource("12_do8ha")]
+[node name="Intro" parent="HUD" unique_id=1896703205 instance=ExtResource("12_do8ha")]
 anchors_preset = -1
 anchor_left = -0.025
 anchor_right = 0.025
@@ -69,25 +71,25 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="PauseButton2" parent="HUD" instance=ExtResource("9_5fjre")]
+[node name="PauseButton2" parent="HUD" unique_id=956755864 instance=ExtResource("9_5fjre")]
 position = Vector2(568, 112)
 
-[node name="WarpLeft" parent="." node_paths=PackedStringArray("warpPoint") groups=["Warp Points"] instance=ExtResource("11_oeaww")]
+[node name="WarpLeft" parent="." unique_id=504163901 node_paths=PackedStringArray("warpPoint") groups=["Warp Points"] instance=ExtResource("11_oeaww")]
 unique_name_in_owner = true
 position = Vector2(112, 112)
 warpPoint = NodePath("../WarpRight")
 
-[node name="WarpRight" parent="." node_paths=PackedStringArray("warpPoint") groups=["Warp Points"] instance=ExtResource("11_oeaww")]
+[node name="WarpRight" parent="." unique_id=276688369 node_paths=PackedStringArray("warpPoint") groups=["Warp Points"] instance=ExtResource("11_oeaww")]
 unique_name_in_owner = true
 position = Vector2(624, 112)
 warpPoint = NodePath("../WarpLeft")
 
-[node name="Gate" parent="." groups=["Walls"] instance=ExtResource("12_aonjr")]
+[node name="Gate" parent="." unique_id=446856249 groups=["Walls"] instance=ExtResource("12_aonjr")]
 unique_name_in_owner = true
 position = Vector2(368, -96)
 scale = Vector2(0.5, 0.5)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=5169729]
 stream = ExtResource("13_do8ha")
 autoplay = true
 bus = &"Music"

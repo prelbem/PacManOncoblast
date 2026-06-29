@@ -15,3 +15,4 @@ func process_physics(delta):
 	parent.global_position = parent.global_position.move_toward(parent.path[0], speed * delta)
 	if parent.global_position == parent.path[0]:
 		parent.path.remove_at(0)
+	return null;

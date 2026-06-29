@@ -28,7 +28,7 @@ func process_physics(delta):
 		return eaten_state
 	if $ScaredTimer.time_left <= 0:
 		return idle_state.next_state
-	super(delta)
+	return super(delta)
 
 
 func _on_test_enemy_body_entered(body: Node2D) -> void:

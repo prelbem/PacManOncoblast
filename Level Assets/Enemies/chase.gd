@@ -15,6 +15,3 @@ func find_path():
 	if (path.size() > 0 and path[path.size() - 1].y == -48.0):
 		path[path.size() - 1].y = -80
 	parent.path = path
-
-func process_physics(delta):
-	super(delta)

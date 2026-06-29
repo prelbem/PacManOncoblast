@@ -7,9 +7,6 @@ func enter():
 	parent.get_node("StartDelay").start()
 	spawnPoint = parent.global_position
 
-func exit():
-	parent.path.clear()
-
 func find_path():
 	var path = []
 	if parent.global_position.distance_to(spawnPoint) == 0:
@@ -22,9 +19,4 @@ func process_physics(delta):
 	if parent.get_node("StartDelay").time_left <= 0:
 		return next_state
 	else:
-		if parent.path.is_empty():
-			find_path()
-		else:
-			parent.global_position = parent.global_position.move_toward(parent.path[0], speed * delta)
-			if parent.global_position == parent.path[0]:
-				parent.path.remove_at(0)
+		return super(delta);

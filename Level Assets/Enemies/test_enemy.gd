@@ -22,4 +22,4 @@ func _on_player_death() -> void:
 	visible = false
 
 func _on_start_delay_timeout() -> void:
-	$StartDelay.wait_time = 10
+	pass

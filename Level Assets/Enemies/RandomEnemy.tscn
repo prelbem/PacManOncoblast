@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://o2sbx2oywvx0"]
+[gd_scene format=3 uid="uid://o2sbx2oywvx0"]
 
 [ext_resource type="PackedScene" uid="uid://clfxwicv81qo" path="res://Level Assets/Enemies/TestEnemy.tscn" id="1_mu17j"]
 [ext_resource type="Script" uid="uid://o1cp2gcnjlch" path="res://Level Assets/Enemies/random_enemy.gd" id="2_ivxk0"]
@@ -7,14 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://hi6qyp4pmtnj" path="res://Level Assets/Enemies/ghostEyes.png" id="4_uvx1b"]
 [ext_resource type="Texture2D" uid="uid://qeegejyijbc" path="res://Level Assets/Enemies/scaredGhost.png" id="6_2t5qq"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_trmvk"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_uvx1b"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_26ton")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -22,7 +22,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_uvx1b")
 }],
-"loop": true,
+"loop": 1,
 "name": &"eaten",
 "speed": 5.0
 }, {
@@ -30,27 +30,23 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_2t5qq")
 }],
-"loop": true,
+"loop": 1,
 "name": &"scared",
 "speed": 5.0
 }]
 
-[node name="RandomEnemy" instance=ExtResource("1_mu17j")]
+[node name="RandomEnemy" unique_id=631719739 instance=ExtResource("1_mu17j")]
 script = ExtResource("2_ivxk0")
 speed = 100.0
 
-[node name="AnimatedSprite2D" parent="." index="0"]
-sprite_frames = SubResource("SpriteFrames_trmvk")
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1373897691]
+sprite_frames = SubResource("SpriteFrames_uvx1b")
 
-[node name="StartDelay" parent="." index="2"]
+[node name="StartDelay" parent="." index="2" unique_id=1268274672]
 wait_time = 20.0
 
-[node name="Idle" parent="StateMachine" index="0" node_paths=PackedStringArray("next_state")]
-next_state = NodePath("../Wander")
+[node name="Idle" parent="StateMachine" parent_id_path=PackedInt32Array(1153789587) index="0" unique_id=1910200753]
 speed = 100.0
 
-[node name="Wander" type="Node" parent="StateMachine" index="1"]
+[node name="Move" parent="StateMachine" parent_id_path=PackedInt32Array(1153789587) index="3" unique_id=173392163]
 script = ExtResource("3_bkbj1")
-metadata/_custom_type_script = "uid://bgybf0lx1x5qk"
-
-[connection signal="body_entered" from="." to="StateMachine/Wander" method="_on_enemy_body_entered"]

@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://clfxwicv81qo" path="res://Level Assets/Enemies/TestEnemy.tscn" id="1_abvxb"]
 [ext_resource type="Script" uid="uid://clg2mtu03eqbg" path="res://Level Assets/Enemies/chase_enemy.gd" id="2_ghunt"]
-[ext_resource type="Script" uid="uid://cqfksdmady3oa" path="res://Level Assets/Enemies/chase.gd" id="3_ghunt"]
 [ext_resource type="Texture2D" uid="uid://hi6qyp4pmtnj" path="res://Level Assets/Enemies/ghostEyes.png" id="4_p7eua"]
 [ext_resource type="Texture2D" uid="uid://ccskck1ciyid" path="res://Level Assets/Enemies/redGhost.png" id="4_xcdti"]
 [ext_resource type="Texture2D" uid="uid://qeegejyijbc" path="res://Level Assets/Enemies/scaredGhost.png" id="5_p7eua"]
@@ -42,10 +41,8 @@ speed = 100.0
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=1373897691]
 sprite_frames = SubResource("SpriteFrames_xcdti")
 
-[node name="Idle" parent="StateMachine" parent_id_path=PackedInt32Array(1153789587) index="0" unique_id=1910200753]
+[node name="Idle" parent="StateMachine" parent_id_path=PackedInt32Array(1153789587) index="0" unique_id=1910200753 node_paths=PackedStringArray("next_state")]
+next_state = NodePath("")
 speed = 100.0
-
-[node name="Move" parent="StateMachine" parent_id_path=PackedInt32Array(1153789587) index="3" unique_id=173392163]
-script = ExtResource("3_ghunt")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
