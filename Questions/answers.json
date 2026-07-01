@@ -1,0 +1,1941 @@
+{ 
+
+"list": [ 
+
+{ 
+
+"id": 208, 
+
+"title": "What are the next best steps?", 
+
+"info": "He is considered to have at least  intermediate risk disease based on IMDC criteria . Based on the CARMENA and SURTIME  trial, upfront nephrectomy is not recommended.. NGS will not alter management. He has an established diagnosis of metastatic RCC hence a further biopsy is not required. Given that he has has intermediate risk disease with sarcomatoid features combination therapy is better than single agent VEGF TKI. Immune checkpoint inhibitors have dramatically changed the outcomes of sarcomatoid RCC and should be considered when feasible.", 
+
+"reference": [ 
+
+"PMID: 35688173" 
+
+], 
+
+"type": "multiplechoice", 
+
+"course_id": 32, 
+
+"isActive": true, 
+
+"story": [ 
+
+{ 
+
+"original": "65 year old male presented with left flank pain which led to further imaging which demonstrated a 10 cm left renal mass with tumor thrombus extension into the IVC below the diaphragm, as well as multiple pulmonary lesions and retroperitoneal lymph nodes. Biopsy of the pulmonary lesion was consistent with clear cell renal cell cancer with 40% sarcomatoid differentiation.", 
+
+"rich_text": "65 year old male presented with left flank pain which led to further imaging which demonstrated a 10 cm left renal mass with tumor thrombus extension into the IVC below the diaphragm, as well as multiple pulmonary lesions and retroperitoneal lymph nodes. Biopsy of the pulmonary lesion was consistent with clear cell renal cell cancer with 40% sarcomatoid differentiation.", 
+
+"original_rich_text": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"65 year old male presented with left flank pain which led to further imaging which demonstrated a 10 cm left renal mass with tumor thrombus extension into the IVC below the diaphragm, as well as multiple pulmonary lesions and retroperitoneal lymph nodes. Biopsy of the pulmonary lesion was consistent with clear cell renal cell cancer with 40% sarcomatoid differentiation.\"}]}]}", 
+
+"images": [] 
+
+} 
+
+], 
+
+"application_type": "oncoblast", 
+
+"order": 0, 
+
+"game_sessions": [], 
+
+"question_option": [ 
+
+{ 
+
+"options": { 
+
+"id": 791, 
+
+"title": "Upfront cytoreductive nephrectomy", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 792, 
+
+"title": "Next generation sequencing", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 793, 
+
+"title": "Biopsy of the renal mass", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 794, 
+
+"title": "Single agent Cabozantinib", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 795, 
+
+"title": "Cabozantinib plus Nivolumab", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+], 
+
+"question_answer": [ 
+
+{ 
+
+"options": { 
+
+"id": 794, 
+
+"title": "Single agent Cabozantinib", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+] 
+
+}, 
+
+{ 
+
+"id": 209, 
+
+"title": "What is the most likely cause of her symptoms?", 
+
+"info": "Belzutifan is a HIF 2 alpha inhibitor and is known to cause both hypoxia and anemia. The timeline of onset of her symptoms especially in the setting of minimal metastatic disease makes belzutifan more likely the cause.", 
+
+"reference": [ 
+
+"PMID: 39167807" 
+
+], 
+
+"type": "multiplechoice", 
+
+"course_id": 32, 
+
+"isActive": true, 
+
+"story": [ 
+
+{ 
+
+"original": "73 year old female with oligometastatic clear cell renal cell cancer with 4 pulmonary and 2 bone metastasis with a good performance status and a hemoglobin of 12 was switched to Belzutifan due to progressive disease. Patient presents to your clinic a month after starting belzutifan with profound fatigue and shortness of breath with exertion. Pulse oximeter noted O2 saturation to be 85% and Hb of 8.5 gm/dl.", 
+
+"rich_text": "73 year old female with oligometastatic clear cell renal cell cancer with 4 pulmonary and 2 bone metastasis with a good performance status and a hemoglobin of 12 was switched to Belzutifan due to progressive disease. Patient presents to your clinic a month after starting belzutifan with profound fatigue and shortness of breath with exertion. Pulse oximeter noted O2 saturation to be 85% and Hb of 8.5 gm/dl.", 
+
+"original_rich_text": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"73 year old female with oligometastatic clear cell renal cell cancer with 4 pulmonary and 2 bone metastasis with a good performance status and a hemoglobin of 12 was switched to Belzutifan due to progressive disease. Patient presents to your clinic a month after starting belzutifan with profound fatigue and shortness of breath with exertion. Pulse oximeter noted O2 saturation to be 85% and Hb of 8.5 gm/dl.\"}]}]}", 
+
+"images": [] 
+
+} 
+
+], 
+
+"application_type": "oncoblast", 
+
+"order": 10, 
+
+"game_sessions": [], 
+
+"question_option": [ 
+
+{ 
+
+"options": { 
+
+"id": 796, 
+
+"title": "Pulmonary embolism", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 797, 
+
+"title": "Progressive metastatic disease", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 798, 
+
+"title": "GI bleed", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 799, 
+
+"title": "Belzutifan", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+], 
+
+"question_answer": [ 
+
+{ 
+
+"options": { 
+
+"id": 799, 
+
+"title": "Belzutifan", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+] 
+
+}, 
+
+{ 
+
+"id": 210, 
+
+"title": "The patient would like to know what the next best option is:", 
+
+"info": "The likelihood of recurrent hypoxia and anemia with rechallenge with the initial dose of belzutifan is very high and hence dose reduction is appropriate . With dose reduction there is still  a chance of both hypoxia and anemia but the probability is much lower.", 
+
+"reference": [ 
+
+"PMID: 39167807" 
+
+], 
+
+"type": "multiplechoice", 
+
+"course_id": 32, 
+
+"isActive": true, 
+
+"story": [ 
+
+{ 
+
+"original": "The above patient was sent to the hospital for further work up. She underwent a CT with PE protocol which was negative for any acute or subacute PE. GI work including colonoscopy and upper endoscopy was negative. Anemia work was significant for Anemia of chronic disease which was unchanged from before. Given negative work up and improvement in her symptoms after holding belzutifan it was thought her symptoms were related to belzutifan. She returns to your clinic a week later and is back to her baseline with normal hb levels and O2 saturation.", 
+
+"rich_text": "The above patient was sent to the hospital for further work up. She underwent a CT with PE protocol which was negative for any acute or subacute PE. GI work including colonoscopy and upper endoscopy was negative. Anemia work was significant for Anemia of chronic disease which was unchanged from before. Given negative work up and improvement in her symptoms after holding belzutifan it was thought her symptoms were related to belzutifan. She returns to your clinic a week later and is back to her baseline with normal hb levels and O2 saturation.", 
+
+"original_rich_text": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"The above patient was sent to the hospital for further work up. She underwent a CT with PE protocol which was negative for any acute or subacute PE. GI work including colonoscopy and upper endoscopy was negative. Anemia work was significant for Anemia of chronic disease which was unchanged from before. Given negative work up and improvement in her symptoms after holding belzutifan it was thought her symptoms were related to belzutifan. She returns to your clinic a week later and is back to her baseline with normal hb levels and O2 saturation.\"}]}]}", 
+
+"images": [] 
+
+} 
+
+], 
+
+"application_type": "oncoblast", 
+
+"order": 30, 
+
+"game_sessions": [], 
+
+"question_option": [ 
+
+{ 
+
+"options": { 
+
+"id": 800, 
+
+"title": "Switch to an alternate treatment", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 801, 
+
+"title": "Rechallenge with belzutifan at same dose", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 802, 
+
+"title": "Rechallenge with belzutifan at a lower dose", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 803, 
+
+"title": "Rechallenge with belzutifan at the same dose and set her up with home oxygen and weekly PRBC transfusion", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+], 
+
+"question_answer": [ 
+
+{ 
+
+"options": { 
+
+"id": 802, 
+
+"title": "Rechallenge with belzutifan at a lower dose", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+] 
+
+}, 
+
+{ 
+
+"id": 211, 
+
+"title": "What would your recommendation be?", 
+
+"info": "Adjuvant pembrolizumab is recommended for clear cell RCC patients at intermediate or high risk of relapse per UISS staging. The above patient is considered to have high risk disease. However, he has non clear cell RCC for which there is no data to support any adjuvant treatment. Hence for this patient, surveillance is appropriate.", 
+
+"reference": [ 
+
+"PMID: 34407342" 
+
+], 
+
+"type": "multiplechoice", 
+
+"course_id": 32, 
+
+"isActive": true, 
+
+"story": [ 
+
+{ 
+
+"original": "55 year old male  was noted to have an incidental 10 cm renal mass during physical examination that was concerning for renal cell cancer. His staging scans did not find any evidence of metastatic disease. He subsequently underwent a radical nephrectomy for PT3a,N1, ISUP grade 4, papillary RCC. He was sent to your office to discuss the role of adjuvant therapy. ", 
+
+"rich_text": "55 year old male  was noted to have an incidental 10 cm renal mass during physical examination that was concerning for renal cell cancer. His staging scans did not find any evidence of metastatic disease. He subsequently underwent a radical nephrectomy for PT3a,N1, ISUP grade 4, papillary RCC. He was sent to your office to discuss the role of adjuvant therapy. ", 
+
+"original_rich_text": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"55 year old male  was noted to have an incidental 10 cm renal mass during physical examination that was concerning for renal cell cancer. His staging scans did not find any evidence of metastatic disease. He subsequently underwent a radical nephrectomy for PT3a,N1, ISUP grade 4, papillary RCC. He was sent to your office to discuss the role of adjuvant therapy. \"}]}]}", 
+
+"images": [] 
+
+} 
+
+], 
+
+"application_type": "oncoblast", 
+
+"order": 40, 
+
+"game_sessions": [], 
+
+"question_option": [ 
+
+{ 
+
+"options": { 
+
+"id": 804, 
+
+"title": "Adjuvant pembrolizumab for one year", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 805, 
+
+"title": "Adjuvant Cabozantinib and Nivolumab for one year", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 806, 
+
+"title": "Adjuvant Sunitinib for one year", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 807, 
+
+"title": "Surveillance per NCCN guidelines", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+], 
+
+"question_answer": [ 
+
+{ 
+
+"options": { 
+
+"id": 807, 
+
+"title": "Surveillance per NCCN guidelines", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+] 
+
+}, 
+
+{ 
+
+"id": 213, 
+
+"title": "Belzutifan is approved for metastatic clear cell RCC patients with VHL alteration only. Yes or No?", 
+
+"info": "Litespark 005 evaluated the role of belzutifan in all comers in a second or later line setting irrespective of VHL alteration and hence VHL alteration is not a prerequisite for belzutifan prescription.", 
+
+"reference": [ 
+
+"PMID: 39167807" 
+
+], 
+
+"type": "yes_no", 
+
+"course_id": 32, 
+
+"isActive": true, 
+
+"story": [], 
+
+"application_type": "oncoblast", 
+
+"order": 50, 
+
+"game_sessions": [], 
+
+"question_option": [ 
+
+{ 
+
+"options": { 
+
+"id": 810, 
+
+"title": "Yes", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 811, 
+
+"title": "No", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+], 
+
+"question_answer": [ 
+
+{ 
+
+"options": { 
+
+"id": 811, 
+
+"title": "No", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+] 
+
+}, 
+
+{ 
+
+"id": 214, 
+
+"title": "What is the next best step?", 
+
+"info": "Despite improvement in tumor markers and resolution of metastatic disease, left sided orchiectomy is still recommended as the testicle is considered a sanctuary site. Ideally the patient should have undergone an orchiectomy before the start of chemotherapy . Chemotherapy can start within a day or two of orchiectomy. Despite family history, NGS or bilateral orchiectomy is not indicated. After orchiectomy, surveillance is appropriate.", 
+
+"reference": [], 
+
+"type": "multiplechoice", 
+
+"course_id": 32, 
+
+"isActive": true, 
+
+"story": [ 
+
+{ 
+
+"original": "19 year old male presented with left sided testicular discomfort for 2 weeks and subsequent work up led to the diagnosis of stage 3 good risk seminoma with an elevated HCG. Testicular ultrasound noted a 2 cm left sided mass. His family history is significant for two first degree relatives with seminoma. He received three cycles of bleomycin, etoposide and cisplatin and underwent restaging scans a month after completion of chemotherapy which noted complete resolution of metastatic disease and normalization of tumor markers. The previously noted left testicular mass has almost resoled as well.", 
+
+"rich_text": "19 year old male presented with left sided testicular discomfort for 2 weeks and subsequent work up led to the diagnosis of stage 3 good risk seminoma with an elevated HCG. Testicular ultrasound noted a 2 cm left sided mass. His family history is significant for two first degree relatives with seminoma. He received three cycles of bleomycin, etoposide and cisplatin and underwent restaging scans a month after completion of chemotherapy which noted complete resolution of metastatic disease and normalization of tumor markers. The previously noted left testicular mass has almost resoled as well.", 
+
+"original_rich_text": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"19 year old male presented with left sided testicular discomfort for 2 weeks and subsequent work up led to the diagnosis of stage 3 good risk seminoma with an elevated HCG. Testicular ultrasound noted a 2 cm left sided mass. His family history is significant for two first degree relatives with seminoma. He received three cycles of bleomycin, etoposide and cisplatin and underwent restaging scans a month after completion of chemotherapy which noted complete resolution of metastatic disease and normalization of tumor markers. The previously noted left testicular mass has almost resoled as well.\"}]}]}", 
+
+"images": [] 
+
+} 
+
+], 
+
+"application_type": "oncoblast", 
+
+"order": 60, 
+
+"game_sessions": [], 
+
+"question_option": [ 
+
+{ 
+
+"options": { 
+
+"id": 812, 
+
+"title": "Surveillance per NCCN guidelines", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 813, 
+
+"title": "Next generation sequencing", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 814, 
+
+"title": "PET scan", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 815, 
+
+"title": "Left sided orchiectomy", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 816, 
+
+"title": "Bilateral orchiectomy", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+], 
+
+"question_answer": [ 
+
+{ 
+
+"options": { 
+
+"id": 815, 
+
+"title": "Left sided orchiectomy", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+] 
+
+}, 
+
+{ 
+
+"id": 215, 
+
+"title": "What would you recommend for this patient?", 
+
+"info": "False positive elevation of HCG has been associated with the use of marijuana. If holding marijuana does not improve HCG then further treatment can be considered. It is important to understand reasons for false positive elevation of tumor markers in patients with testicular cancer. ", 
+
+"reference": [ 
+
+"PMID: 24198649" 
+
+], 
+
+"type": "multiplechoice", 
+
+"course_id": 32, 
+
+"isActive": true, 
+
+"story": [ 
+
+{ 
+
+"original": "36 year old male with stage 3 non seminoma status post orchiectomy and  four cycles of BEP with normalization of tumor markers and scans. During routine surveillance in year 2 , he was noted to have an elevated HCG to 18 and normal scans . He admits to marijuana use for a while due to depression.", 
+
+"rich_text": "36 year old male with stage 3 non seminoma status post orchiectomy and  four cycles of BEP with normalization of tumor markers and scans. During routine surveillance in year 2 , he was noted to have an elevated HCG to 18 and normal scans . He admits to marijuana use for a while due to depression.", 
+
+"original_rich_text": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"36 year old male with stage 3 non seminoma status post orchiectomy and  four cycles of BEP with normalization of tumor markers and scans. During routine surveillance in year 2 , he was noted to have an elevated HCG to 18 and normal scans . He admits to marijuana use for a while due to depression.\"}]}]}", 
+
+"images": [] 
+
+} 
+
+], 
+
+"application_type": "oncoblast", 
+
+"order": null, 
+
+"game_sessions": [], 
+
+"question_option": [ 
+
+{ 
+
+"options": { 
+
+"id": 817, 
+
+"title": "Salvage chemotherapy with Taxol/ifosfamide and platinum.", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 818, 
+
+"title": "High dose chemotherapy with tandem transplant", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 819, 
+
+"title": "Three more cycles of BEP", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 820, 
+
+"title": "Advise patient to hold marijuana", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+], 
+
+"question_answer": [ 
+
+{ 
+
+"options": { 
+
+"id": 820, 
+
+"title": "Advise patient to hold marijuana", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+] 
+
+}, 
+
+{ 
+
+"id": 216, 
+
+"title": "What is the next best step?", 
+
+"info": "Given the patient's tumor markers have normalized and initial diagnosis noted teratoma, the residual lymph nodes could be harboring teratoma. There's a probability that the residual lymph nodes could be necrosis or residual tumor as well and therefore surgery is recommended as the first step. If there is evidence of residual disease despite initial chemotherapy then patient will need further adjuvant therapy.", 
+
+"reference": [ 
+
+"PMID: 21789067" 
+
+], 
+
+"type": "multiplechoice", 
+
+"course_id": 32, 
+
+"isActive": true, 
+
+"story": [ 
+
+{ 
+
+"original": "26 year old male diagnosed with stage 2 non seminoma (embryonal cancer 70% ,seminoma 20% and teratoma 10%). He underwent orchiectomy and subsequently received 3 cycles of bleomycin etoposide and cisplatin. His tumor markers normalized. However restaging scans eight weeks after completion of chemotherapy noted persistent retroperitoneal lymph nodes. ", 
+
+"rich_text": "26 year old male diagnosed with stage 2 non seminoma (embryonal cancer 70% ,seminoma 20% and teratoma 10%). He underwent orchiectomy and subsequently received 3 cycles of bleomycin etoposide and cisplatin. His tumor markers normalized. However restaging scans eight weeks after completion of chemotherapy noted persistent retroperitoneal lymph nodes. ", 
+
+"original_rich_text": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"26 year old male diagnosed with stage 2 non seminoma (embryonal cancer 70% ,seminoma 20% and teratoma 10%). He underwent orchiectomy and subsequently received 3 cycles of bleomycin etoposide and cisplatin. His tumor markers normalized. However restaging scans eight weeks after completion of chemotherapy noted persistent retroperitoneal lymph nodes. \"}]}]}", 
+
+"images": [] 
+
+} 
+
+], 
+
+"application_type": "oncoblast", 
+
+"order": null, 
+
+"game_sessions": [], 
+
+"question_option": [ 
+
+{ 
+
+"options": { 
+
+"id": 821, 
+
+"title": "Pet scan", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 822, 
+
+"title": "Salvage chemotherapy", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 823, 
+
+"title": "High dose chemotherapy with tandem transplant", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 824, 
+
+"title": "Retroperitoneal lymph node dissection", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+], 
+
+"question_answer": [ 
+
+{ 
+
+"options": { 
+
+"id": 824, 
+
+"title": "Retroperitoneal lymph node dissection", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+] 
+
+}, 
+
+{ 
+
+"id": 217, 
+
+"title": "What systemic therapy would you recommend for this patient?", 
+
+"info": "Patient has urothelial cancer and based on the EV302 trial which noted both progression and free survival and overall survival benefit over platinum based therapy, EV plus pembrolizumab is the right option.", 
+
+"reference": [ 
+
+"PMID: 38446675" 
+
+], 
+
+"type": "multiplechoice", 
+
+"course_id": 32, 
+
+"isActive": true, 
+
+"story": [ 
+
+{ 
+
+"original": "69-year-old male presents with hematuria and subsequent workup led to the diagnosis of urothelial cancer of the upper tract (kidney). Restaging scans node widespread metastatic disease.", 
+
+"rich_text": "69-year-old male presents with hematuria and subsequent workup led to the diagnosis of urothelial cancer of the upper tract (kidney). Restaging scans node widespread metastatic disease.", 
+
+"original_rich_text": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"69-year-old male presents with hematuria and subsequent workup led to the diagnosis of urothelial cancer of the upper tract (kidney). Restaging scans node widespread metastatic disease.\"}]}]}", 
+
+"images": [] 
+
+} 
+
+], 
+
+"application_type": "oncoblast", 
+
+"order": null, 
+
+"game_sessions": [], 
+
+"question_option": [ 
+
+{ 
+
+"options": { 
+
+"id": 825, 
+
+"title": "Cabozantinib and nivolumab", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 826, 
+
+"title": "Gemcitabine and cisplatin", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 827, 
+
+"title": "Gemcitabine, cisplatin and nivolumab", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 828, 
+
+"title": "Dose dense MVAC", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 829, 
+
+"title": "Enfortumab and Pembrolizumab", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+], 
+
+"question_answer": [ 
+
+{ 
+
+"options": { 
+
+"id": 829, 
+
+"title": "Enfortumab and Pembrolizumab", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+] 
+
+}, 
+
+{ 
+
+"id": 221, 
+
+"title": "What are the next best steps for this patient?", 
+
+"info": "He is considered to have high volume disease as he has visceral metastases. For patients with denovo high volume disease, triplet therapy is recommended based on the Stampede trial as well as the ARASENS  trial. In both of these trials the triplet was superior to a doublet of ADT and docetaxel in terms of PFS and OS. Next generation sequencing is indicated but will not change the management immediately as there are no targeted treatments approved in a frontline setting based on NGS.", 
+
+"reference": [ 
+
+"PMID: 35656777" 
+
+], 
+
+"type": "multiplechoice", 
+
+"course_id": 32, 
+
+"isActive": true, 
+
+"story": [ 
+
+{ 
+
+"original": "58 year old male presents with unintentional loss of weight and is subsequently diagnosed with stage 4 prostate cancer with extensive bone metastases and lung metastasis as well. His performance status is ECOG 1 and his labs are significant for hemoglobin of 9 gm/dl and platelet count of 95k. Bone marrow biopsy noted infiltration with prostate cancer.", 
+
+"rich_text": "58 year old male presents with unintentional loss of weight and is subsequently diagnosed with stage 4 prostate cancer with extensive bone metastases and lung metastasis as well. His performance status is ECOG 1 and his labs are significant for hemoglobin of 9 gm/dl and platelet count of 95k. Bone marrow biopsy noted infiltration with prostate cancer.", 
+
+"original_rich_text": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"58 year old male presents with unintentional loss of weight and is subsequently diagnosed with stage 4 prostate cancer with extensive bone metastases and lung metastasis as well. His performance status is ECOG 1 and his labs are significant for hemoglobin of 9 gm/dl and platelet count of 95k. Bone marrow biopsy noted infiltration with prostate cancer.\"}]}]}", 
+
+"images": [] 
+
+} 
+
+], 
+
+"application_type": "oncoblast", 
+
+"order": null, 
+
+"game_sessions": [], 
+
+"question_option": [ 
+
+{ 
+
+"options": { 
+
+"id": 838, 
+
+"title": "ADT plus docetaxel plus abiraterone", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 839, 
+
+"title": "ADT monotherapy", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 840, 
+
+"title": "ADT plus docetaxel", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 841, 
+
+"title": "Next generation sequencing", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+], 
+
+"question_answer": [ 
+
+{ 
+
+"options": { 
+
+"id": 838, 
+
+"title": "ADT plus docetaxel plus abiraterone", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+] 
+
+}, 
+
+{ 
+
+"id": 218, 
+
+"title": "What is your preferred regimen?", 
+
+"info": "The current standard of care is dose dense MVAC based on the Vesper trial that noted an improvement in PFS and OS compared to gemcitabine and cisplatin. EV303 and 3:04 are evaluating the role of EV plus pembrolizumab in a perioperative setting. The results of the Niagara trial that evaluated option D are overwhelmingly positive, however this combination is yet to be approved and therefore, option B remains the standard of care.", 
+
+"reference": [ 
+
+"PMID: 38142702", 
+
+"PMID: 39282910" 
+
+], 
+
+"type": "multiplechoice", 
+
+"course_id": 32, 
+
+"isActive": true, 
+
+"story": [ 
+
+{ 
+
+"original": "72 year old male with localized muscle invasive urothelial cancer comes to the medical oncology clinic to discuss management options.", 
+
+"rich_text": "72 year old male with localized muscle invasive urothelial cancer comes to the medical oncology clinic to discuss management options.", 
+
+"original_rich_text": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"72 year old male with localized muscle invasive urothelial cancer comes to the medical oncology clinic to discuss management options.\"}]}]}", 
+
+"images": [] 
+
+} 
+
+], 
+
+"application_type": "oncoblast", 
+
+"order": null, 
+
+"game_sessions": [], 
+
+"question_option": [ 
+
+{ 
+
+"options": { 
+
+"id": 830, 
+
+"title": "Gemcitabine and cisplatin", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 831, 
+
+"title": "Dose dense MVAC", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 832, 
+
+"title": "Enfortumab and pembrolizumab", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 833, 
+
+"title": "Gemcitabine cisplatin and durvalumab followed by durvalumab maintenance in an adjuvant setting", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+], 
+
+"question_answer": [ 
+
+{ 
+
+"options": { 
+
+"id": 831, 
+
+"title": "Dose dense MVAC", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+] 
+
+}, 
+
+{ 
+
+"id": 212, 
+
+"title": "Is Tivozanib approved for first line treatment of metastatic clear cell RCC?", 
+
+"info": "TiV03 trial evaluated the role of Tivozanib after failure of 2 or more lines of systemic treatment for metastatic RCC. TiNivo study evaluated the role of Tivozanib plus nivolumab in a second line setting. Tivozanib when evaluated in a front line setting did not have an overall survival benefit and thereby not approved(TIVO-3).", 
+
+"reference": [ 
+
+"PMID: 31810797" 
+
+], 
+
+"type": "yes_no", 
+
+"course_id": 32, 
+
+"isActive": true, 
+
+"story": [], 
+
+"application_type": "oncoblast", 
+
+"order": null, 
+
+"game_sessions": [], 
+
+"question_option": [ 
+
+{ 
+
+"options": { 
+
+"id": 808, 
+
+"title": "Yes", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 809, 
+
+"title": "No", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+], 
+
+"question_answer": [ 
+
+{ 
+
+"options": { 
+
+"id": 809, 
+
+"title": "No", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+] 
+
+}, 
+
+{ 
+
+"id": 219, 
+
+"title": "After completion of neoadjuvant cisplatin based chemotherapy if there is residual T2 or higher disease, is further adjuvant therapy indicated?", 
+
+"info": "Based on checkmate 274 and Ambassador trial, adjuvant immune therapy is indicated for patients that have residual disease despite neoadjuvant chemotherapy. The current standard of care is nivolumab.", 
+
+"reference": [ 
+
+"PMID: 34077643" 
+
+], 
+
+"type": "yes_no", 
+
+"course_id": 32, 
+
+"isActive": true, 
+
+"story": [], 
+
+"application_type": "oncoblast", 
+
+"order": null, 
+
+"game_sessions": [], 
+
+"question_option": [ 
+
+{ 
+
+"options": { 
+
+"id": 834, 
+
+"title": "Yes", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 835, 
+
+"title": "No", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+], 
+
+"question_answer": [ 
+
+{ 
+
+"options": { 
+
+"id": 834, 
+
+"title": "Yes", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+] 
+
+}, 
+
+{ 
+
+"id": 220, 
+
+"title": "Is next generation sequencing recommended for all patients with metastatic urothelial cancer?", 
+
+"info": "FGFR 2-3 alterations portend poor prognosis and can be targetable with erdafitinib. Hence, next generation sequencing is recommended for all patients with metastatic urothelial cancer.  FGFR2/3 alterations are present in 10-15% patients with metastatic urothelial cancer and enriched in localized disease.", 
+
+"reference": [ 
+
+"PMID: 37870920" 
+
+], 
+
+"type": "yes_no", 
+
+"course_id": 32, 
+
+"isActive": true, 
+
+"story": [], 
+
+"application_type": "oncoblast", 
+
+"order": null, 
+
+"game_sessions": [], 
+
+"question_option": [ 
+
+{ 
+
+"options": { 
+
+"id": 836, 
+
+"title": "Yes", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 837, 
+
+"title": "No", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+], 
+
+"question_answer": [ 
+
+{ 
+
+"options": { 
+
+"id": 836, 
+
+"title": "Yes", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+] 
+
+}, 
+
+{ 
+
+"id": 222, 
+
+"title": "PARP inhibitors in combination with androgen receptor pathway inhibitors are approved for metastatic castrate- sensitive prostate cancer. Yes or no?", 
+
+"info": "The combinations are approved only for men with castrate - resistant  prostate cancer  and HRR alterations based on two Phase 3 studies.( Propel and Talapro-3). There is no data yet to support the combination in a hormone-sensitive setting.", 
+
+"reference": [ 
+
+"PMID: 38049622" 
+
+], 
+
+"type": "yes_no", 
+
+"course_id": 32, 
+
+"isActive": true, 
+
+"story": [], 
+
+"application_type": "oncoblast", 
+
+"order": null, 
+
+"game_sessions": [], 
+
+"question_option": [ 
+
+{ 
+
+"options": { 
+
+"id": 842, 
+
+"title": "Yes", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+}, 
+
+{ 
+
+"options": { 
+
+"id": 843, 
+
+"title": "No", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+], 
+
+"question_answer": [ 
+
+{ 
+
+"options": { 
+
+"id": 843, 
+
+"title": "No", 
+
+"isActive": true, 
+
+"matching_pair": "", 
+
+"application_type": "oncoblast" 
+
+} 
+
+} 
+
+] 
+
+} 
+
+] 
+
+} 
+
+ 

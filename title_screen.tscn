@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckaxlg8q1ysmg"]
+[gd_scene format=3 uid="uid://ckaxlg8q1ysmg"]
 
 [ext_resource type="Script" uid="uid://bvo7fdb8nm2s0" path="res://title_screen.gd" id="1_05l2w"]
 [ext_resource type="FontFile" uid="uid://hyqn0gbiv8lp" path="res://Fonts/PressStart2P-vaV7.ttf" id="2_hafda"]
@@ -6,16 +6,16 @@
 [ext_resource type="StyleBox" uid="uid://cim61kdj2tdfm" path="res://Buttons/pause_button_pressed_stylebox.tres" id="3_tpml5"]
 [ext_resource type="StyleBox" uid="uid://xqvu3l1ye3xe" path="res://Buttons/pause_button_stylebox.tres" id="4_jqemp"]
 
-[node name="TitleScreen" type="Node2D"]
+[node name="TitleScreen" type="Node2D" unique_id=571066662]
 script = ExtResource("1_05l2w")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2082133086]
 offset_right = 688.0
 offset_bottom = 1168.0
 mouse_filter = 2
 texture = ExtResource("2_tpml5")
 
-[node name="PlayButton" type="Button" parent="."]
+[node name="PlayButton" type="Button" parent="." unique_id=112972962]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -32,13 +32,13 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_hafda")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = ExtResource("3_tpml5")
-theme_override_styles/hover = ExtResource("3_tpml5")
-theme_override_styles/pressed = ExtResource("3_tpml5")
 theme_override_styles/normal = ExtResource("4_jqemp")
+theme_override_styles/pressed = ExtResource("3_tpml5")
+theme_override_styles/hover = ExtResource("3_tpml5")
+theme_override_styles/focus = ExtResource("3_tpml5")
 text = "PLAY"
 
-[node name="SettingsButton" type="Button" parent="."]
+[node name="SettingsButton" type="Button" parent="." unique_id=760307863]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -55,13 +55,13 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_hafda")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = ExtResource("3_tpml5")
-theme_override_styles/hover = ExtResource("3_tpml5")
-theme_override_styles/pressed = ExtResource("3_tpml5")
 theme_override_styles/normal = ExtResource("4_jqemp")
+theme_override_styles/pressed = ExtResource("3_tpml5")
+theme_override_styles/hover = ExtResource("3_tpml5")
+theme_override_styles/focus = ExtResource("3_tpml5")
 text = "SETTINGS"
 
-[node name="Title" type="Label" parent="."]
+[node name="Title" type="Label" parent="." unique_id=865677927]
 offset_left = -32.0
 offset_top = 408.0
 offset_right = 688.0

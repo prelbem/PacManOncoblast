@@ -5,16 +5,17 @@ extends TileMapLayer
 @onready var player = %Player
 var correct_answers = 0
 
+const left_column = 176.0;
+const right_column = 560.0;
+
 func setupDots():
 	for child in get_children():
 		if (!child.is_in_group("Power Pellet")):
 			call_deferred("remove_child", child)
-			#remove_child(child)
 			child.queue_free()
 		
 	var cells = get_used_cells()
-	for i in range(cells.size()):
-		var cell = cells[i]
+	for cell in cells:
 		var dotChild = dot.instantiate()
 		var pos = Vector2(cell * tile_set.tile_size + Vector2i(16, 16));
 		#don't spawn dots above the gate or next to the warp markers
@@ -26,76 +27,50 @@ func setupDots():
 func setupAnswerDots():
 	var questionIndex = randi() % Global.questions.size()
 	var dots = get_children()
-	var created = []
 	var question = Global.questions[questionIndex]
 	%HUD.get_node("Question").text = question
-	var trueAnswers = Global.trueAnswers[questionIndex]
-	var numDots = trueAnswers.size()
 	
-	for i in numDots:
-		var currDot = dots[randi() % dots.size()];
-		var dotIsInvalid = true
-		#get a dot that's far away from the player and also isn't an existing answer dot
-		while dotIsInvalid:
-			currDot = dots[randi() % dots.size()];
-			dotIsInvalid = false
-			if currDot.global_position.distance_to(player.global_position) <= 64:
-				dotIsInvalid = true
-			else:
-				for checkDot in created:
-					if checkDot.global_position == currDot.global_position:
-						dotIsInvalid = true
-						break;
-		
-		var answer = answerDot.instantiate()
-		add_child(answer)
-		answer.global_position = currDot.global_position
-		answer.changeAnswer(trueAnswers[i])
-		answer.add_to_group("Answer Dots")
-		created.push_front(answer)
-		
-		remove_child(currDot)
-		currDot.queue_free()
-	var falseAnswers = Global.falseAnswers[questionIndex]
-	numDots = falseAnswers.size()
-	for i in numDots:
-		var currDot = dots[randi() % dots.size()];
-		var dotIsInvalid = true
-		#get a dot that's far away from the player and also isn't an existing answer dot
-		while dotIsInvalid:
-			currDot = dots[randi() % dots.size()];
-			dotIsInvalid = false
-			if currDot.global_position.distance_to(player.global_position) <= 64:
-				dotIsInvalid = true
-			else:
-				for checkDot in created:
-					if checkDot.global_position == currDot.global_position:
-						dotIsInvalid = true
-						break;
-		
-		var answer = answerDot.instantiate()
-		add_child(answer)
-		answer.global_position = currDot.global_position
-		answer.changeAnswer(falseAnswers[i])
-		answer.isAnswer = false
-		answer.add_to_group("Answer Dots")
-		created.push_front(answer)
-		
-		remove_child(currDot)
-		currDot.queue_free()
+	for currDot: Node2D in dots:
+		if (currDot.global_position.distance_to(player.global_position) <= 64 
+			|| currDot.global_position.x == left_column
+			|| currDot.global_position.x == right_column):
+			dots.erase(currDot);
+	
+	addTrueAnswerDot(questionIndex, dots)
+	addFalseAnswerDots(questionIndex, dots)
 
+func addTrueAnswerDot(questionIndex, dots):
+	var trueAnswer = Global.trueAnswers[questionIndex]
+	var dot: Node2D = dots.pick_random();
+	dots.erase(dot);
+	var trueDot = replaceDot(answerDot, dot)
+	trueDot.changeAnswer(trueAnswer);
+	trueDot.add_to_group("Answer Dots")
+	
+func addFalseAnswerDots(questionIndex, dots):
+	var falseAnswers = Global.falseAnswers[questionIndex];
+	for answer in falseAnswers:
+		var dot: Node2D = dots.pick_random();
+		dots.erase(dot);
+		var falseDot = replaceDot(answerDot, dot);
+		falseDot.changeAnswer(answer)
+		falseDot.add_to_group("Answer Dots")
+		falseDot.isAnswer = false;
 
 func addPowerPellet():
-	var dots = get_children()
-	var currDot = dots[randi() % dots.size()];
-	var currPellet = powerPellet.instantiate()
-	currPellet.global_position = currDot.global_position
-	add_child(currPellet)
+	var currDot = get_children().pick_random();
+	var currPellet = replaceDot(powerPellet, currDot);
 	currPellet.add_to_group("Power Pellets")
 	currDot.queue_free()
-	
+
+func replaceDot(toAdd: PackedScene, oldDot) -> Node2D:
+	var newDot = toAdd.instantiate();
+	newDot.global_position = oldDot.global_position;
+	oldDot.queue_free();
+	add_child(newDot);
+	return newDot;
+
 func _ready():
-	randomize()
 	setupDots()
 	#setupAnswerDots()
 	call_deferred("setupAnswerDots")
