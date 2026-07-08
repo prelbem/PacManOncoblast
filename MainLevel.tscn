@@ -1,0 +1,95 @@
+[gd_scene format=4 uid="uid://sx7lqhwecike"]
+
+[ext_resource type="PackedScene" uid="uid://hro50ovj8hl4" path="res://Player/Player.tscn" id="1_ivlct"]
+[ext_resource type="PackedScene" uid="uid://3svrnxw07s2p" path="res://Level Assets/Walls.tscn" id="2_d1soc"]
+[ext_resource type="PackedScene" uid="uid://o2sbx2oywvx0" path="res://Level Assets/Enemies/RandomEnemy.tscn" id="3_l7u77"]
+[ext_resource type="PackedScene" uid="uid://dwuwi7btb1gfd" path="res://Level Assets/Enemies/ChaseEnemy.tscn" id="4_dol1n"]
+[ext_resource type="PackedScene" uid="uid://b0qwyay164eak" path="res://Level Assets/Enemies/AnswerDotEnemy.tscn" id="5_u86cj"]
+[ext_resource type="PackedScene" uid="uid://dqk7kbm1finp4" path="res://PathfindingManager.tscn" id="6_puqvf"]
+[ext_resource type="PackedScene" uid="uid://c5u0whryxwknw" path="res://HUD.tscn" id="7_cmshu"]
+[ext_resource type="PackedScene" uid="uid://2te5uc138cgq" path="res://Level Assets/Intro.tscn" id="8_xn14s"]
+[ext_resource type="PackedScene" uid="uid://b0uvn6vn5g32u" path="res://Buttons/PauseButton.tscn" id="9_1h6ra"]
+[ext_resource type="PackedScene" uid="uid://deeudqwery4ak" path="res://Level Assets/WarpPoint.tscn" id="10_f08mq"]
+[ext_resource type="PackedScene" uid="uid://8ndmg16jrijr" path="res://Level Assets/Gate.tscn" id="11_4sn81"]
+[ext_resource type="AudioStream" uid="uid://we4bq6nrsups" path="res://Music/mainMusic.mp3" id="12_tx3db"]
+
+[node name="MainLevel" type="Node2D" unique_id=1507571602 groups=["Power Pellets"]]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=48449820]
+position = Vector2(368, 112)
+zoom = Vector2(1.5, 1.5)
+
+[node name="Player" parent="." unique_id=98320171 groups=["Player"] instance=ExtResource("1_ivlct")]
+unique_name_in_owner = true
+position = Vector2(368, 112)
+scale = Vector2(1.05, 1.05)
+motion_mode = 1
+
+[node name="Walls" parent="." unique_id=1450806403 groups=["Walls"] instance=ExtResource("2_d1soc")]
+unique_name_in_owner = true
+visibility_layer = 2
+tile_map_data = PackedByteArray("AAALAAIAAAAAAAEAAAALAAEAAAAAAAEAAAALAAAAAAABAAMAAAALAP//AAAAAAEAAAAMAAMAAAACAAAAAAANAAMAAAACAAAAAAAOAAMAAAABAAMAAAAPAAMAAAACAAAAAAALAAMAAAABAAMAAAALAAQAAAAAAAEAAAALAAUAAAAAAAEAAAALAAYAAAABAAMAAAALAAcAAAAAAAEAAAALAP7/AAAAAAEAAAALAAgAAAAAAAEAAAALAAkAAAADAAIAAAAMAAkAAAACAAAAAAAOAAkAAAADAAIAAAAQAAkAAAACAAAAAAARAAkAAAACAAIAAAARAAgAAAAAAAEAAAARAAcAAAAAAAEAAAARAAYAAAAEAAIAAAARAAUAAAAAAAEAAAARAAQAAAAAAAEAAAARAAMAAAABAAMAAAARAAIAAAAAAAEAAAARAAEAAAAAAAEAAAARAAAAAAAEAAIAAAARAP//AAAAAAEAAAARAP7/AAAAAAEAAAAQAAMAAAACAAAAAAAPAAkAAAACAAAAAAANAAkAAAACAAAAAAAMAAYAAAACAAAAAAANAAYAAAACAAAAAAAOAAYAAAABAAMAAAAPAAYAAAACAAAAAAAQAAYAAAACAAAAAAAOAAQAAAAAAAEAAAAOAAUAAAAAAAEAAAAOAAcAAAAAAAEAAAAOAAgAAAAAAAEAAAAOAAIAAAAAAAEAAAAOAAEAAAAAAAEAAAAOAAAAAAABAAMAAAAOAP//AAAAAAEAAAAOAP7/AAAAAAEAAAAMAAAAAAACAAAAAAANAAAAAAACAAAAAAAPAAAAAAACAAAAAAAQAAAAAAACAAAAAAAKAAMAAAACAAAAAAAJAAMAAAACAAAAAAAIAAMAAAABAAMAAAAHAAMAAAACAAAAAAAGAAMAAAACAAAAAAAKAAYAAAACAAAAAAAJAAYAAAACAAAAAAAIAAYAAAABAAMAAAAHAAYAAAACAAAAAAAGAAYAAAACAAAAAAAIAAUAAAAAAAEAAAAIAAQAAAAAAAEAAAAIAAIAAAAAAAEAAAAIAAEAAAAAAAEAAAAIAAAAAAABAAMAAAAIAP//AAAAAAEAAAAIAP7/AAAAAAEAAAAKAAAAAAACAAAAAAAJAAAAAAACAAAAAAAHAAAAAAACAAAAAAAGAAAAAAACAAAAAAAFAAAAAAADAAEAAAAFAP//AAAAAAEAAAAFAAMAAAABAAMAAAAFAAIAAAAAAAEAAAAFAAEAAAAAAAEAAAAFAAYAAAADAAEAAAAFAAUAAAAAAAEAAAAFAAQAAAAAAAEAAAAKAAkAAAACAAAAAAAJAAkAAAACAAAAAAAIAAkAAAADAAIAAAAHAAkAAAACAAAAAAAGAAkAAAACAAAAAAAFAAkAAAABAAIAAAAFAAgAAAAAAAEAAAAFAAcAAAAAAAEAAAAIAAcAAAAAAAEAAAAIAAgAAAAAAAEAAAARAP3/AAACAAEAAAAQAP3/AAACAAAAAAAPAP3/AAACAAAAAAAOAP3/AAAEAAEAAAANAP3/AAACAAAAAAAMAP3/AAACAAAAAAALAP3/AAABAAMAAAAKAP3/AAACAAAAAAAJAP3/AAACAAAAAAAIAP3/AAAEAAEAAAAHAP3/AAACAAAAAAAGAP3/AAACAAAAAAAFAP3/AAABAAEAAAAFAP7/AAAAAAEAAAAEAAMAAAACAAAAAAASAAMAAAACAAAAAAADAAMAAAABAAAAAAATAAMAAAADAAAAAAALAPz/AAAAAAEAAAALAPv/AAABAAMAAAAMAPv/AAADAAIAAAAJAPr/AAABAAEAAAAKAPr/AAAEAAEAAAALAPr/AAAEAAEAAAAMAPr/AAAEAAEAAAANAPr/AAACAAEAAAANAPv/AAACAAIAAAAKAPv/AAADAAIAAAAJAPv/AAABAAIAAAA=")
+
+[node name="RandomEnemy" parent="." unique_id=1335636307 node_paths=PackedStringArray("pathfinder", "player", "walls") groups=["Enemies"] instance=ExtResource("3_l7u77")]
+position = Vector2(304, -176)
+speed = 70.0
+pathfinder = NodePath("../PathfindingManager")
+player = NodePath("../Player")
+walls = NodePath("../Walls")
+
+[node name="ChaseEnemy" parent="." unique_id=1962670355 node_paths=PackedStringArray("pathfinder", "player", "walls") instance=ExtResource("4_dol1n")]
+position = Vector2(368, -80)
+pathfinder = NodePath("../PathfindingManager")
+player = NodePath("../Player")
+walls = NodePath("../Walls")
+
+[node name="AnswerDotEnemy" parent="." unique_id=1221776465 node_paths=PackedStringArray("pathfinder", "player", "walls") groups=["Enemies"] instance=ExtResource("5_u86cj")]
+position = Vector2(432, -176)
+pathfinder = NodePath("../PathfindingManager")
+player = NodePath("../Player")
+walls = NodePath("../Walls")
+
+[node name="PathfindingManager" parent="." unique_id=338308305 node_paths=PackedStringArray("tilemap") instance=ExtResource("6_puqvf")]
+position = Vector2(-24, -88)
+tilemap = NodePath("../Walls")
+
+[node name="HUD" parent="." unique_id=656412100 instance=ExtResource("7_cmshu")]
+unique_name_in_owner = true
+layer = 0
+follow_viewport_scale = 1.0
+
+[node name="Intro" parent="HUD" unique_id=1896703205 instance=ExtResource("8_xn14s")]
+top_level = true
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="PauseButton2" parent="HUD" unique_id=956755864 instance=ExtResource("9_1h6ra")]
+position = Vector2(568, 112)
+
+[node name="WarpLeft" parent="." unique_id=504163901 node_paths=PackedStringArray("warpPoint") groups=["Warp Points"] instance=ExtResource("10_f08mq")]
+unique_name_in_owner = true
+position = Vector2(112, 112)
+warpPoint = NodePath("../WarpRight")
+
+[node name="WarpRight" parent="." unique_id=276688369 node_paths=PackedStringArray("warpPoint") groups=["Warp Points"] instance=ExtResource("10_f08mq")]
+unique_name_in_owner = true
+position = Vector2(624, 112)
+warpPoint = NodePath("../WarpLeft")
+
+[node name="Gate" parent="." unique_id=446856249 groups=["Walls"] instance=ExtResource("11_4sn81")]
+unique_name_in_owner = true
+position = Vector2(368, -96)
+scale = Vector2(0.5, 0.5)
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1047600592]
+stream = ExtResource("12_tx3db")
+autoplay = true
+parameters/looping = true
+
+[connection signal="update_lives" from="Player" to="HUD" method="_on_update_lives"]
+[connection signal="body_entered" from="RandomEnemy" to="RandomEnemy/StateMachine/Scared" method="_on_test_enemy_body_entered"]
+[connection signal="body_entered" from="RandomEnemy" to="RandomEnemy/StateMachine/Move" method="_on_test_enemy_body_entered"]
+[connection signal="body_entered" from="ChaseEnemy" to="ChaseEnemy/StateMachine/Scared" method="_on_test_enemy_body_entered"]
+[connection signal="body_entered" from="ChaseEnemy" to="ChaseEnemy/StateMachine/Move" method="_on_test_enemy_body_entered"]
+[connection signal="body_entered" from="AnswerDotEnemy" to="AnswerDotEnemy/StateMachine/Scared" method="_on_test_enemy_body_entered"]
+[connection signal="body_entered" from="AnswerDotEnemy" to="AnswerDotEnemy/StateMachine/Move" method="_on_test_enemy_body_entered"]

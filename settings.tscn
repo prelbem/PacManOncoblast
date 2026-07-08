@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://be1uemjtprbws"]
+[gd_scene format=3 uid="uid://be1uemjtprbws"]
 
 [ext_resource type="Script" uid="uid://dtglvjnd38w07" path="res://settings.gd" id="1_ry1ss"]
-[ext_resource type="PackedScene" uid="uid://kfe7end88uts" path="res://Buttons/volume_slider.tscn" id="2_cj1lu"]
+[ext_resource type="PackedScene" uid="uid://kfe7end88uts" path="res://Buttons/VolumeSlider.tscn" id="2_cj1lu"]
 [ext_resource type="FontFile" uid="uid://hyqn0gbiv8lp" path="res://Fonts/PressStart2P-vaV7.ttf" id="2_gc0em"]
 [ext_resource type="StyleBox" uid="uid://cim61kdj2tdfm" path="res://Buttons/pause_button_pressed_stylebox.tres" id="3_cj1lu"]
 [ext_resource type="StyleBox" uid="uid://xqvu3l1ye3xe" path="res://Buttons/pause_button_stylebox.tres" id="4_71mqq"]

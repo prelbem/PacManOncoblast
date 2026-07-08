@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://o2sbx2oywvx0"]
 
-[ext_resource type="PackedScene" uid="uid://clfxwicv81qo" path="res://Level Assets/Enemies/TestEnemy.tscn" id="1_mu17j"]
+[ext_resource type="PackedScene" uid="uid://clfxwicv81qo" path="res://Level Assets/Enemies/TemplateEnemy.tscn" id="1_mu17j"]
 [ext_resource type="Script" uid="uid://o1cp2gcnjlch" path="res://Level Assets/Enemies/random_enemy.gd" id="2_ivxk0"]
 [ext_resource type="Texture2D" uid="uid://nw3f6snmduhq" path="res://Level Assets/Enemies/orangeGhost.png" id="3_26ton"]
 [ext_resource type="Script" uid="uid://bpb70naltb5re" path="res://Level Assets/Enemies/wander.gd" id="3_bkbj1"]
@@ -43,7 +43,7 @@ speed = 100.0
 sprite_frames = SubResource("SpriteFrames_uvx1b")
 
 [node name="StartDelay" parent="." index="2" unique_id=1268274672]
-wait_time = 20.0
+wait_time = 2.0
 
 [node name="Idle" parent="StateMachine" parent_id_path=PackedInt32Array(1153789587) index="0" unique_id=1910200753]
 speed = 100.0

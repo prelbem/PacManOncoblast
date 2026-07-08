@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-	if (!Global.visible_joystick):
+	if (!Global.VISIBLE_JOYSTICK):
 		$VBoxContainer/VisibleJoystick.button_pressed = true
 
 
@@ -10,4 +10,4 @@ func _on_back_pressed() -> void:
 
 
 func _on_visible_joystick_toggled(toggled_on: bool) -> void:
-	Global.visible_joystick = !toggled_on
+	Global.VISIBLE_JOYSTICK = !toggled_on

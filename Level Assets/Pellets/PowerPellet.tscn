@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cydgm46m7ob1c"]
+
+[ext_resource type="PackedScene" uid="uid://cpa6v8tr70g35" path="res://Level Assets/Pellets/Dot.tscn" id="1_jki3l"]
+[ext_resource type="Texture2D" uid="uid://ddtqow1ngvr8y" path="res://Level Assets/Pellets/power pellet.png" id="1_mawkv"]
+[ext_resource type="Script" uid="uid://cn7v0hry7ocoo" path="res://Level Assets/Pellets/power_pellet.gd" id="1_vkbq0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jki3l"]
+size = Vector2(27, 27)
+
+[node name="PowerPellet" unique_id=1361819788 instance=ExtResource("1_jki3l")]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_vkbq0")
+
+[node name="Sprite2D" parent="." index="0" unique_id=283115118]
+texture = ExtResource("1_mawkv")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=412305857]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_jki3l")

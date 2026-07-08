@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://3svrnxw07s2p"]
+[gd_scene format=3 uid="uid://3svrnxw07s2p"]
 
 [ext_resource type="Texture2D" uid="uid://c5frv3axuqmrp" path="res://Level Assets/pacmanTileset.png" id="1_ndvdd"]
 [ext_resource type="Script" uid="uid://ef2odt5wi7cm" path="res://Level Assets/walls.gd" id="2_7lgs7"]
@@ -160,7 +160,7 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_of4p7")
 
-[node name="Walls" type="TileMapLayer"]
+[node name="Walls" type="TileMapLayer" unique_id=358759309]
 z_as_relative = false
 tile_set = SubResource("TileSet_fh6p5")
 script = ExtResource("2_7lgs7")

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddtqow1ngvr8y"
-path="res://.godot/imported/power pellet.png-d3a6ad8624b3fc4454fbcb62ecb4eff4.ctex"
+path="res://.godot/imported/power pellet.png-2c7ecc405b91161d7e98cbd4be3f297e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level Assets/power pellet.png"
-dest_files=["res://.godot/imported/power pellet.png-d3a6ad8624b3fc4454fbcb62ecb4eff4.ctex"]
+source_file="res://Level Assets/Pellets/power pellet.png"
+dest_files=["res://.godot/imported/power pellet.png-2c7ecc405b91161d7e98cbd4be3f297e.ctex"]
 
 [params]
 

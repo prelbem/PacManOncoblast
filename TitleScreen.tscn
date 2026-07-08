@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bvo7fdb8nm2s0" path="res://title_screen.gd" id="1_05l2w"]
 [ext_resource type="FontFile" uid="uid://hyqn0gbiv8lp" path="res://Fonts/PressStart2P-vaV7.ttf" id="2_hafda"]
 [ext_resource type="Texture2D" uid="uid://dayw4tcj6gvxw" path="res://background.png" id="2_tpml5"]
+[ext_resource type="Theme" uid="uid://dhbvvylx3n2lg" path="res://MainTheme.tres" id="3_skwql"]
 [ext_resource type="StyleBox" uid="uid://cim61kdj2tdfm" path="res://Buttons/pause_button_pressed_stylebox.tres" id="3_tpml5"]
 [ext_resource type="StyleBox" uid="uid://xqvu3l1ye3xe" path="res://Buttons/pause_button_stylebox.tres" id="4_jqemp"]
 
@@ -28,6 +29,7 @@ offset_bottom = 696.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
+theme = ExtResource("3_skwql")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_hafda")

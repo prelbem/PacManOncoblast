@@ -15,6 +15,11 @@ var spawnpoint: Vector2
 func _ready():
 	spawnpoint = global_position - Vector2(0, 32)
 	$StateMachine.init(self)
+
+func scare():
+	if $StateMachine.current_state != $StateMachine.get_node("Waiting"):
+		$StateMachine.change_state($StateMachine/Scared)
+
 func _process_physics(delta: float) -> void:
 	$StateMachine.process_physics(delta)
 	

@@ -1,13 +1,18 @@
 extends TileMapLayer
-@onready var dot = preload("res://Level Assets/dot.tscn");
-@onready var answerDot = preload("res://Level Assets/AnswerDot.tscn")
-@onready var powerPellet = preload("res://Level Assets/power_pellet.tscn")
+@onready var dot: PackedScene = preload("res://Level Assets/Pellets/Dot.tscn");
+@onready var answerDot: PackedScene = preload("res://Level Assets/Pellets/AnswerDot.tscn")
+@onready var powerPellet: PackedScene = preload("res://Level Assets/Pellets/PowerPellet.tscn")
+@onready var questionDot: PackedScene = preload("res://Level Assets/Pellets/QuestionDot.tscn")
+@onready var questionScreen: PackedScene = preload("res://QuestionScreen.tscn")
+
 @onready var player = %Player
+
 var correct_answers = 0
 
 const left_column = 176.0;
 const right_column = 560.0;
 
+##Sets up the dots in the main level.
 func setupDots():
 	for child in get_children():
 		if (!child.is_in_group("Power Pellet")):
@@ -23,37 +28,53 @@ func setupDots():
 			call_deferred("add_child", dotChild)
 			dotChild.global_position = pos
 			dotChild.add_to_group("Dots")
-		
+
+##Replaces the dots with answer dots. 
+##Doesn't use dots on the left or right walls.
+##Doesn't use dots that are 64 pixels close to the player.
 func setupAnswerDots():
-	var questionIndex = randi() % Global.questions.size()
+	Global.QUESTION_INDEX = randi() % Global.getQuestionsSize()
 	var dots = get_children()
-	var question = Global.questions[questionIndex]
+	var question = Global.getQuestions()[Global.QUESTION_INDEX]
 	%HUD.get_node("Question").text = question
 	
 	for currDot: Node2D in dots:
-		if (currDot.global_position.distance_to(player.global_position) <= 64 
-			|| currDot.global_position.x == left_column
-			|| currDot.global_position.x == right_column):
+		if (currDot.global_position.distance_to(player.global_position) <= 64):
 			dots.erase(currDot);
 	
-	addTrueAnswerDot(questionIndex, dots)
-	addFalseAnswerDots(questionIndex, dots)
+	addTrueAnswerDot(dots)
+	addFalseAnswerDots(dots)
+	addQuestionDot(dots)
 
-func addTrueAnswerDot(questionIndex, dots):
-	var trueAnswer = Global.trueAnswers[questionIndex]
+##Adds the true answer dot. [br]
+##
+## @param [param dots] - The array of dots that can be replaced. [br]
+## @modifies [param dots] - Removes the dot that was replaced.
+func addTrueAnswerDot(dots: Array):
+	var trueAnswer = Global.getTrueAnswers()[Global.QUESTION_INDEX]
 	var dot: Node2D = dots.pick_random();
 	dots.erase(dot);
 	var trueDot = replaceDot(answerDot, dot)
-	trueDot.changeAnswer(trueAnswer);
+	trueDot.changeAnswer(Global.TRUE_LETTER);
+	print(Global.TRUE_LETTER)
 	trueDot.add_to_group("Answer Dots")
-	
-func addFalseAnswerDots(questionIndex, dots):
-	var falseAnswers = Global.falseAnswers[questionIndex];
-	for answer in falseAnswers:
+
+##Adds false answer dots. [br]
+##
+## @param [param dots] - The array of dots that can be replaced. [br]
+## @modifies [param dots] - Removes the dots that was replaced.
+func addFalseAnswerDots(dots: Array):
+	var falseAnswers = Global.getFalseAnswers()[Global.QUESTION_INDEX];
+	for i in falseAnswers.size():
 		var dot: Node2D = dots.pick_random();
 		dots.erase(dot);
 		var falseDot = replaceDot(answerDot, dot);
-		falseDot.changeAnswer(answer)
+		
+		var letter = char(65 + i)
+		if (letter == Global.TRUE_LETTER):
+			i += 1;
+			letter = char(65 + i);
+		falseDot.changeAnswer(letter)
 		falseDot.add_to_group("Answer Dots")
 		falseDot.isAnswer = false;
 
@@ -61,7 +82,6 @@ func addPowerPellet():
 	var currDot = get_children().pick_random();
 	var currPellet = replaceDot(powerPellet, currDot);
 	currPellet.add_to_group("Power Pellets")
-	currDot.queue_free()
 
 func replaceDot(toAdd: PackedScene, oldDot) -> Node2D:
 	var newDot = toAdd.instantiate();
@@ -70,11 +90,13 @@ func replaceDot(toAdd: PackedScene, oldDot) -> Node2D:
 	add_child(newDot);
 	return newDot;
 
+func addQuestionDot(dots: Array):
+	var currDot = dots.pick_random();
+	var questionDot = replaceDot(questionDot, currDot);
+
 func _ready():
 	setupDots()
-	#setupAnswerDots()
 	call_deferred("setupAnswerDots")
-	#call_deferred("addPowerPellet")
 
 func on_answer_dot_eaten(isAnswer):
 	if (isAnswer):

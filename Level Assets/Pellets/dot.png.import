@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3uqj41gqkuog"
-path="res://.godot/imported/answer_dot.png-143f180b631757339e4d7a2d7d08ef70.ctex"
+uid="uid://uhml6fnphujm"
+path="res://.godot/imported/dot.png-961517fc2359d605c4e742c4e22bed79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level Assets/answer_dot.png"
-dest_files=["res://.godot/imported/answer_dot.png-143f180b631757339e4d7a2d7d08ef70.ctex"]
+source_file="res://Level Assets/Pellets/dot.png"
+dest_files=["res://.godot/imported/dot.png-961517fc2359d605c4e742c4e22bed79.ctex"]
 
 [params]
 

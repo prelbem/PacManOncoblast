@@ -4,7 +4,7 @@ var clicked = false
 @onready var spawnpoint = global_position - Vector2(sprite_size/2, sprite_size/2)
 
 func _ready():
-	visible = Global.visible_joystick
+	visible = Global.VISIBLE_JOYSTICK
 
 func _process(delta):
 	if Input.is_action_just_pressed("clicked"):

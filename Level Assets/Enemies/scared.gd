@@ -1,19 +1,20 @@
 extends EnemyMove
-@export var idle_state: State
+@export var next_state: State
 @export var eaten_state: State
 
-var active = false
 var eaten = false
 func enter():
-	active = true
+	super()
 	parent.path.clear()
 	$ScaredTimer.start()
 	parent.get_node("AnimatedSprite2D").play("scared")
-	
+		
 func exit():
-	active = false
+	super()
+	eaten = false;
 	parent.path.clear()
 	parent.get_node("AnimatedSprite2D").play("default")
+
 
 func find_path():
 	var cells = parent.walls.get_used_cells()
@@ -27,11 +28,11 @@ func process_physics(delta):
 	if eaten:
 		return eaten_state
 	if $ScaredTimer.time_left <= 0:
-		return idle_state.next_state
+		return next_state
 	return super(delta)
 
 
-func _on_test_enemy_body_entered(body: Node2D) -> void:
+func _on_enemy_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("Player") and active):
 		body.updateScore(10)
 		body.freeze_frame(0.5)

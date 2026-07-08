@@ -85,7 +85,7 @@ func kill_player():
 	player_death.emit()
 
 func _on_death_animation_finished() -> void:
-	get_tree().change_scene_to_file("res://game_over.tscn")
+	get_tree().change_scene_to_file("res://GameOver.tscn")
 
 func _on_damage_pause_timeout() -> void:
 	$AudioStreamPlayer2D.play()
@@ -111,5 +111,5 @@ func _on_pellet_power_timeout() -> void:
 	var enemies = get_tree().get_nodes_in_group("Enemies")
 	for enemy in enemies:
 		var state_machine = enemy.get_node("StateMachine")
-		if state_machine.current_state != state_machine.get_node("Idle"):
-			state_machine.default_state.next_state
+		if state_machine.current_state != state_machine.get_node("Waiting"):
+			state_machine.change_state(state_machine.get_node("Move"));

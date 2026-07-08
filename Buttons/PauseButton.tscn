@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0uvn6vn5g32u"]
+[gd_scene format=3 uid="uid://b0uvn6vn5g32u"]
 
 [ext_resource type="Script" uid="uid://cqswgmcofi566" path="res://pause_button.gd" id="1_dg5ag"]
 [ext_resource type="Texture2D" uid="uid://clbjeyqyp52pc" path="res://Buttons/pause button.png" id="2_t13ag"]
 
-[node name="PauseButton" type="TouchScreenButton"]
+[node name="PauseButton" type="TouchScreenButton" unique_id=1747678040]
 texture_normal = ExtResource("2_t13ag")
 script = ExtResource("1_dg5ag")
 

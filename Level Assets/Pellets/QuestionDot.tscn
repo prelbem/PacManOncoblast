@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://chhmlyqg161b"]
+
+[ext_resource type="PackedScene" uid="uid://cpa6v8tr70g35" path="res://Level Assets/Pellets/Dot.tscn" id="1_6g54e"]
+[ext_resource type="Script" uid="uid://b4u50617ldovq" path="res://Level Assets/Pellets/question_dot.gd" id="2_axmjv"]
+[ext_resource type="Texture2D" uid="uid://ww3w01rk6x62" path="res://Level Assets/Pellets/question dot.png" id="2_itox6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_axmjv"]
+size = Vector2(29, 29)
+
+[node name="QuestionDot" unique_id=1361819788 instance=ExtResource("1_6g54e")]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("2_axmjv")
+value = 0
+
+[node name="Sprite2D" parent="." index="0" unique_id=283115118]
+texture = ExtResource("2_itox6")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=412305857]
+shape = SubResource("RectangleShape2D_axmjv")

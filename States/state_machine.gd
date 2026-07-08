@@ -10,7 +10,7 @@ func init(parent):
 		child.parent = parent;
 	change_state(default_state)
 	
-func change_state(state):
+func change_state(state: State):
 	if current_state:
 		current_state.exit()
 	current_state = state
