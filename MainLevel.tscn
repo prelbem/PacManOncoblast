@@ -19,11 +19,11 @@
 position = Vector2(368, 112)
 zoom = Vector2(1.5, 1.5)
 
-[node name="Player" parent="." unique_id=98320171 groups=["Player"] instance=ExtResource("1_ivlct")]
+[node name="Player" parent="." unique_id=98320171 node_paths=PackedStringArray("pathfindManager") groups=["Player"] instance=ExtResource("1_ivlct")]
 unique_name_in_owner = true
 position = Vector2(368, 112)
 scale = Vector2(1.05, 1.05)
-motion_mode = 1
+pathfindManager = NodePath("../PathfindingManager")
 
 [node name="Walls" parent="." unique_id=1450806403 groups=["Walls"] instance=ExtResource("2_d1soc")]
 unique_name_in_owner = true

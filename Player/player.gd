@@ -1,47 +1,51 @@
-extends CharacterBody2D
+extends Area2D
 @export var speed = 200
-
+@export var pathfindManager: PathfindingManager;
 var shape_query = PhysicsShapeQueryParameters2D.new()
-var queue_dir: Vector2
-var movement_queue = ""
+var queue_dir: Vector2i = Vector2i.RIGHT;
 var can_move = true
 var score: int = 0
 var lives = 3
 var preVelocity: Vector2;
+var path: PackedVector2Array;
 
 var damage_flash = false
 var pellet_power = false
 
 signal update_lives(lives)
 signal player_death
+
+
 func _ready():
 	shape_query.shape = $PlayerHitbox.shape
 	shape_query.collide_with_areas = false
 	shape_query.collide_with_bodies = true
 	shape_query.collision_mask = 2
+	path = [];
 
 func _physics_process(delta):
 	#continuously tries to move in the option the player pressed
 	if (can_move):
 		if (can_move_in_direction(queue_dir, delta)):
-			velocity = queue_dir * speed
-			rotation = velocity.angle()
 			$AnimatedSprite2D.play("default")
 			if !$AudioStreamPlayer2D.is_playing():
 				$AudioStreamPlayer2D.play()
-
+			
 		if (Input.is_action_just_pressed("ui_right")):
-			queue_dir = Vector2.RIGHT
-		if (Input.is_action_just_pressed("ui_left")):
-			queue_dir = Vector2.LEFT
-		if (Input.is_action_just_pressed("ui_up")):
-			queue_dir = Vector2.UP
-		if (Input.is_action_just_pressed("ui_down")):
-			queue_dir = Vector2.DOWN
-	var collision = move_and_collide(velocity * delta)
-	if (collision):
-		$AnimatedSprite2D.pause()
-		$AudioStreamPlayer2D.stop()
+			queue_dir = Vector2i.RIGHT
+		elif (Input.is_action_just_pressed("ui_left")):
+			queue_dir = Vector2i.LEFT
+		elif (Input.is_action_just_pressed("ui_up")):
+			queue_dir = Vector2i.UP
+		elif (Input.is_action_just_pressed("ui_down")):
+			queue_dir = Vector2i.DOWN
+			
+		if path.is_empty():
+			path = pathfindManager.getPlayerPath(global_position, queue_dir)
+		else:
+			global_position = global_position.move_toward(path[0], speed * delta)
+			if global_position == path.get(0):
+				path.remove_at(0)
 
 func can_move_in_direction(dir:Vector2, delta:float) -> bool:
 	shape_query.transform = global_transform.translated(dir * speed * delta * 3)
@@ -72,14 +76,10 @@ func freeze_frame(time = 1):
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	can_move = false
 	visible = false
-	preVelocity = velocity
-	velocity = Vector2(0, 0)
 	get_tree().paused = true
 
 func kill_player():
-	velocity = Vector2(0, 0)
 	can_move = false
-	movement_queue = ""
 	$AnimatedSprite2D.rotation = 0
 	$AnimatedSprite2D.play("death")
 	player_death.emit()
@@ -91,7 +91,6 @@ func _on_damage_pause_timeout() -> void:
 	$AudioStreamPlayer2D.play()
 	get_tree().paused = false
 	process_mode = Node.PROCESS_MODE_PAUSABLE
-	velocity = preVelocity
 	if (damage_flash):
 		$IFrames.start()
 		$DamageFlash.start()
@@ -111,5 +110,5 @@ func _on_pellet_power_timeout() -> void:
 	var enemies = get_tree().get_nodes_in_group("Enemies")
 	for enemy in enemies:
 		var state_machine = enemy.get_node("StateMachine")
-		if state_machine.current_state != state_machine.get_node("Waiting"):
-			state_machine.change_state(state_machine.get_node("Move"));
+		if state_machine.current_state == state_machine.get_node("Waiting"):
+			state_machine.change_state(state_machine.get_node("Waiting").next_state);

@@ -2,14 +2,14 @@ extends Area2D
 class_name Enemy
 @export var speed: float = 100.0
 @export var pathfinder: PathfindingManager
-@export var player: CharacterBody2D
+@export var player: Area2D
 @export var walls: TileMapLayer
 
 @onready var gate = %Gate
 @onready var warpLeft = %WarpLeft
 @onready var warpRight = %WarpRight
 
-var path : Array[Vector2]
+var path : PackedVector2Array
 var spawnpoint: Vector2
 
 func _ready():

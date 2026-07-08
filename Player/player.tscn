@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://hro50ovj8hl4"]
+[gd_scene format=3 uid="uid://hro50ovj8hl4"]
 
 [ext_resource type="Script" uid="uid://dkyrrios40tw8" path="res://Player/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://jwc4muukm6vo" path="res://Player/playerSprite.png" id="2_4ntmi"]
@@ -97,7 +97,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dkpta")
 }],
-"loop": false,
+"loop": 0,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -114,44 +114,43 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k53q1")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k53q1"]
-custom_solver_bias = 0.047
 size = Vector2(21, 21)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="Area2D" unique_id=1430799249]
 z_index = 1
 collision_mask = 7
 script = ExtResource("1_onrkg")
 speed = 100
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=555656896]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_fhl08")
 frame_progress = 0.393058
 
-[node name="PlayerHitbox" type="CollisionShape2D" parent="."]
+[node name="PlayerHitbox" type="CollisionShape2D" parent="." unique_id=1484296400]
 shape = SubResource("RectangleShape2D_k53q1")
 
-[node name="IFrames" type="Timer" parent="."]
+[node name="IFrames" type="Timer" parent="." unique_id=1761088959]
 wait_time = 4.0
 one_shot = true
 
-[node name="Pause" type="Timer" parent="."]
+[node name="Pause" type="Timer" parent="." unique_id=1514768443]
 one_shot = true
 
-[node name="DamageFlash" type="Timer" parent="."]
+[node name="DamageFlash" type="Timer" parent="." unique_id=1752851550]
 wait_time = 0.3
 
-[node name="PelletPower" type="Timer" parent="."]
+[node name="PelletPower" type="Timer" parent="." unique_id=685452373]
 wait_time = 10.0
 one_shot = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1245560853]
 stream = ExtResource("4_gwnis")
 bus = &"Sound Effects"
 
