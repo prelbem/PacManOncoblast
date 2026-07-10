@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqk7kbm1finp4"]
+[gd_scene format=3 uid="uid://dqk7kbm1finp4"]
 
 [ext_resource type="Script" uid="uid://cngnql31qnnnb" path="res://pathfinding_manager.gd" id="1_8uu73"]
 
-[node name="PathfindingManager" type="Node2D"]
+[node name="PathfindingManager" type="Node2D" unique_id=894196786]
 script = ExtResource("1_8uu73")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1259764408]

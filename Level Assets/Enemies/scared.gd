@@ -32,7 +32,7 @@ func process_physics(delta):
 	return super(delta)
 
 func on_area_entered(area: Area2D):
-	if (area.is_in_group("Player") and active):
+	if (area.is_in_group("Player")):
 		area.updateScore(10)
 		area.freeze_frame(0.5)
 		eaten = true

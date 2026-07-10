@@ -26,12 +26,12 @@ func _process(delta):
 		if (angle_input == 0):
 			Input.action_press("ui_right")
 			Input.action_release("ui_right")
-		if (angle_input == -PI/2):
+		elif (angle_input == -PI/2):
 			Input.action_press("ui_up")
 			Input.action_release("ui_up")
-		if (angle_input == PI):
+		elif (angle_input == PI):
 			Input.action_press("ui_left")
 			Input.action_release("ui_left")
-		if (angle_input == PI/2):
+		elif (angle_input == PI/2):
 			Input.action_press("ui_down")
 			Input.action_release("ui_down")

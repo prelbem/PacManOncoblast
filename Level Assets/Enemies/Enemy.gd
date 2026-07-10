@@ -29,6 +29,6 @@ func _process_physics(delta: float) -> void:
 func _on_player_death() -> void:
 	visible = false
 
-
 func _on_area_entered(area: Area2D) -> void:
-	$StateMachine.current_state.on_area_entered(area);
+	#$StateMachine.current_state.on_area_entered(area);
+	pass

@@ -44,6 +44,8 @@ func _physics_process(delta):
 				$AnimatedSprite2D.play();
 			if global_position == path.get(0):
 				path.remove_at(0)
+				if (path.is_empty()):
+					updatePath()
 			else:
 				var new_position: Vector2 = global_position.move_toward(path[0], speed * delta)
 				rotation = (new_position - global_position).angle();

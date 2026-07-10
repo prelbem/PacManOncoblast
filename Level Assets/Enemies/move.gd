@@ -2,16 +2,6 @@
 class_name EnemyMove extends State
 @export var speed: float = 70
 
-var active = false;
-
-func enter():
-	active = true;
-	super()
-
-func exit():
-	active = false;
-	super();
-
 @abstract
 func find_path()
 
