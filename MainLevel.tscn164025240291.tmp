@@ -13,6 +13,32 @@
 [ext_resource type="PackedScene" uid="uid://8ndmg16jrijr" path="res://Level Assets/Gate.tscn" id="11_4sn81"]
 [ext_resource type="AudioStream" uid="uid://we4bq6nrsups" path="res://Music/mainMusic.mp3" id="12_tx3db"]
 
+[sub_resource type="GDScript" id="GDScript_ivlct"]
+script/source = "extends Enemy
+
+func _ready():
+	super()
+
+func _process(delta):
+	$StateMachine.process_physics(delta)
+	
+func _on_player_death() -> void:
+	visible = false
+
+func _on_start_delay_timeout() -> void:
+	pass
+"
+
+[sub_resource type="GDScript" id="GDScript_d1soc"]
+script/source = "extends Enemy
+
+func _process(delta):
+	$StateMachine.process_physics(delta)
+	
+func _on_player_death() -> void:
+	visible = false
+"
+
 [node name="MainLevel" type="Node2D" unique_id=1507571602 groups=["Power Pellets"]]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=48449820]
@@ -33,6 +59,8 @@ tile_map_data = PackedByteArray("AAALAAIAAAAAAAEAAAALAAEAAAAAAAEAAAALAAAAAAABAAM
 
 [node name="RandomEnemy" parent="." unique_id=1335636307 node_paths=PackedStringArray("pathfinder", "player", "walls") groups=["Enemies"] instance=ExtResource("3_l7u77")]
 position = Vector2(302, -196)
+script = SubResource("GDScript_ivlct")
+speed = 70.0
 pathfinder = NodePath("../PathfindingManager")
 player = NodePath("../Player")
 walls = NodePath("../Walls")
@@ -45,6 +73,7 @@ walls = NodePath("../Walls")
 
 [node name="AnswerDotEnemy" parent="." unique_id=1221776465 node_paths=PackedStringArray("pathfinder", "player", "walls") groups=["Enemies"] instance=ExtResource("5_u86cj")]
 position = Vector2(430, -196)
+script = SubResource("GDScript_d1soc")
 pathfinder = NodePath("../PathfindingManager")
 player = NodePath("../Player")
 walls = NodePath("../Walls")

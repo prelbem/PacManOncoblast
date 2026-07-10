@@ -4,14 +4,20 @@ func find_path():
 	var player = parent.player
 	var warpLeft = parent.warpLeft
 	var warpRight = parent.warpRight
-	var path = pathfinder.getPath(parent.global_position, player.global_position)
-	var warpLeftPath = pathfinder.getPath(parent.global_position, warpLeft.global_position) + pathfinder.getPath(warpRight.global_position, player.global_position)
-	var warpRightPath = pathfinder.getPath(parent.global_position, warpRight.global_position) + pathfinder.getPath(warpLeft.global_position, player.global_position)
-	if (path.size() > warpLeftPath.size()):
+	var path: PackedVector2Array = pathfinder.getPath(parent.global_position, player.global_position)
+	var warpLeftPath: PackedVector2Array = (pathfinder.getPath(parent.global_position, warpLeft.global_position) 
+		+ pathfinder.getPath(warpRight.global_position, player.global_position))
+	var warpRightPath: PackedVector2Array = (pathfinder.getPath(parent.global_position, warpRight.global_position) 
+		+ pathfinder.getPath(warpLeft.global_position, player.global_position))
+	
+	if (path_length(path) > path_length(warpLeftPath)):
 		path = warpLeftPath
-	if (path.size() > warpRightPath.size()):
+	if (path_length(path) > path_length(warpRightPath)):
 		path = warpRightPath
-	#manually correct top pathfinding to player
-	if (path.size() > 0 and path[path.size() - 1].y == -48.0):
-		path[path.size() - 1].y = -80
 	parent.path = path
+
+func path_length(path: PackedVector2Array) -> int:
+	var result = 0;
+	for i in path.size() - 1:
+		result += path.get(i + 1).distance_to(path.get(i))
+	return result;

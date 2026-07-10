@@ -1,13 +1,12 @@
 [gd_scene format=3 uid="uid://o2sbx2oywvx0"]
 
 [ext_resource type="PackedScene" uid="uid://clfxwicv81qo" path="res://Level Assets/Enemies/TemplateEnemy.tscn" id="1_mu17j"]
-[ext_resource type="Script" uid="uid://o1cp2gcnjlch" path="res://Level Assets/Enemies/random_enemy.gd" id="2_ivxk0"]
 [ext_resource type="Texture2D" uid="uid://nw3f6snmduhq" path="res://Level Assets/Enemies/orangeGhost.png" id="3_26ton"]
 [ext_resource type="Script" uid="uid://bpb70naltb5re" path="res://Level Assets/Enemies/wander.gd" id="3_bkbj1"]
 [ext_resource type="Texture2D" uid="uid://hi6qyp4pmtnj" path="res://Level Assets/Enemies/ghostEyes.png" id="4_uvx1b"]
 [ext_resource type="Texture2D" uid="uid://qeegejyijbc" path="res://Level Assets/Enemies/scaredGhost.png" id="6_2t5qq"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_uvx1b"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_is8c2"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -36,17 +35,13 @@ animations = [{
 }]
 
 [node name="RandomEnemy" unique_id=631719739 instance=ExtResource("1_mu17j")]
-script = ExtResource("2_ivxk0")
-speed = 100.0
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=1373897691]
-sprite_frames = SubResource("SpriteFrames_uvx1b")
+sprite_frames = SubResource("SpriteFrames_is8c2")
 
 [node name="StartDelay" parent="." index="2" unique_id=1268274672]
 wait_time = 2.0
 
-[node name="Idle" parent="StateMachine" parent_id_path=PackedInt32Array(1153789587) index="0" unique_id=1910200753]
-speed = 100.0
-
-[node name="Move" parent="StateMachine" parent_id_path=PackedInt32Array(1153789587) index="3" unique_id=173392163]
+[node name="Move" parent="StateMachine" parent_id_path=PackedInt32Array(1153789587) index="2" unique_id=173392163]
 script = ExtResource("3_bkbj1")
+speed = 70.0

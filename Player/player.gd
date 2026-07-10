@@ -1,7 +1,8 @@
 extends Area2D
+class_name Player
+
 @export var speed = 200
 @export var pathfindManager: PathfindingManager;
-var shape_query = PhysicsShapeQueryParameters2D.new()
 var queue_dir: Vector2i = Vector2i.RIGHT;
 var can_move = true
 var score: int = 0
@@ -15,49 +16,48 @@ var pellet_power = false
 signal update_lives(lives)
 signal player_death
 
-
 func _ready():
-	shape_query.shape = $PlayerHitbox.shape
-	shape_query.collide_with_areas = false
-	shape_query.collide_with_bodies = true
-	shape_query.collision_mask = 2
 	path = [];
+	$AnimatedSprite2D.play("default")
 
 func _physics_process(delta):
 	#continuously tries to move in the option the player pressed
-	if (can_move):
-		if (can_move_in_direction(queue_dir, delta)):
-			$AnimatedSprite2D.play("default")
-			if !$AudioStreamPlayer2D.is_playing():
-				$AudioStreamPlayer2D.play()
-			
+	if (can_move):			
 		if (Input.is_action_just_pressed("ui_right")):
 			queue_dir = Vector2i.RIGHT
-		elif (Input.is_action_just_pressed("ui_left")):
+			updatePath();
+		if (Input.is_action_just_pressed("ui_left")):
 			queue_dir = Vector2i.LEFT
-		elif (Input.is_action_just_pressed("ui_up")):
+			updatePath();
+		if (Input.is_action_just_pressed("ui_up")):
 			queue_dir = Vector2i.UP
-		elif (Input.is_action_just_pressed("ui_down")):
+			updatePath();
+		if (Input.is_action_just_pressed("ui_down")):
 			queue_dir = Vector2i.DOWN
+			updatePath();
 			
 		if path.is_empty():
-			path = pathfindManager.getPlayerPath(global_position, queue_dir)
+			$AnimatedSprite2D.pause()
+			updatePath();
 		else:
-			global_position = global_position.move_toward(path[0], speed * delta)
+			if !$AnimatedSprite2D.is_playing():
+				$AnimatedSprite2D.play();
 			if global_position == path.get(0):
 				path.remove_at(0)
+			else:
+				var new_position: Vector2 = global_position.move_toward(path[0], speed * delta)
+				rotation = (new_position - global_position).angle();
+				global_position = new_position
 
-func can_move_in_direction(dir:Vector2, delta:float) -> bool:
-	shape_query.transform = global_transform.translated(dir * speed * delta * 3)
-	var result = get_world_2d().direct_space_state.intersect_shape(shape_query)
-	return result.size() == 0
+func updatePath():
+	path = pathfindManager.getPlayerPath(global_position, queue_dir, Vector2.from_angle(rotation))
 
 func updateScore(val):
 	score += val
 	%HUD.get_node("Score").text = str(score)
 
 #get that retro player hit feel, pauses the game upon a hit and then flashes after
-func _on_player_hit() -> void:
+func hit() -> void:
 	if ($IFrames.time_left <= 0):
 		lives -= 1;
 		if (lives <= 0):

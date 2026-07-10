@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://clfxwicv81qo"]
 
-[ext_resource type="Script" uid="uid://dqe1v6kvom3my" path="res://Level Assets/Enemies/Enemy.gd" id="1_l76fu"]
+[ext_resource type="Script" uid="uid://ntldkydp3m73" path="res://Level Assets/Enemies/enemy.gd" id="1_l76fu"]
 [ext_resource type="Texture2D" uid="uid://ccskck1ciyid" path="res://Level Assets/Enemies/redGhost.png" id="2_kaqsq"]
 [ext_resource type="Texture2D" uid="uid://hi6qyp4pmtnj" path="res://Level Assets/Enemies/ghostEyes.png" id="3_jbsq5"]
 [ext_resource type="Texture2D" uid="uid://qeegejyijbc" path="res://Level Assets/Enemies/scaredGhost.png" id="4_rilau"]
 [ext_resource type="PackedScene" uid="uid://bb3did5mf2l3w" path="res://States/StateMachine.tscn" id="5_hhfex"]
 [ext_resource type="Script" uid="uid://d2svam76jp401" path="res://Level Assets/Enemies/scared.gd" id="6_sybjk"]
 [ext_resource type="Script" uid="uid://br1hnrslm5hq3" path="res://Level Assets/Enemies/eaten.gd" id="7_yuqc8"]
-[ext_resource type="Script" uid="uid://dpo3qfqqehot4" path="res://Level Assets/Enemies/move.gd" id="8_b4b5l"]
+[ext_resource type="Script" uid="uid://bgybf0lx1x5qk" path="res://States/state.gd" id="8_l76fu"]
 [ext_resource type="Script" uid="uid://c2nf2up2r5u2i" path="res://Level Assets/Enemies/waiting.gd" id="9_gxc0r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3aq4t"]
@@ -46,7 +46,6 @@ scale = Vector2(0.5, 0.5)
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_l76fu")
-speed = 70.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1373897691]
 scale = Vector2(1.6, 1.6)
@@ -81,7 +80,7 @@ speed = 250.0
 metadata/_custom_type_script = "uid://bgybf0lx1x5qk"
 
 [node name="Move" type="Node" parent="StateMachine" unique_id=173392163]
-script = ExtResource("8_b4b5l")
+script = ExtResource("8_l76fu")
 metadata/_custom_type_script = "uid://bgybf0lx1x5qk"
 
 [node name="Waiting" type="Node" parent="StateMachine" unique_id=511073493 node_paths=PackedStringArray("next_state")]
@@ -89,6 +88,5 @@ script = ExtResource("9_gxc0r")
 next_state = NodePath("../Move")
 metadata/_custom_type_script = "uid://bgybf0lx1x5qk"
 
-[connection signal="body_entered" from="." to="StateMachine/Scared" method="_on_enemy_body_entered"]
-[connection signal="body_entered" from="." to="StateMachine/Move" method="_on_enemy_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="StartDelay" to="." method="_on_start_delay_timeout"]

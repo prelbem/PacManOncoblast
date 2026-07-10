@@ -31,9 +31,8 @@ func process_physics(delta):
 		return next_state
 	return super(delta)
 
-
-func _on_enemy_body_entered(body: Node2D) -> void:
-	if (body.is_in_group("Player") and active):
-		body.updateScore(10)
-		body.freeze_frame(0.5)
+func on_area_entered(area: Area2D):
+	if (area.is_in_group("Player") and active):
+		area.updateScore(10)
+		area.freeze_frame(0.5)
 		eaten = true

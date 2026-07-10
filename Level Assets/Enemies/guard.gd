@@ -7,4 +7,5 @@ func find_path():
 	else:
 		var player = parent.player
 		var direct = player.queue_dir
-		parent.path = parent.pathfinder.getPath(parent.global_position, player.global_position + direct * 64)
+		if (!player.path.isEmpty()):
+			parent.path = parent.pathfinder.getPath(parent.global_position, player.path[0])

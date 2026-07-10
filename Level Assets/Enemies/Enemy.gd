@@ -1,5 +1,5 @@
+
 extends Area2D
-class_name Enemy
 @export var speed: float = 100.0
 @export var pathfinder: PathfindingManager
 @export var player: Area2D
@@ -13,12 +13,15 @@ var path : PackedVector2Array
 var spawnpoint: Vector2
 
 func _ready():
-	spawnpoint = global_position - Vector2(0, 32)
+	spawnpoint = global_position
 	$StateMachine.init(self)
 
 func scare():
 	if $StateMachine.current_state != $StateMachine.get_node("Waiting"):
 		$StateMachine.change_state($StateMachine/Scared)
+
+func _process(delta: float) -> void:
+	$StateMachine.process_physics(delta)
 
 func _process_physics(delta: float) -> void:
 	$StateMachine.process_physics(delta)
@@ -26,5 +29,6 @@ func _process_physics(delta: float) -> void:
 func _on_player_death() -> void:
 	visible = false
 
-func _on_start_delay_timeout() -> void:
-	pass
+
+func _on_area_entered(area: Area2D) -> void:
+	$StateMachine.current_state.on_area_entered(area);

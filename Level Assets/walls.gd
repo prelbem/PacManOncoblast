@@ -24,7 +24,9 @@ func setupDots():
 		var dotChild = dot.instantiate()
 		var pos = Vector2(cell * tile_set.tile_size + Vector2i(16, 16));
 		#don't spawn dots above the gate or next to the warp markers
-		if (pos.distance_to(%WarpLeft.global_position) > 32 and pos.distance_to(%WarpRight.global_position) > 32 and pos.y > %Gate.position.y):
+		if (pos.distance_to(%WarpLeft.global_position) > 32 
+			and pos.distance_to(%WarpRight.global_position) > 32 
+			and pos.y > %Gate.position.y):
 			call_deferred("add_child", dotChild)
 			dotChild.global_position = pos
 			dotChild.add_to_group("Dots")
@@ -34,6 +36,17 @@ func setupDots():
 ##Doesn't use dots that are 64 pixels close to the player.
 func setupAnswerDots():
 	Global.QUESTION_INDEX = randi() % Global.getQuestionsSize()
+	
+	var answers: Array = Global.getFalseAnswers()[Global.QUESTION_INDEX].duplicate();
+	answers.append(Global.getTrueAnswers()[Global.QUESTION_INDEX]);
+	answers.shuffle();
+	Global.ANSWER_SET = answers;
+	
+	for i in answers.size():
+		if (Global.getTrueAnswers().has(answers[i])):
+			Global.TRUE_LETTER = char(65 + i);
+	
+	
 	var dots = get_children()
 	var question = Global.getQuestions()[Global.QUESTION_INDEX]
 	%HUD.get_node("Question").text = question
@@ -69,11 +82,9 @@ func addFalseAnswerDots(dots: Array):
 		var dot: Node2D = dots.pick_random();
 		dots.erase(dot);
 		var falseDot = replaceDot(answerDot, dot);
-		
 		var letter = char(65 + i)
-		if (letter == Global.TRUE_LETTER):
-			i += 1;
-			letter = char(65 + i);
+		if (65 + i >= ord(Global.TRUE_LETTER)):
+			letter = char(66 + i);
 		falseDot.changeAnswer(letter)
 		falseDot.add_to_group("Answer Dots")
 		falseDot.isAnswer = false;
@@ -85,7 +96,7 @@ func addPowerPellet():
 
 func replaceDot(toAdd: PackedScene, oldDot) -> Node2D:
 	var newDot = toAdd.instantiate();
-	newDot.global_position = oldDot.global_position;
+	newDot.global_position = oldDot.global_position - global_position;
 	oldDot.queue_free();
 	add_child(newDot);
 	return newDot;

@@ -5,19 +5,15 @@ extends Control
 func _ready() -> void:
 	get_tree().paused = true
 	var text = Global.getInfo()[Global.QUESTION_INDEX];
-	var answers: Array = Global.getFalseAnswers()[Global.QUESTION_INDEX].duplicate();
-	answers.append(Global.getTrueAnswers()[Global.QUESTION_INDEX]);
-	answers.shuffle();
 	
 	text += "\n\n";
 	
 	text += Global.getQuestions()[Global.QUESTION_INDEX];
 	
 	text += "\n";
-	for i in answers.size():
-		text += "\n" + char(65 + i) + ". " + answers[i]
-		if (Global.getTrueAnswers().has(answers[i])):
-			Global.TRUE_LETTER = char(65 + i);
+	
+	for i in Global.ANSWER_SET.size():
+		text += "\n" + char(65 + i) + ". " + Global.ANSWER_SET[i];
 		
 	get_node("Info").text = text;
 

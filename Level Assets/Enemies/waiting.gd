@@ -7,7 +7,7 @@ func enter():
 func find_path():
 	var path = []
 	if parent.global_position.distance_to(parent.spawnpoint) == 0:
-		path = parent.pathfinder.getPath(parent.global_position, parent.global_position - Vector2(0, 16))
+		path = parent.pathfinder.getPath(parent.global_position, parent.global_position + Vector2(0, 32))
 	else:
 		path = parent.pathfinder.getPath(parent.global_position, parent.spawnpoint)
 	parent.path = path

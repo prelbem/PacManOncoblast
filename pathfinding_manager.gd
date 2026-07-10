@@ -10,7 +10,8 @@ func setupGrid():
 	astarGrid.cell_size = tilemap.tile_set.tile_size
 	astarGrid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	astarGrid.default_compute_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
-	astarGrid.offset = Vector2(16, 16)
+	astarGrid.offset = Vector2(16, 0)
+	#astarGrid.jumping_enabled = true;
 	astarGrid.update()
 	
 	#this HAS to come after updating astar grid
@@ -22,20 +23,24 @@ func setupGrid():
 				
 	cell_size = astarGrid.cell_size.x
 	
-func getPath(start: Vector2i, end: Vector2i) -> PackedVector2Array:
-	#var path : Array[Vector2] = []
-	#for point in astarGrid.get_point_path(start/astarGrid.cell_size.x, end/astarGrid.cell_size.x):
-	#	var currPoint = point
-	#	path.append(currPoint)
+func getPath(start: Vector2, end: Vector2) -> PackedVector2Array:
 	return astarGrid.get_point_path(start/cell_size, end/cell_size); 
 	
-func getPlayerPath(position: Vector2i, direction: Vector2i) -> PackedVector2Array:
-	var point = position + direction * cell_size;
-	while (astarGrid.is_in_boundsv(point/cell_size) 
-	&& astarGrid.is_point_solid(point/cell_size)):
-		point += direction * cell_size;
+func getPlayerPath(position: Vector2, new_direction: Vector2, curr_direction: Vector2) -> PackedVector2Array:
+	var point: Vector2 = position/cell_size + new_direction.normalized();
+	while (astarGrid.is_in_boundsv(point) 
+	&& astarGrid.is_point_solid(point)):
+		point += curr_direction.normalized();
+	if (point.y * cell_size <= %Gate.global_position.y):
+		return [];
 	
-	return astarGrid.get_point_path(position/cell_size, point/cell_size);
+	if (astarGrid.is_in_boundsv(point)):
+		var path = astarGrid.get_point_path(position/cell_size, point);
+		if path.size() >= 3:
+			path.remove_at(0)
+		return path;
+	else:
+		return [];
 	
 func _ready():
 	setupGrid()

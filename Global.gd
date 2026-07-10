@@ -6,6 +6,7 @@ var _INFO: Array[String] = []
 
 var TRUE_LETTER = "A"
 var QUESTION_INDEX = 0;
+var ANSWER_SET: Array[String] = []
 var VISIBLE_JOYSTICK = true
 
 const file_path = "res://Questions/answers.json"

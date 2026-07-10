@@ -1,3 +1,4 @@
+@abstract
 class_name EnemyMove extends State
 @export var speed: float = 70
 
@@ -11,8 +12,13 @@ func exit():
 	active = false;
 	super();
 
-func find_path():
-	pass
+@abstract
+func find_path()
+
+func on_area_entered(area: Area2D):
+	if (area.is_in_group("Player")):
+		var player: Player = area;
+		player.hit();
 
 func process_physics(delta):
 	if parent.path.is_empty():
@@ -22,7 +28,3 @@ func process_physics(delta):
 		if parent.global_position == parent.path[0]:
 			parent.path.remove_at(0)
 	return;
-
-func _on_enemy_body_entered(body: Node2D) -> void:
-	if (body.is_in_group("Player") and active):
-		body._on_player_hit();

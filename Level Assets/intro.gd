@@ -2,7 +2,9 @@ extends Control
 var ticks = 4
 func _ready():
 	get_tree().paused = true
-	
+	if (!visible):
+		get_tree().paused = false;
+		queue_free()
 
 func _on_timer_timeout() -> void:
 	ticks -= 1

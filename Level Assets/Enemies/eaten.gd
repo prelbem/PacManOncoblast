@@ -9,6 +9,9 @@ func exit():
 	parent.get_node("AnimatedSprite2D").play("default")
 	parent.monitoring = true
 
+func find_path():
+	pass
+
 func process_physics(delta):
 	if parent.path.is_empty():
 		return next_state
