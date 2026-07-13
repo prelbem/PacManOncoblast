@@ -24,8 +24,8 @@ func setupDots():
 		var dotChild = dot.instantiate()
 		var pos = Vector2(cell * tile_set.tile_size + Vector2i(16, 16));
 		#don't spawn dots above the gate or next to the warp markers
-		if (pos.distance_to(%WarpLeft.global_position) > 32 
-			and pos.distance_to(%WarpRight.global_position) > 32 
+		if (pos.distance_to(%WarpLeft.global_position) > 64
+			and pos.distance_to(%WarpRight.global_position) > 64
 			and pos.y > %Gate.position.y):
 			call_deferred("add_child", dotChild)
 			dotChild.global_position = pos

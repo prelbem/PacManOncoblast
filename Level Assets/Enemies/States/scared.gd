@@ -34,5 +34,5 @@ func process_physics(delta):
 func on_area_entered(area: Area2D):
 	if (area.is_in_group("Player")):
 		parent.playerManager.updateScore(10)
-		parent.playerManager.freeze_frame(0.5)
+		GameManager.freeze_frame(0.5)
 		eaten = true

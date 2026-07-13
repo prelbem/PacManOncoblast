@@ -31,7 +31,6 @@ func _physics_process(delta):
 		if path.is_empty():
 			$AnimatedSprite2D.pause()
 			$AudioStreamPlayer2D.stop()
-			updatePath();
 		else:
 			if !$AnimatedSprite2D.is_playing():
 				$AnimatedSprite2D.play();

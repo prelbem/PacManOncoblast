@@ -42,7 +42,8 @@ playerManager = NodePath("../PlayerManager")
 walls = NodePath("../Walls")
 
 [node name="ChaseEnemy" parent="." unique_id=1962670355 node_paths=PackedStringArray("pathfinder", "playerManager", "walls") instance=ExtResource("4_dol1n")]
-position = Vector2(368, -96)
+position = Vector2(368, -196)
+speed = 200.0
 pathfinder = NodePath("../PathfindingManager")
 playerManager = NodePath("../PlayerManager")
 walls = NodePath("../Walls")

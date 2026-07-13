@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://hi6qyp4pmtnj" path="res://Level Assets/Enemies/ghostEyes.png" id="3_jbsq5"]
 [ext_resource type="Texture2D" uid="uid://qeegejyijbc" path="res://Level Assets/Enemies/scaredGhost.png" id="4_rilau"]
 [ext_resource type="PackedScene" uid="uid://bb3did5mf2l3w" path="res://States/StateMachine.tscn" id="5_hhfex"]
-[ext_resource type="Script" uid="uid://d2svam76jp401" path="res://Level Assets/Enemies/scared.gd" id="6_sybjk"]
-[ext_resource type="Script" uid="uid://br1hnrslm5hq3" path="res://Level Assets/Enemies/eaten.gd" id="7_yuqc8"]
+[ext_resource type="Script" uid="uid://d2svam76jp401" path="res://Level Assets/Enemies/States/scared.gd" id="6_sybjk"]
+[ext_resource type="Script" uid="uid://br1hnrslm5hq3" path="res://Level Assets/Enemies/States/eaten.gd" id="7_yuqc8"]
 [ext_resource type="Script" uid="uid://bgybf0lx1x5qk" path="res://States/state.gd" id="8_l76fu"]
-[ext_resource type="Script" uid="uid://c2nf2up2r5u2i" path="res://Level Assets/Enemies/waiting.gd" id="9_gxc0r"]
+[ext_resource type="Script" uid="uid://c2nf2up2r5u2i" path="res://Level Assets/Enemies/States/waiting.gd" id="9_gxc0r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3aq4t"]
 resource_local_to_scene = true
@@ -67,7 +67,7 @@ default_state = NodePath("Waiting")
 script = ExtResource("6_sybjk")
 next_state = NodePath("../Move")
 eaten_state = NodePath("../Eaten")
-speed = null
+speed = 80.0
 metadata/_custom_type_script = "uid://bgybf0lx1x5qk"
 
 [node name="ScaredTimer" type="Timer" parent="StateMachine/Scared" unique_id=1273410224]
@@ -87,7 +87,6 @@ metadata/_custom_type_script = "uid://bgybf0lx1x5qk"
 [node name="Waiting" type="Node" parent="StateMachine" unique_id=511073493 node_paths=PackedStringArray("next_state")]
 script = ExtResource("9_gxc0r")
 next_state = NodePath("../Move")
-speed = null
 metadata/_custom_type_script = "uid://bgybf0lx1x5qk"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

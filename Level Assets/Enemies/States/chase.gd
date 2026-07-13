@@ -4,11 +4,13 @@ func find_path():
 	var playerManager = parent.playerManager
 	var warpLeft = parent.warpLeft
 	var warpRight = parent.warpRight
-	var path: PackedVector2Array = pathfinder.getPath(parent.global_position, playerManager.get_global_position())
+	
+	var endpoint = playerManager.get_global_position();
+	var path: PackedVector2Array = pathfinder.getPath(parent.global_position, endpoint)
 	var warpLeftPath: PackedVector2Array = (pathfinder.getPath(parent.global_position, warpLeft.global_position) 
-		+ pathfinder.getPath(warpRight.global_position, playerManager.get_global_position()))
+		+ pathfinder.getPath(warpRight.global_position, endpoint))
 	var warpRightPath: PackedVector2Array = (pathfinder.getPath(parent.global_position, warpRight.global_position) 
-		+ pathfinder.getPath(warpLeft.global_position, playerManager.get_global_position()))
+		+ pathfinder.getPath(warpLeft.global_position, endpoint))
 	
 	if (path_length(path) > path_length(warpLeftPath)):
 		path = warpLeftPath

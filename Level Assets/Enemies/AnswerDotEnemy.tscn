@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b0qwyay164eak"]
 
 [ext_resource type="PackedScene" uid="uid://clfxwicv81qo" path="res://Level Assets/Enemies/TemplateEnemy.tscn" id="1_3r0xf"]
-[ext_resource type="Script" uid="uid://d30iv1k2c0cyf" path="res://Level Assets/Enemies/guard.gd" id="3_a5wpe"]
+[ext_resource type="Script" uid="uid://d30iv1k2c0cyf" path="res://Level Assets/Enemies/States/guard.gd" id="3_a5wpe"]
 [ext_resource type="Texture2D" uid="uid://fkgfbkdcbd05" path="res://Level Assets/Enemies/purpleGhost.png" id="3_silpu"]
 [ext_resource type="Texture2D" uid="uid://hi6qyp4pmtnj" path="res://Level Assets/Enemies/ghostEyes.png" id="4_r8ri3"]
 [ext_resource type="Texture2D" uid="uid://qeegejyijbc" path="res://Level Assets/Enemies/scaredGhost.png" id="5_hoaye"]
