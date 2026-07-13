@@ -5,12 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://bl230igo3fwfm" path="res://Player/LivesContainer.tscn" id="2_8sq4i"]
 [ext_resource type="FontFile" uid="uid://hyqn0gbiv8lp" path="res://Fonts/PressStart2P-vaV7.ttf" id="3_a2258"]
 [ext_resource type="PackedScene" uid="uid://ddqmomd7g83t" path="res://Buttons/PauseMenu.tscn" id="4_640wx"]
+[ext_resource type="PackedScene" uid="uid://b0uvn6vn5g32u" path="res://Buttons/PauseButton.tscn" id="6_gv1iq"]
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" unique_id=655677261]
 follow_viewport_scale = 0.5
 script = ExtResource("1_8sq4i")
 
-[node name="Question" type="Label" parent="."]
+[node name="Question" type="Label" parent="." unique_id=1389671407]
 unique_name_in_owner = true
 anchors_preset = -1
 anchor_left = 0.015625
@@ -23,7 +24,7 @@ theme_override_font_sizes/font_size = 15
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Score" type="Label" parent="."]
+[node name="Score" type="Label" parent="." unique_id=1100970666]
 unique_name_in_owner = true
 anchors_preset = -1
 anchor_left = 0.8625
@@ -34,17 +35,17 @@ theme_override_fonts/font = ExtResource("3_a2258")
 horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="LivesContainer" parent="." instance=ExtResource("2_8sq4i")]
+[node name="LivesContainer" parent="." unique_id=1123636566 instance=ExtResource("2_8sq4i")]
 anchors_preset = -1
-anchor_left = 0.75
-anchor_right = 0.947312
-anchor_bottom = 0.0440141
-offset_right = 197.313
-offset_bottom = 50.0
+anchor_left = 0.7657143
+anchor_right = 1.0053082
+anchor_bottom = 0.044014093
+offset_right = 167.7157
+offset_bottom = 50.000008
 scale = Vector2(0.5, 0.5)
 metadata/_edit_use_anchors_ = true
 
-[node name="ScreenTint" type="ColorRect" parent="."]
+[node name="ScreenTint" type="ColorRect" parent="." unique_id=851154316]
 process_mode = 1
 visible = false
 z_index = 1
@@ -54,20 +55,26 @@ anchor_bottom = 1.00704
 color = Color(0.134686, 0.155406, 0.164283, 0.662745)
 metadata/_edit_use_anchors_ = true
 
-[node name="PauseMenu" parent="." instance=ExtResource("4_640wx")]
+[node name="PauseMenu" parent="." unique_id=2106681898 instance=ExtResource("4_640wx")]
 visible = false
 z_index = 2
+
+[node name="MobileControls" parent="." unique_id=980020305 instance=ExtResource("1_64ctp")]
 anchors_preset = -1
-anchor_left = 0.0625
-anchor_top = 0.380282
-anchor_right = 0.0625
-anchor_bottom = 0.380282
+anchor_left = 0.811
+anchor_top = 0.1056338
+anchor_right = 0.811
+anchor_bottom = 0.1056338
 grow_horizontal = 1
 grow_vertical = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="MobileControls" parent="." instance=ExtResource("1_64ctp")]
-offset_left = -256.0
-offset_top = -468.0
-offset_right = -256.0
-offset_bottom = -468.0
+[node name="PauseButton2" parent="." unique_id=1747678040 instance=ExtResource("6_gv1iq")]
+anchors_preset = -1
+anchor_left = 0.863
+anchor_top = 0.07658451
+anchor_right = 0.931
+anchor_bottom = 0.13644366
+offset_right = -68.0
+offset_bottom = -68.0
+metadata/_edit_use_anchors_ = true

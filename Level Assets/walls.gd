@@ -3,7 +3,7 @@ extends TileMapLayer
 @onready var answerDot: PackedScene = preload("res://Level Assets/Pellets/AnswerDot.tscn")
 @onready var powerPellet: PackedScene = preload("res://Level Assets/Pellets/PowerPellet.tscn")
 @onready var questionDot: PackedScene = preload("res://Level Assets/Pellets/QuestionDot.tscn")
-@onready var questionScreen: PackedScene = preload("res://QuestionScreen.tscn")
+@onready var questionScreen: PackedScene = preload("res://Level Assets/QuestionScreen.tscn")
 
 @export var playerManager: PlayerManager
 

@@ -1,6 +1,6 @@
 extends "res://Level Assets/Pellets/dot.gd"
 
-@onready var questionScreen : PackedScene = preload("res://QuestionScreen.tscn");
+@onready var questionScreen : PackedScene = preload("res://Level Assets/QuestionScreen.tscn");
 
 func _on_area_entered(area: Area2D) -> void:
 	if (area.is_in_group("Player")):

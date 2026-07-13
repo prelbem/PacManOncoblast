@@ -3,27 +3,20 @@
 [ext_resource type="Script" uid="uid://dp1clx2jyocix" path="res://Player/player_manager.gd" id="1_yyb2g"]
 
 [node name="PlayerManager" type="Node" unique_id=1598682486]
-process_mode = 3
+process_mode = 1
 script = ExtResource("1_yyb2g")
 
 [node name="IFrames" type="Timer" parent="." unique_id=1990070317]
-process_mode = 1
 wait_time = 4.0
 one_shot = true
 
-[node name="Pause" type="Timer" parent="." unique_id=1618284011]
-one_shot = true
-
 [node name="DamageFlash" type="Timer" parent="." unique_id=521114404]
-process_mode = 1
 wait_time = 0.3
 
 [node name="PelletPower" type="Timer" parent="." unique_id=991857852]
-process_mode = 1
 wait_time = 10.0
 one_shot = true
 
 [connection signal="timeout" from="IFrames" to="." method="_on_i_frames_timeout"]
-[connection signal="timeout" from="Pause" to="." method="_on_pause_timeout"]
 [connection signal="timeout" from="DamageFlash" to="." method="_on_damage_flash_timeout"]
 [connection signal="timeout" from="PelletPower" to="." method="_on_pellet_power_timeout"]

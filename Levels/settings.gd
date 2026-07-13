@@ -1,4 +1,4 @@
-extends Node2D
+extends ColorRect
 
 @export var titleScreen: PackedScene
 

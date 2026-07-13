@@ -26,7 +26,7 @@ GameManager="*uid://122mbciqap81"
 
 [display]
 
-window/size/viewport_width=640
+window/size/viewport_width=1000
 window/size/viewport_height=1136
 
 [gui]

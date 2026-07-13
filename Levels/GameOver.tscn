@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://t6ns82auvp0q"]
+
+[ext_resource type="Script" uid="uid://bssdtt1cr3aky" path="res://Levels/game_over.gd" id="1_y26ei"]
+[ext_resource type="FontFile" uid="uid://hyqn0gbiv8lp" path="res://Fonts/PressStart2P-vaV7.ttf" id="2_8u835"]
+[ext_resource type="StyleBox" uid="uid://xqvu3l1ye3xe" path="res://Buttons/pause_button_stylebox.tres" id="3_ftari"]
+[ext_resource type="StyleBox" uid="uid://cim61kdj2tdfm" path="res://Buttons/pause_button_pressed_stylebox.tres" id="4_28vn7"]
+
+[node name="GameOver" type="ColorRect" unique_id=1653841385]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_y26ei")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="." unique_id=234416248]
+layout_mode = 0
+anchor_left = 0.1125
+anchor_top = 0.58450705
+anchor_right = 0.8875
+anchor_bottom = 0.6971831
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_8u835")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = ExtResource("3_ftari")
+theme_override_styles/pressed = ExtResource("4_28vn7")
+theme_override_styles/hover = ExtResource("4_28vn7")
+text = "Restart?"
+autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="." unique_id=1422414859]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -30.0
+offset_right = 270.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_8u835")
+theme_override_font_sizes/font_size = 60
+text = "GAME OVER"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

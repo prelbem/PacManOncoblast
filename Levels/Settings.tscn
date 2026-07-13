@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://be1uemjtprbws"]
+
+[ext_resource type="Script" uid="uid://dtglvjnd38w07" path="res://Levels/settings.gd" id="1_ry1ss"]
+[ext_resource type="PackedScene" uid="uid://kfe7end88uts" path="res://Buttons/VolumeSlider.tscn" id="2_cj1lu"]
+[ext_resource type="FontFile" uid="uid://hyqn0gbiv8lp" path="res://Fonts/PressStart2P-vaV7.ttf" id="2_gc0em"]
+[ext_resource type="StyleBox" uid="uid://cim61kdj2tdfm" path="res://Buttons/pause_button_pressed_stylebox.tres" id="3_cj1lu"]
+[ext_resource type="StyleBox" uid="uid://xqvu3l1ye3xe" path="res://Buttons/pause_button_stylebox.tres" id="4_71mqq"]
+[ext_resource type="AudioStream" uid="uid://we4bq6nrsups" path="res://Music/mainMusic.mp3" id="6_71mqq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71mqq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gc0em"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cj1lu"]
+
+[node name="Settings" type="ColorRect" unique_id=1677615022]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_ry1ss")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1707353925]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -268.0
+offset_right = 146.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="VisibleJoystick" type="Button" parent="VBoxContainer" unique_id=1199319981]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71mqq")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_gc0em")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cj1lu")
+toggle_mode = true
+text = "Invisible Joystick"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=419839684]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer" unique_id=1242577048]
+layout_mode = 2
+text = "Global Volume"
+horizontal_alignment = 1
+
+[node name="VolumeSlider" parent="VBoxContainer/VBoxContainer" unique_id=1824924985 instance=ExtResource("2_cj1lu")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer" unique_id=471409702]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2" unique_id=1261612584]
+layout_mode = 2
+text = "Sound Effects"
+horizontal_alignment = 1
+
+[node name="VolumeSlider" parent="VBoxContainer/VBoxContainer2" unique_id=1857685833 instance=ExtResource("2_cj1lu")]
+layout_mode = 2
+bus_name = "Sound Effects"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer" unique_id=545377911]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer3" unique_id=2024374054]
+layout_mode = 2
+text = "Music"
+horizontal_alignment = 1
+
+[node name="VolumeSlider" parent="VBoxContainer/VBoxContainer3" unique_id=1570189926 instance=ExtResource("2_cj1lu")]
+layout_mode = 2
+bus_name = "Music"
+
+[node name="Back" type="Button" parent="." unique_id=1489200681]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.0
+offset_top = 132.0
+offset_right = 158.0
+offset_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_gc0em")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = ExtResource("4_71mqq")
+theme_override_styles/pressed = ExtResource("3_cj1lu")
+theme_override_styles/hover = ExtResource("3_cj1lu")
+text = "Back
+"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1914371448]
+stream = ExtResource("6_71mqq")
+autoplay = true
+bus = &"Music"
+
+[connection signal="toggled" from="VBoxContainer/VisibleJoystick" to="." method="_on_visible_joystick_toggled"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

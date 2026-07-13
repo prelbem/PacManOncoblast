@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://dqk7kbm1finp4" path="res://PathfindingManager.tscn" id="6_puqvf"]
 [ext_resource type="PackedScene" uid="uid://c5u0whryxwknw" path="res://HUD.tscn" id="7_cmshu"]
 [ext_resource type="PackedScene" uid="uid://2te5uc138cgq" path="res://Level Assets/Intro.tscn" id="8_xn14s"]
-[ext_resource type="PackedScene" uid="uid://b0uvn6vn5g32u" path="res://Buttons/PauseButton.tscn" id="9_1h6ra"]
 [ext_resource type="PackedScene" uid="uid://deeudqwery4ak" path="res://Level Assets/WarpPoint.tscn" id="10_f08mq"]
 [ext_resource type="PackedScene" uid="uid://8ndmg16jrijr" path="res://Level Assets/Gate.tscn" id="11_4sn81"]
 [ext_resource type="AudioStream" uid="uid://we4bq6nrsups" path="res://Music/mainMusic.mp3" id="12_tx3db"]
@@ -68,9 +67,6 @@ visible = false
 top_level = true
 size_flags_horizontal = 2
 size_flags_vertical = 2
-
-[node name="PauseButton2" parent="HUD" unique_id=956755864 instance=ExtResource("9_1h6ra")]
-position = Vector2(568, 112)
 
 [node name="WarpLeft" parent="." unique_id=504163901 node_paths=PackedStringArray("warpPoint") groups=["Warp Points"] instance=ExtResource("10_f08mq")]
 unique_name_in_owner = true

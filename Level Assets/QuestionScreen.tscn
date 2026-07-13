@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://doag1to57nkix"]
+
+[ext_resource type="Script" uid="uid://c3w8frbeqcos4" path="res://Level Assets/question_screen.gd" id="1_6oofy"]
+
+[sub_resource type="SystemFont" id="SystemFont_owdjl"]
+subpixel_positioning = 0
+
+[node name="QuestionScreen" type="ColorRect" unique_id=2103975405]
+process_mode = 3
+top_level = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_6oofy")
+
+[node name="Info" type="Label" parent="." unique_id=638894864]
+custom_maximum_size = Vector2(-1, 800)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.034
+anchor_top = 0.03521127
+anchor_right = 0.98
+anchor_bottom = 0.03521127
+offset_bottom = 16.0
+grow_horizontal = 2
+theme_override_fonts/font = SubResource("SystemFont_owdjl")
+text = "QUESTION"
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="." unique_id=11004498]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5005
+anchor_top = 1.0
+anchor_right = 0.5005
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -136.0
+offset_right = 50.5
+offset_bottom = -101.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 25
+text = "OK"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

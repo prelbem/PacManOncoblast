@@ -36,7 +36,9 @@ func hit() -> void:
 			return
 		update_lives.emit(lives)
 		player.visible = false
-		freeze_frame()
+		
+		GameManager.freeze_frame()
+		
 		$IFrames.start()
 		$DamageFlash.start()
 
@@ -46,20 +48,9 @@ func kill_player():
 	player.get_node("AnimatedSprite2D").play("death")
 	player_death.emit()
 
-func freeze_frame(time = 1):
-	$Pause.wait_time = time
-	$Pause.start()
-	player.can_move = false
-	get_tree().paused = true
-	
 func updateScore(val):
 	score += val
 	%HUD.get_node("Score").text = str(score)
 
 func _on_death_animation_finished() -> void:
 	GameManager.change_scene(GameManager.Scenes.GAME_OVER)
-
-func _on_pause_timeout() -> void:
-	get_tree().paused = false;
-	player.can_move = true
-	player.visible = true

@@ -1,4 +1,4 @@
-extends Node2D
+extends TextureRect
 
 func _ready():
 	get_tree().paused = false
