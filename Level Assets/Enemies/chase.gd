@@ -1,14 +1,14 @@
 extends EnemyMove
 func find_path():
 	var pathfinder = parent.pathfinder
-	var player = parent.player
+	var playerManager = parent.playerManager
 	var warpLeft = parent.warpLeft
 	var warpRight = parent.warpRight
-	var path: PackedVector2Array = pathfinder.getPath(parent.global_position, player.global_position)
+	var path: PackedVector2Array = pathfinder.getPath(parent.global_position, playerManager.get_global_position())
 	var warpLeftPath: PackedVector2Array = (pathfinder.getPath(parent.global_position, warpLeft.global_position) 
-		+ pathfinder.getPath(warpRight.global_position, player.global_position))
+		+ pathfinder.getPath(warpRight.global_position, playerManager.get_global_position()))
 	var warpRightPath: PackedVector2Array = (pathfinder.getPath(parent.global_position, warpRight.global_position) 
-		+ pathfinder.getPath(warpLeft.global_position, player.global_position))
+		+ pathfinder.getPath(warpLeft.global_position, playerManager.get_global_position()))
 	
 	if (path_length(path) > path_length(warpLeftPath)):
 		path = warpLeftPath

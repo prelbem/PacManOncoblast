@@ -67,6 +67,7 @@ default_state = NodePath("Waiting")
 script = ExtResource("6_sybjk")
 next_state = NodePath("../Move")
 eaten_state = NodePath("../Eaten")
+speed = null
 metadata/_custom_type_script = "uid://bgybf0lx1x5qk"
 
 [node name="ScaredTimer" type="Timer" parent="StateMachine/Scared" unique_id=1273410224]
@@ -86,6 +87,7 @@ metadata/_custom_type_script = "uid://bgybf0lx1x5qk"
 [node name="Waiting" type="Node" parent="StateMachine" unique_id=511073493 node_paths=PackedStringArray("next_state")]
 script = ExtResource("9_gxc0r")
 next_state = NodePath("../Move")
+speed = null
 metadata/_custom_type_script = "uid://bgybf0lx1x5qk"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -25,13 +25,13 @@ func _process(delta):
 		var angle_input = snapped(direct.angle(), PI/2)
 		if (angle_input == 0):
 			Input.action_press("ui_right")
-			#Input.action_release("ui_right")
+			Input.action_release("ui_right")
 		elif (angle_input == -PI/2):
 			Input.action_press("ui_up")
-			#Input.action_release("ui_up")
+			Input.action_release("ui_up")
 		elif (angle_input == PI):
 			Input.action_press("ui_left")
-			#Input.action_release("ui_left")
+			Input.action_release("ui_left")
 		elif (angle_input == PI/2):
 			Input.action_press("ui_down")
-			#Input.action_release("ui_down")
+			Input.action_release("ui_down")

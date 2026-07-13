@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://deeudqwery4ak" path="res://Level Assets/WarpPoint.tscn" id="10_f08mq"]
 [ext_resource type="PackedScene" uid="uid://8ndmg16jrijr" path="res://Level Assets/Gate.tscn" id="11_4sn81"]
 [ext_resource type="AudioStream" uid="uid://we4bq6nrsups" path="res://Music/mainMusic.mp3" id="12_tx3db"]
+[ext_resource type="PackedScene" uid="uid://benl8q5fp6uxv" path="res://Player/PlayerManager.tscn" id="13_d1soc"]
 
 [node name="MainLevel" type="Node2D" unique_id=1507571602 groups=["Power Pellets"]]
 
@@ -25,28 +26,32 @@ position = Vector2(368, 96)
 scale = Vector2(1.05, 1.05)
 pathfindManager = NodePath("../PathfindingManager")
 
-[node name="Walls" parent="." unique_id=1450806403 groups=["Walls"] instance=ExtResource("2_d1soc")]
+[node name="Walls" parent="." unique_id=1450806403 node_paths=PackedStringArray("playerManager") groups=["Walls"] instance=ExtResource("2_d1soc")]
 unique_name_in_owner = true
 visibility_layer = 2
 position = Vector2(0, -16)
 tile_map_data = PackedByteArray("AAALAAIAAAAAAAEAAAALAAEAAAAAAAEAAAALAAAAAAABAAMAAAALAP//AAAAAAEAAAAMAAMAAAACAAAAAAANAAMAAAACAAAAAAAOAAMAAAABAAMAAAAPAAMAAAACAAAAAAALAAMAAAABAAMAAAALAAQAAAAAAAEAAAALAAUAAAAAAAEAAAALAAYAAAABAAMAAAALAAcAAAAAAAEAAAALAP7/AAAAAAEAAAALAAgAAAAAAAEAAAALAAkAAAADAAIAAAAMAAkAAAACAAAAAAAOAAkAAAADAAIAAAAQAAkAAAACAAAAAAARAAkAAAACAAIAAAARAAgAAAAAAAEAAAARAAcAAAAAAAEAAAARAAYAAAAEAAIAAAARAAUAAAAAAAEAAAARAAQAAAAAAAEAAAARAAMAAAABAAMAAAARAAIAAAAAAAEAAAARAAEAAAAAAAEAAAARAAAAAAAEAAIAAAARAP//AAAAAAEAAAARAP7/AAAAAAEAAAAQAAMAAAACAAAAAAAPAAkAAAACAAAAAAANAAkAAAACAAAAAAAMAAYAAAACAAAAAAANAAYAAAACAAAAAAAOAAYAAAABAAMAAAAPAAYAAAACAAAAAAAQAAYAAAACAAAAAAAOAAQAAAAAAAEAAAAOAAUAAAAAAAEAAAAOAAcAAAAAAAEAAAAOAAgAAAAAAAEAAAAOAAIAAAAAAAEAAAAOAAEAAAAAAAEAAAAOAAAAAAABAAMAAAAOAP//AAAAAAEAAAAOAP7/AAAAAAEAAAAMAAAAAAACAAAAAAANAAAAAAACAAAAAAAPAAAAAAACAAAAAAAQAAAAAAACAAAAAAAKAAMAAAACAAAAAAAJAAMAAAACAAAAAAAIAAMAAAABAAMAAAAHAAMAAAACAAAAAAAGAAMAAAACAAAAAAAKAAYAAAACAAAAAAAJAAYAAAACAAAAAAAIAAYAAAABAAMAAAAHAAYAAAACAAAAAAAGAAYAAAACAAAAAAAIAAUAAAAAAAEAAAAIAAQAAAAAAAEAAAAIAAIAAAAAAAEAAAAIAAEAAAAAAAEAAAAIAAAAAAABAAMAAAAIAP//AAAAAAEAAAAIAP7/AAAAAAEAAAAKAAAAAAACAAAAAAAJAAAAAAACAAAAAAAHAAAAAAACAAAAAAAGAAAAAAACAAAAAAAFAAAAAAADAAEAAAAFAP//AAAAAAEAAAAFAAMAAAABAAMAAAAFAAIAAAAAAAEAAAAFAAEAAAAAAAEAAAAFAAYAAAADAAEAAAAFAAUAAAAAAAEAAAAFAAQAAAAAAAEAAAAKAAkAAAACAAAAAAAJAAkAAAACAAAAAAAIAAkAAAADAAIAAAAHAAkAAAACAAAAAAAGAAkAAAACAAAAAAAFAAkAAAABAAIAAAAFAAgAAAAAAAEAAAAFAAcAAAAAAAEAAAAIAAcAAAAAAAEAAAAIAAgAAAAAAAEAAAARAP3/AAACAAEAAAAQAP3/AAACAAAAAAAPAP3/AAACAAAAAAAOAP3/AAAEAAEAAAANAP3/AAACAAAAAAAMAP3/AAACAAAAAAALAP3/AAABAAMAAAAKAP3/AAACAAAAAAAJAP3/AAACAAAAAAAIAP3/AAAEAAEAAAAHAP3/AAACAAAAAAAGAP3/AAACAAAAAAAFAP3/AAABAAEAAAAFAP7/AAAAAAEAAAAEAAMAAAACAAAAAAASAAMAAAACAAAAAAADAAMAAAABAAAAAAATAAMAAAADAAAAAAALAPz/AAAAAAEAAAALAPv/AAABAAMAAAAMAPv/AAADAAIAAAAJAPr/AAABAAEAAAAKAPr/AAAEAAEAAAALAPr/AAAEAAEAAAAMAPr/AAAEAAEAAAANAPr/AAACAAEAAAANAPv/AAACAAIAAAAKAPv/AAADAAIAAAAJAPv/AAABAAIAAAA=")
+playerManager = NodePath("../PlayerManager")
 
-[node name="RandomEnemy" parent="." unique_id=1335636307 node_paths=PackedStringArray("pathfinder", "player", "walls") groups=["Enemies"] instance=ExtResource("3_l7u77")]
+[node name="PlayerManager" parent="." unique_id=1598682486 node_paths=PackedStringArray("player") instance=ExtResource("13_d1soc")]
+player = NodePath("../Player")
+
+[node name="RandomEnemy" parent="." unique_id=1335636307 node_paths=PackedStringArray("pathfinder", "playerManager", "walls") groups=["Enemies"] instance=ExtResource("3_l7u77")]
 position = Vector2(302, -196)
 pathfinder = NodePath("../PathfindingManager")
-player = NodePath("../Player")
+playerManager = NodePath("../PlayerManager")
 walls = NodePath("../Walls")
 
-[node name="ChaseEnemy" parent="." unique_id=1962670355 node_paths=PackedStringArray("pathfinder", "player", "walls") instance=ExtResource("4_dol1n")]
+[node name="ChaseEnemy" parent="." unique_id=1962670355 node_paths=PackedStringArray("pathfinder", "playerManager", "walls") instance=ExtResource("4_dol1n")]
 position = Vector2(368, -96)
 pathfinder = NodePath("../PathfindingManager")
-player = NodePath("../Player")
+playerManager = NodePath("../PlayerManager")
 walls = NodePath("../Walls")
 
-[node name="AnswerDotEnemy" parent="." unique_id=1221776465 node_paths=PackedStringArray("pathfinder", "player", "walls") groups=["Enemies"] instance=ExtResource("5_u86cj")]
+[node name="AnswerDotEnemy" parent="." unique_id=1221776465 node_paths=PackedStringArray("pathfinder", "playerManager", "walls") groups=["Enemies"] instance=ExtResource("5_u86cj")]
 position = Vector2(430, -196)
 pathfinder = NodePath("../PathfindingManager")
-player = NodePath("../Player")
+playerManager = NodePath("../PlayerManager")
 walls = NodePath("../Walls")
 
 [node name="PathfindingManager" parent="." unique_id=338308305 node_paths=PackedStringArray("tilemap") instance=ExtResource("6_puqvf")]
@@ -87,7 +92,10 @@ stream = ExtResource("12_tx3db")
 autoplay = true
 parameters/looping = true
 
-[connection signal="update_lives" from="Player" to="HUD" method="_on_update_lives"]
+[connection signal="player_death" from="PlayerManager" to="RandomEnemy" method="_on_player_death"]
+[connection signal="player_death" from="PlayerManager" to="ChaseEnemy" method="_on_player_death"]
+[connection signal="player_death" from="PlayerManager" to="AnswerDotEnemy" method="_on_player_death"]
+[connection signal="update_lives" from="PlayerManager" to="HUD" method="_on_update_lives"]
 [connection signal="body_entered" from="RandomEnemy" to="RandomEnemy/StateMachine/Scared" method="_on_test_enemy_body_entered"]
 [connection signal="body_entered" from="RandomEnemy" to="RandomEnemy/StateMachine/Move" method="_on_test_enemy_body_entered"]
 [connection signal="body_entered" from="ChaseEnemy" to="ChaseEnemy/StateMachine/Scared" method="_on_test_enemy_body_entered"]

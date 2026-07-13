@@ -2,17 +2,19 @@ extends TouchScreenButton
 
 
 func _on_pressed() -> void:
-	var player = get_node("../../Player")
+	var player = get_node("../../PlayerManager")
 	var damage_timer: Timer = player.get_node("Pause")
+	damage_timer.paused = true;
+	get_tree().paused = true
 	#if damage pause is inactive
-	if damage_timer.time_left <= 0:
-		#to pause
-		if (!get_tree().paused):
-			get_tree().paused = true
-	#if damage pause is active
-	else:
-		player.process_mode = Node.PROCESS_MODE_PAUSABLE
+	#if damage_timer.time_left <= 0:
+		##to pause
+		#if (!get_tree().paused):
+			#get_tree().paused = true
+	##if damage pause is active
+	#else:
+		##player.process_mode = Node.PROCESS_MODE_PAUSABLE
 		#damage_timer.paused = true
-		#player.get_node("DamageFlash").paused = true
+		##player.get_node("DamageFlash").paused = true
 	get_node("../../HUD/PauseMenu").visible = true
 	get_node("../../HUD/ScreenTint").visible = true

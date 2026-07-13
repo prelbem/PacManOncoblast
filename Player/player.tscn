@@ -131,31 +131,13 @@ speed = 100
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=555656896]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_fhl08")
-frame_progress = 0.393058
+animation = &"death"
 
 [node name="PlayerHitbox" type="CollisionShape2D" parent="." unique_id=1484296400]
 shape = SubResource("RectangleShape2D_k53q1")
-
-[node name="IFrames" type="Timer" parent="." unique_id=1761088959]
-wait_time = 4.0
-one_shot = true
-
-[node name="Pause" type="Timer" parent="." unique_id=1514768443]
-one_shot = true
-
-[node name="DamageFlash" type="Timer" parent="." unique_id=1752851550]
-wait_time = 0.3
-
-[node name="PelletPower" type="Timer" parent="." unique_id=685452373]
-wait_time = 10.0
-one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1245560853]
 stream = ExtResource("4_gwnis")
 bus = &"Sound Effects"
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_death_animation_finished"]
-[connection signal="timeout" from="IFrames" to="." method="_on_i_frames_timeout"]
-[connection signal="timeout" from="Pause" to="." method="_on_damage_pause_timeout"]
-[connection signal="timeout" from="DamageFlash" to="." method="_on_damage_flash_timeout"]
-[connection signal="timeout" from="PelletPower" to="." method="_on_pellet_power_timeout"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="on_death_animation_finished"]

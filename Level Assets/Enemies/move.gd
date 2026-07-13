@@ -7,8 +7,7 @@ func find_path()
 
 func on_area_entered(area: Area2D):
 	if (area.is_in_group("Player")):
-		var player: Player = area;
-		player.hit();
+		parent.playerManager.hit();
 
 func process_physics(delta):
 	if parent.path.is_empty():

@@ -1,4 +1,6 @@
 extends Node
+class_name StateMachine
+
 @export var default_state: State
 var current_state: State
 

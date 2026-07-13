@@ -2,7 +2,7 @@
 extends Area2D
 @export var speed: float = 100.0
 @export var pathfinder: PathfindingManager
-@export var player: Area2D
+@export var playerManager: PlayerManager
 @export var walls: TileMapLayer
 
 @onready var gate = %Gate
@@ -30,5 +30,4 @@ func _on_player_death() -> void:
 	visible = false
 
 func _on_area_entered(area: Area2D) -> void:
-	#$StateMachine.current_state.on_area_entered(area);
-	pass
+	$StateMachine.current_state.on_area_entered(area);

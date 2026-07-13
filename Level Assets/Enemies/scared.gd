@@ -18,7 +18,7 @@ func exit():
 
 func find_path():
 	var cells = parent.walls.get_used_cells()
-	var player_cell_coord = parent.walls.local_to_map(parent.player.global_position)
+	var player_cell_coord = parent.walls.local_to_map(parent.playerManager.get_global_position())
 	var randomCoord = cells[randi() % cells.size()] * 32 + Vector2i(16, 16)
 	while !(randomCoord.distance_to(parent.warpLeft.global_position) > 32 and randomCoord.distance_to(parent.warpRight.global_position) > 32 and randomCoord.y > parent.gate.global_position.y):
 		randomCoord = cells[randi() % cells.size()] * 32 + Vector2i(16, 16)
@@ -33,6 +33,6 @@ func process_physics(delta):
 
 func on_area_entered(area: Area2D):
 	if (area.is_in_group("Player")):
-		area.updateScore(10)
-		area.freeze_frame(0.5)
+		parent.playerManager.updateScore(10)
+		parent.playerManager.freeze_frame(0.5)
 		eaten = true

@@ -5,7 +5,7 @@ extends TileMapLayer
 @onready var questionDot: PackedScene = preload("res://Level Assets/Pellets/QuestionDot.tscn")
 @onready var questionScreen: PackedScene = preload("res://QuestionScreen.tscn")
 
-@onready var player = %Player
+@export var playerManager: PlayerManager
 
 var correct_answers = 0
 
@@ -46,13 +46,12 @@ func setupAnswerDots():
 		if (Global.getTrueAnswers().has(answers[i])):
 			Global.TRUE_LETTER = char(65 + i);
 	
-	
 	var dots = get_children()
 	var question = Global.getQuestions()[Global.QUESTION_INDEX]
 	%HUD.get_node("Question").text = question
 	
 	for currDot: Node2D in dots:
-		if (currDot.global_position.distance_to(player.global_position) <= 64):
+		if (currDot.global_position.distance_to(playerManager.get_global_position()) <= 64):
 			dots.erase(currDot);
 	
 	addTrueAnswerDot(dots)
