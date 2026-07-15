@@ -1,5 +1,6 @@
 extends Node
 
+signal loading(i: int)
 signal loaded
 
 var _QUESTIONS: Array[String] = []
@@ -63,6 +64,7 @@ func setupJSON():
 						falseAnswers.append(answer);
 		
 			add_question(question, info, trueAnswer, falseAnswers);
+			loading.emit(i)
 
 func add_question(question: String, info: String, trueAnswer: String, falseAnswersAdd: Array[String]):
 	_QUESTIONS.append(question);

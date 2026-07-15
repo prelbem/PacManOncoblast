@@ -64,7 +64,6 @@ layer = 0
 follow_viewport_scale = 1.0
 
 [node name="Intro" parent="HUD" unique_id=1896703205 instance=ExtResource("8_xn14s")]
-visible = false
 top_level = true
 size_flags_horizontal = 2
 size_flags_vertical = 2

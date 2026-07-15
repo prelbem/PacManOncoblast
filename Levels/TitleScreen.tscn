@@ -2,19 +2,46 @@
 
 [ext_resource type="Script" uid="uid://bvo7fdb8nm2s0" path="res://Levels/title_screen.gd" id="1_05l2w"]
 [ext_resource type="FontFile" uid="uid://hyqn0gbiv8lp" path="res://Fonts/PressStart2P-vaV7.ttf" id="2_hafda"]
-[ext_resource type="Texture2D" uid="uid://dayw4tcj6gvxw" path="res://background.png" id="2_tpml5"]
 [ext_resource type="Theme" uid="uid://dhbvvylx3n2lg" path="res://MainTheme.tres" id="3_skwql"]
 [ext_resource type="StyleBox" uid="uid://cim61kdj2tdfm" path="res://Buttons/pause_button_pressed_stylebox.tres" id="3_tpml5"]
 [ext_resource type="StyleBox" uid="uid://xqvu3l1ye3xe" path="res://Buttons/pause_button_stylebox.tres" id="4_jqemp"]
+[ext_resource type="Texture2D" uid="uid://56oed4nto30k" path="res://main level.png" id="6_48thb"]
 
-[node name="TitleScreen" type="TextureRect" unique_id=2082133086]
+[sub_resource type="Animation" id="Animation_rmt8x"]
+
+[sub_resource type="Animation" id="Animation_ypuhf"]
+resource_name = "to_level"
+
+[sub_resource type="Animation" id="Animation_48thb"]
+resource_name = "to_settings"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1738, 1869)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rmt8x"]
+_data = {
+&"RESET": SubResource("Animation_rmt8x"),
+&"to_level": SubResource("Animation_ypuhf"),
+&"to_settings": SubResource("Animation_48thb")
+}
+
+[node name="TitleScreen" type="Control" unique_id=1725365607]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("2_tpml5")
 script = ExtResource("1_05l2w")
 
 [node name="PlayButton" type="Button" parent="." unique_id=112972962]
@@ -73,10 +100,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -360.0
-offset_top = -330.0
-offset_right = 360.0
-offset_bottom = -270.0
+offset_left = -364.0
+offset_top = -424.0
+offset_right = 356.0
+offset_bottom = -364.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_hafda")
@@ -84,5 +111,25 @@ theme_override_font_sizes/font_size = 50
 text = "Pac-Man"
 horizontal_alignment = 1
 
+[node name="Background" type="TextureRect" parent="." unique_id=476468909]
+z_index = -5
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2324.0
+offset_top = -2341.0
+offset_right = -2167.0
+offset_bottom = -2664.0
+scale = Vector2(4, 4)
+mouse_filter = 2
+texture = ExtResource("6_48thb")
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1648350130]
+libraries/ = SubResource("AnimationLibrary_rmt8x")
+
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

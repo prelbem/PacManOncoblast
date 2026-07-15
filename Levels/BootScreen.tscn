@@ -2,17 +2,15 @@
 
 [ext_resource type="Script" uid="uid://d3xw6shtqppt4" path="res://Levels/boot_screen.gd" id="1_ohh2e"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohh2e"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jh48a"]
 bg_color = Color(0, 0, 0, 1)
 corner_detail = 1
 
-[node name="BootScreen" type="Node2D" unique_id=345097145]
+[node name="BootScreen" type="Panel" unique_id=710166221]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jh48a")
 script = ExtResource("1_ohh2e")
-
-[node name="Panel" type="Panel" parent="." unique_id=736945867]
-offset_right = 640.0
-offset_bottom = 1136.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_ohh2e")
-metadata/_edit_use_anchors_ = true

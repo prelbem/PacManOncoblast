@@ -23,10 +23,11 @@ config/icon="uid://c8lrbsx7eisj2"
 
 Global="*res://Scripts/Autoload/Global.gd"
 GameManager="*uid://122mbciqap81"
+MusicManager="*uid://bq6depn68h3fh"
 
 [display]
 
-window/size/viewport_width=1000
+window/size/viewport_width=1200
 window/size/viewport_height=1280
 
 [gui]
