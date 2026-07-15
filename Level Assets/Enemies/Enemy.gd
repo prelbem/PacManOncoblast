@@ -1,4 +1,3 @@
-
 extends Area2D
 @export var speed: float = 100.0
 @export var pathfinder: PathfindingManager
@@ -16,6 +15,7 @@ func _ready():
 	spawnpoint = global_position
 	$StateMachine.init(self)
 
+##Changes the state to scared.
 func scare():
 	if $StateMachine.current_state != $StateMachine.get_node("Waiting"):
 		$StateMachine.change_state($StateMachine/Scared)

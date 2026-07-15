@@ -6,6 +6,7 @@ var astarMutex: Mutex
 var cell_size: int;
 @export var tilemap: TileMapLayer
 
+##Sets up the astarGrid, setting a point at every tilemap cell.
 func setupGrid():
 	astarGrid = AStarGrid2D.new();
 	astarMutex = Mutex.new();
@@ -26,12 +27,18 @@ func setupGrid():
 				
 	cell_size = astarGrid.cell_size.x
 	
+##Gets a path from the start to the end point.
 func getPath(start: Vector2, end: Vector2) -> PackedVector2Array:
 	astarMutex.lock();
 	var result = astarGrid.get_point_path(start/cell_size, end/cell_size)
 	astarMutex.unlock();
 	return result; 
-	
+
+##Gets the path that the player should take.
+## [br][param position] - The position of the player
+## [br][param new_direction] - The new direction the player wants to go in.
+## [br][param old_direction] - The direction the player is currently facing.
+## [br][br]@returns - The first available path that takes a turn in the [param new_direction]. If there is no such path, it returns an empty array.
 func getPlayerPath(position: Vector2, new_direction: Vector2, curr_direction: Vector2) -> PackedVector2Array:
 	var point: Vector2 = position/cell_size + new_direction.normalized();
 	while (astarGrid.is_in_boundsv(point) 

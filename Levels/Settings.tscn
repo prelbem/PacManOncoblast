@@ -47,39 +47,39 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_cj1lu")
 toggle_mode = true
 text = "Invisible Joystick"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=419839684]
+[node name="Volume" type="VBoxContainer" parent="VBoxContainer" unique_id=419839684]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer" unique_id=1242577048]
+[node name="Label" type="Label" parent="VBoxContainer/Volume" unique_id=1242577048]
 layout_mode = 2
 text = "Global Volume"
 horizontal_alignment = 1
 
-[node name="VolumeSlider" parent="VBoxContainer/VBoxContainer" unique_id=1824924985 instance=ExtResource("2_cj1lu")]
+[node name="VolumeSlider" parent="VBoxContainer/Volume" unique_id=1824924985 instance=ExtResource("2_cj1lu")]
 layout_mode = 2
 bus_name = "Master"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer" unique_id=471409702]
+[node name="SoundEffects" type="VBoxContainer" parent="VBoxContainer" unique_id=471409702]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2" unique_id=1261612584]
+[node name="Label" type="Label" parent="VBoxContainer/SoundEffects" unique_id=1261612584]
 layout_mode = 2
 text = "Sound Effects"
 horizontal_alignment = 1
 
-[node name="VolumeSlider" parent="VBoxContainer/VBoxContainer2" unique_id=1857685833 instance=ExtResource("2_cj1lu")]
+[node name="VolumeSlider" parent="VBoxContainer/SoundEffects" unique_id=1857685833 instance=ExtResource("2_cj1lu")]
 layout_mode = 2
 bus_name = "Sound Effects"
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer" unique_id=545377911]
+[node name="Music" type="VBoxContainer" parent="VBoxContainer" unique_id=545377911]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer3" unique_id=2024374054]
+[node name="Label" type="Label" parent="VBoxContainer/Music" unique_id=2024374054]
 layout_mode = 2
 text = "Music"
 horizontal_alignment = 1
 
-[node name="VolumeSlider" parent="VBoxContainer/VBoxContainer3" unique_id=1570189926 instance=ExtResource("2_cj1lu")]
+[node name="VolumeSlider" parent="VBoxContainer/Music" unique_id=1570189926 instance=ExtResource("2_cj1lu")]
 layout_mode = 2
 bus_name = "Music"
 
@@ -106,7 +106,7 @@ theme_override_styles/hover = ExtResource("3_cj1lu")
 text = "Back
 "
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1914371448]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1438684474]
 stream = ExtResource("6_71mqq")
 autoplay = true
 bus = &"Music"

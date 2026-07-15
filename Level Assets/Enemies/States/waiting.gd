@@ -4,6 +4,7 @@ extends EnemyMove
 func enter():
 	parent.get_node("StartDelay").start()
 
+##Goes up and down.
 func find_path():
 	var path = []
 	if parent.global_position.distance_to(parent.spawnpoint) == 0:

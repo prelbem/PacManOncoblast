@@ -8,20 +8,19 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("clicked"):
-		$Base.global_position = get_viewport().get_mouse_position()
+		global_position = get_viewport().get_mouse_position() - Vector2(sprite_size, sprite_size)/2
 		clicked = true
 
 	if Input.is_action_just_released("clicked"):
-		$Base.global_position = spawnpoint
-		$Base/Joystick.global_position = $Base.global_position + Vector2(sprite_size/4, sprite_size/4)
+		global_position = spawnpoint + Vector2(sprite_size/4, sprite_size/4)
 		clicked = false
 
 	if clicked:
 		var mouse_pos = get_viewport().get_mouse_position()
-		var distance = min(64, mouse_pos.distance_to($Base.global_position - Vector2(sprite_size/4, sprite_size/4)))
-		var direct = mouse_pos - $Base.global_position
+		var distance = min(64, mouse_pos.distance_to(global_position + Vector2(sprite_size, sprite_size)/4))
+		var direct = mouse_pos - global_position
 		direct = direct.normalized()
-		$Base/Joystick.global_position = $Base.global_position + Vector2(sprite_size/4, sprite_size/4) + direct * distance
+		$Joystick.global_position = global_position + direct * distance + Vector2(sprite_size, sprite_size)/4
 		var angle_input = snapped(direct.angle(), PI/2)
 		if (angle_input == 0):
 			Input.action_press("ui_right")

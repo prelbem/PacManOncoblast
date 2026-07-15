@@ -1,5 +1,6 @@
 extends EnemyMove
 
+##Finds a path to a random cell.
 func find_path():
 	var cells = parent.walls.get_used_cells()
 	var randomCoord = cells[randi() % cells.size()] * 32 + Vector2i(16, 16)

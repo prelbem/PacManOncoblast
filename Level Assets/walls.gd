@@ -12,7 +12,7 @@ var correct_answers = 0
 const left_column = 176.0;
 const right_column = 560.0;
 
-##Sets up the dots in the main level.
+##Sets up the dots in the main level. Puts a dot on tiles below the ghost gate, and between the warp markers.
 func setupDots():
 	for child in get_children():
 		if (!child.is_in_group("Power Pellet")):
@@ -31,9 +31,8 @@ func setupDots():
 			dotChild.global_position = pos
 			dotChild.add_to_group("Dots")
 
-##Replaces the dots with answer dots. 
-##Doesn't use dots on the left or right walls.
-##Doesn't use dots that are 64 pixels close to the player.
+##Replaces dots with answer dots. 
+##Doesn't use dots that are 64 pixels or closer to the player.
 func setupAnswerDots():
 	Global.QUESTION_INDEX = randi() % Global.getQuestionsSize()
 	
@@ -60,7 +59,7 @@ func setupAnswerDots():
 
 ##Adds the true answer dot. [br]
 ##
-## @param [param dots] - The array of dots that can be replaced. [br]
+## [param dots] - The array of dots that can be replaced. [br]
 ## @modifies [param dots] - Removes the dot that was replaced.
 func addTrueAnswerDot(dots: Array):
 	var trueAnswer = Global.getTrueAnswers()[Global.QUESTION_INDEX]
@@ -73,7 +72,7 @@ func addTrueAnswerDot(dots: Array):
 
 ##Adds false answer dots. [br]
 ##
-## @param [param dots] - The array of dots that can be replaced. [br]
+## [param dots] - The array of dots that can be replaced. [br]
 ## @modifies [param dots] - Removes the dots that was replaced.
 func addFalseAnswerDots(dots: Array):
 	var falseAnswers = Global.getFalseAnswers()[Global.QUESTION_INDEX];
@@ -88,11 +87,16 @@ func addFalseAnswerDots(dots: Array):
 		falseDot.add_to_group("Answer Dots")
 		falseDot.isAnswer = false;
 
+##Replaces a random dot with a power pellet.
 func addPowerPellet():
 	var currDot = get_children().pick_random();
 	var currPellet = replaceDot(powerPellet, currDot);
 	currPellet.add_to_group("Power Pellets")
 
+##Replaces a dot.
+## [br][param toAdd] - The type of scene to replace the dot with.
+## [br][param oldDot] - The dot to replace.
+## [br][br] @returns - The new dot.
 func replaceDot(toAdd: PackedScene, oldDot) -> Node2D:
 	var newDot = toAdd.instantiate();
 	newDot.global_position = oldDot.global_position - global_position;
@@ -100,6 +104,10 @@ func replaceDot(toAdd: PackedScene, oldDot) -> Node2D:
 	add_child(newDot);
 	return newDot;
 
+##Adds the question dot. [br]
+##
+## [param dots] - The array of dots that can be replaced. [br]
+## @modifies [param dots] - Removes the dots that was replaced.
 func addQuestionDot(dots: Array):
 	var currDot = dots.pick_random();
 	var questionDot = replaceDot(questionDot, currDot);
@@ -108,6 +116,7 @@ func _ready():
 	setupDots()
 	call_deferred("setupAnswerDots")
 
+##If the answer dot eaten is the right answer, it resets the dots. If 3 correct answers in a row are eaten, it gives a power pellet.
 func on_answer_dot_eaten(isAnswer):
 	if (isAnswer):
 		setupDots()
@@ -117,4 +126,4 @@ func on_answer_dot_eaten(isAnswer):
 			call_deferred("addPowerPellet")
 			correct_answers = 0
 	else:
-		correct_answers -= 1
+		correct_answers = 0;

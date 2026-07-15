@@ -2,6 +2,7 @@ extends "res://Level Assets/Pellets/dot.gd"
 
 @onready var questionScreen : PackedScene = preload("res://Level Assets/QuestionScreen.tscn");
 
+##If the area is a player, it creates a screen with the questions.
 func _on_area_entered(area: Area2D) -> void:
 	if (area.is_in_group("Player")):
 		var screen = questionScreen.instantiate();
