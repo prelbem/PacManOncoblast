@@ -5,13 +5,13 @@ extends Control
 func _ready():
 	if (!Global.VISIBLE_JOYSTICK):
 		$VBoxContainer/VisibleJoystick.button_pressed = true
+	AudioManager.play_music(AudioManager.Music.MAIN_LEVEL)
 
 func _on_back_pressed() -> void:
 	$AnimationPlayer.play("to_menu")
 
 func _on_visible_joystick_toggled(toggled_on: bool) -> void:
 	Global.VISIBLE_JOYSTICK = !toggled_on
-
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	match anim_name:

@@ -1,6 +1,12 @@
 [gd_scene format=3 uid="uid://bq6depn68h3fh"]
 
 [ext_resource type="Script" uid="uid://l7es4smgn21b" path="res://Scripts/Autoload/AudioManager.gd" id="1_m1ue6"]
+[ext_resource type="AudioStream" uid="uid://we4bq6nrsups" path="res://Music/mainMusic.mp3" id="2_y04ny"]
 
 [node name="AudioManager" type="AudioStreamPlayer" unique_id=88550479]
+process_mode = 3
 script = ExtResource("1_m1ue6")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1092281768]
+stream = ExtResource("2_y04ny")
+bus = &"Music"

@@ -19,11 +19,15 @@ run/main_scene="uid://cbcffxmkm4y3d"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="uid://c8lrbsx7eisj2"
 
+[audio]
+
+buses/default_bus_layout="uid://dlog7n38gd3jb"
+
 [autoload]
 
 Global="*res://Scripts/Autoload/Global.gd"
 GameManager="*uid://122mbciqap81"
-MusicManager="*uid://bq6depn68h3fh"
+AudioManager="*uid://bq6depn68h3fh"
 
 [display]
 
